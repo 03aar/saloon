@@ -2,7 +2,7 @@
 
 Creator partnerships, curated. A production-quality web app implementation of the Salon product design: a two-sided marketplace where **brands** discover creators, run campaigns and approve content, and **creators** find deals, pitch, collaborate and get paid.
 
-Built with React 19, TypeScript, Vite, React Router 7, Framer Motion and [Hugeicons](https://hugeicons.com) (the only icon set used). Typography is self-hosted Instrument Serif (display) and Inter (body).
+Built with React 19, TypeScript, Vite, React Router 7, Framer Motion and [Hugeicons](https://hugeicons.com) (the only icon set used). Typography is self-hosted Playfair Display (display/headlines — the high-contrast editorial serif used for the wordmark and every screen title) and Google Sans (body/UI text, numbers, buttons).
 
 ## Run it
 

@@ -35,20 +35,6 @@
   align-items: center;
 }
 
-/* notch behind the create button */
-.notch {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  clip-path: inset(0 0 46% 0);
-}
-
 .tab {
   display: flex;
   flex-direction: column;
@@ -87,45 +73,3 @@
   background: var(--gold-tint);
 }
 
-.create {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 5px;
-  height: 100%;
-  padding-bottom: 10px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--ink-2);
-  position: relative;
-}
-
-.create.active {
-  color: var(--gold-deep);
-}
-
-.fab {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 62px;
-  height: 62px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #d4af5c 0%, var(--gold) 100%);
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-gold), 0 0 0 6px var(--bg);
-  transition: transform 180ms var(--ease), box-shadow 200ms var(--ease);
-}
-
-.create:hover .fab {
-  transform: translateX(-50%) translateY(-2px);
-}
-
-.create:active .fab {
-  transform: translateX(-50%) scale(0.95);
-}

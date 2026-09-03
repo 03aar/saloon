@@ -30,8 +30,8 @@
   --danger: #c2543f;
 
   /* Type */
-  --font-display: 'Instrument Serif', 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Google Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-arabic: 'Noto Naskh Arabic', 'Geeza Pro', serif;
 
   /* Radii */

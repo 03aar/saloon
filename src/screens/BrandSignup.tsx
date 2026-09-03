@@ -69,7 +69,7 @@ export default function BrandSignup() {
           <path d="M220 40v160h-40c-26-8-48-24-56-56s-16-56-24-78 0-26 40-26Z" fill="#f4ede0" />
           <circle cx="132" cy="140" r="52" fill="url(#coinG)" />
           <circle cx="132" cy="140" r="44" fill="none" stroke="#fff" strokeOpacity=".35" />
-          <text x="132" y="160" textAnchor="middle" fontFamily="Instrument Serif, Georgia, serif" fontSize="56" fill="#7a5a12" fillOpacity=".8">
+          <text x="132" y="160" textAnchor="middle" fontFamily="Playfair Display, Georgia, serif" fontSize="56" fill="#7a5a12" fillOpacity=".8">
             S
           </text>
         </svg>
