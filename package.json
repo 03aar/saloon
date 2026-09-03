@@ -1,8 +1,12 @@
 {
   "name": "salon",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Salon — creator partnerships, curated. Brand and creator marketplace web app.",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

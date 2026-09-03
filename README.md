@@ -58,3 +58,17 @@ scripts/screenshots.mjs   Playwright visual-QA capture for any set of routes
 - Photographic and 3D imagery in the mockups is rendered as on-brand gradient/monogram compositions (`Art`, `Avatar`) so no third-party assets are required; swap in real media by pointing those components at image URLs.
 - Step indicators in the source designs were inconsistent (1 of 4, 2 of 3, 3 of 5); both onboardings are implemented as coherent 3-step flows.
 - Where the designs did not specify a destination (e.g. "View all"), the action goes to the nearest real screen or shows an informative toast rather than a dead end.
+
+## Production readiness
+
+What's actually been checked, not just assumed:
+
+- **Types & lint**: `tsc -b` and `oxlint` are clean (two informational-only fast-refresh notices on files that intentionally co-export a hook and its types).
+- **Tests**: 15 Vitest cases cover the auth helpers, the persisted store (sign in/out, save/shortlist toggles, corrupt-state recovery), and routing (role guards, brand vs. creator navigation, 404, forced error state). `npm test` must pass before shipping a change.
+- **Build**: `npm run build` type-checks then bundles; every screen is route-split via `React.lazy`, so the initial JS payload is small and each screen's chunk loads on navigation.
+- **Every route** was rendered headlessly (Playwright) for both roles with console-error capture — no runtime errors, no unstyled/overflowing layouts at phone (390–430px), tablet (768px) or desktop (1280px) widths.
+- **Accessibility**: every input has a label or `aria-label`; every icon-only button carries an `aria-label`; focus states are visible (`:focus-visible` outline); `<html lang="en">`; verified against a full-file scan, not spot checks.
+- **Security**: no `dangerouslySetInnerHTML`, `eval`, or raw `innerHTML`; no `target="_blank"` without `rel`; no hardcoded secrets; the only `console.*` call is dev-gated inside the error boundary.
+- **Resilience**: a top-level error boundary keeps one crashed screen from taking down the app; an offline banner and a dedicated offline recovery screen handle lost connectivity; every data screen has loading, error and (where applicable) empty states.
+
+What intentionally stays out of scope for a design-fidelity demo: a real backend/API, real authentication and payments, and image/CDN assets (see the `Art`/`Avatar` note above).

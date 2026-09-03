@@ -91,7 +91,7 @@ export default function UploadDraft() {
                 </button>
               </>
             ) : (
-              <button type="button" onClick={openPicker} style={{ width: '100%', height: '100%', color: 'var(--gold)' }}>
+              <button type="button" onClick={openPicker} aria-label="Add video" style={{ width: '100%', height: '100%', color: 'var(--gold)' }}>
                 <Icon icon={Add01Icon} size={30} />
               </button>
             )}
