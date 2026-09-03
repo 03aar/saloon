@@ -1,0 +1,140 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 18px;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  transition:
+    border-color 180ms var(--ease),
+    box-shadow 180ms var(--ease),
+    background-color 180ms var(--ease);
+}
+
+.control:hover {
+  border-color: var(--line-strong);
+}
+
+.control:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(201, 162, 74, 0.14);
+}
+
+.control.error {
+  border-color: var(--danger);
+}
+
+.control.error:focus-within {
+  box-shadow: 0 0 0 4px rgba(194, 84, 63, 0.12);
+}
+
+.control.filled {
+  background: var(--surface);
+}
+
+.control.compact {
+  height: 56px;
+}
+
+.control.tall {
+  height: auto;
+  align-items: flex-start;
+  padding: 16px 18px;
+}
+
+.icon {
+  color: var(--ink-2);
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 17px;
+  color: var(--ink);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input::placeholder {
+  color: var(--muted-2);
+}
+
+.input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 40px var(--surface) inset;
+}
+
+textarea.input {
+  resize: none;
+  line-height: 1.55;
+  font-size: 17px;
+  padding: 0;
+  height: auto;
+}
+
+.trailing {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink-2);
+  flex-shrink: 0;
+}
+
+.trailingBtn {
+  color: var(--ink-2);
+  display: inline-flex;
+  padding: 6px;
+  margin-right: -6px;
+  border-radius: 50%;
+}
+
+.trailingBtn:hover {
+  background: var(--surface-2);
+}
+
+.help {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.errorText {
+  font-size: 13px;
+  color: var(--danger);
+}
+
+.select {
+  cursor: pointer;
+  padding-right: 8px;
+}
+
+.chevron {
+  pointer-events: none;
+  color: var(--ink);
+}
+
+.counter {
+  align-self: flex-end;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: -4px;
+}

@@ -1,0 +1,180 @@
+.hero {
+  position: relative;
+  padding-top: 44px;
+}
+
+.h1 {
+  font-size: clamp(50px, 13vw, 66px);
+  position: relative;
+  z-index: 1;
+}
+
+.sub {
+  margin-top: 16px;
+  font-size: 17px;
+  color: var(--ink-2);
+  max-width: 70%;
+  position: relative;
+  z-index: 1;
+}
+
+.coin {
+  position: absolute;
+  right: -40px;
+  top: -10px;
+  width: 220px;
+  height: 230px;
+  pointer-events: none;
+}
+
+.silkCorner {
+  position: absolute;
+  right: -60px;
+  top: -40px;
+  width: 260px;
+  height: 200px;
+  pointer-events: none;
+  background: radial-gradient(60% 60% at 70% 40%, rgba(232, 220, 195, 0.7), rgba(232, 220, 195, 0) 70%);
+}
+
+.form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.rules {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: -6px;
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--muted);
+  transition: color 200ms var(--ease);
+}
+
+.rule svg {
+  color: var(--gold);
+  transition: color 200ms var(--ease);
+  opacity: 0.6;
+}
+
+.rule.ok {
+  color: var(--ink-2);
+}
+
+.rule.ok svg {
+  opacity: 1;
+}
+
+.trust {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 20px;
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+}
+
+.shield {
+  width: 82px;
+  height: 82px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  color: var(--gold);
+}
+
+.trust b {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.trust p {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.actions {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 28px;
+}
+
+.legal {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.legal a {
+  color: var(--gold-deep);
+}
+
+/* creator preview card */
+.preview {
+  margin-top: 26px;
+  padding: 22px 20px;
+  border-radius: 26px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.previewHead {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.previewName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  min-height: 30px;
+}
+
+.previewRole {
+  color: var(--ink-2);
+  font-size: 17px;
+  margin-top: 2px;
+}
+
+.previewChips {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 400px) {
+  .coin {
+    width: 170px;
+    right: -50px;
+  }
+  .sub {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,54 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.pad {
+  padding: 20px;
+}
+
+.padLg {
+  padding: 24px;
+}
+
+.tint {
+  background: linear-gradient(180deg, #fdfcf9 0%, #faf7f1 100%);
+}
+
+.dark {
+  background: radial-gradient(120% 90% at 100% 0%, #35322d 0%, #201f1d 45%, #171615 100%);
+  border-color: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  box-shadow: var(--shadow-dark);
+}
+
+.flat {
+  box-shadow: none;
+}
+
+.interactive {
+  cursor: pointer;
+  transition:
+    transform 180ms var(--ease),
+    box-shadow 200ms var(--ease),
+    border-color 200ms var(--ease);
+  text-align: left;
+  width: 100%;
+  display: block;
+}
+
+.interactive:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--line-strong);
+}
+
+.interactive:active {
+  transform: scale(0.992);
+}
+
+.xl {
+  border-radius: var(--r-xl);
+}

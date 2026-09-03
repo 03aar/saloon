@@ -1,0 +1,131 @@
+.wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.nav {
+  pointer-events: auto;
+  width: 100%;
+  max-width: var(--col-app);
+  height: var(--nav-h);
+  position: relative;
+  padding: 0 var(--page-x) env(safe-area-inset-bottom);
+}
+
+.shell {
+  position: absolute;
+  left: var(--page-x);
+  right: var(--page-x);
+  bottom: 10px;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--line);
+  border-radius: 36px;
+  box-shadow: 0 -2px 24px rgba(28, 27, 25, 0.06), var(--shadow-md);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+}
+
+/* notch behind the create button */
+.notch {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  clip-path: inset(0 0 46% 0);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 100%;
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 180ms var(--ease);
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+.tab:hover {
+  color: var(--ink);
+}
+
+.tab.active {
+  color: var(--gold-deep);
+}
+
+.tabIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 32px;
+  border-radius: 16px;
+  transition: background-color 200ms var(--ease);
+}
+
+.tab.active .tabIcon {
+  background: var(--gold-tint);
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  height: 100%;
+  padding-bottom: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-2);
+  position: relative;
+}
+
+.create.active {
+  color: var(--gold-deep);
+}
+
+.fab {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #d4af5c 0%, var(--gold) 100%);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-gold), 0 0 0 6px var(--bg);
+  transition: transform 180ms var(--ease), box-shadow 200ms var(--ease);
+}
+
+.create:hover .fab {
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.create:active .fab {
+  transform: translateX(-50%) scale(0.95);
+}

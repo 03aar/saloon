@@ -1,0 +1,82 @@
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--ink);
+  border: 1px solid rgba(28, 27, 25, 0.06);
+  isolation: isolate;
+}
+
+.avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(90% 70% at 30% 20%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 60%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.initial {
+  position: relative;
+  z-index: 2;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.square {
+  border-radius: 18px;
+}
+
+/* Portrait-like warm tones so grids of people still read as varied */
+.sand {
+  background: linear-gradient(160deg, #eadcc3 0%, #c9a77c 100%);
+}
+.rose {
+  background: linear-gradient(160deg, #efd9d0 0%, #c99d8b 100%);
+}
+.olive {
+  background: linear-gradient(160deg, #dcdccb 0%, #a8a785 100%);
+}
+.stone {
+  background: linear-gradient(160deg, #e5e0d8 0%, #b6ada0 100%);
+}
+.noir {
+  background: linear-gradient(160deg, #4a4642 0%, #1e1c1a 100%);
+  color: #f1e6cf;
+}
+.cream {
+  background: linear-gradient(160deg, #f6efe1 0%, #d8c8a9 100%);
+}
+.gold {
+  background: linear-gradient(160deg, #e5cf95 0%, #b8923a 100%);
+  color: var(--ink);
+}
+
+.ringed {
+  box-shadow: 0 0 0 3px var(--surface), 0 0 0 4px var(--line);
+}
+
+.goldRing {
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--gold);
+}
+
+/* subtle silhouette suggests a portrait without using a photo */
+.silhouette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.32;
+  color: #fff;
+  mix-blend-mode: soft-light;
+}
+
+.noir .silhouette {
+  opacity: 0.22;
+}

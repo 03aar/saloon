@@ -1,0 +1,107 @@
+.root {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg);
+  cursor: pointer;
+}
+
+.silk {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -6%;
+  height: 58%;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 55% at 70% 80%, rgba(226, 203, 148, 0.75) 0%, rgba(226, 203, 148, 0) 70%),
+    radial-gradient(70% 60% at 20% 90%, rgba(238, 224, 190, 0.9) 0%, rgba(238, 224, 190, 0) 70%),
+    radial-gradient(90% 50% at 50% 100%, rgba(214, 186, 122, 0.55) 0%, rgba(214, 186, 122, 0) 70%),
+    linear-gradient(180deg, rgba(250, 248, 244, 0) 0%, rgba(245, 237, 220, 0.85) 45%, rgba(236, 222, 190, 0.95) 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 40%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 40%);
+}
+
+.fold {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transform: translateY(6vh);
+  padding: 0 24px;
+}
+
+.line {
+  width: 1.5px;
+  height: 150px;
+  background: var(--gold);
+  margin: 34px 0 0;
+  transform-origin: top;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 8px;
+}
+
+.tag {
+  margin-top: 16px;
+  font-size: 21px;
+  color: var(--ink-2);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+.pillars {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.pillar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  font-weight: 500;
+  border-left: 1px solid var(--gold);
+}
+
+.pillar:first-child {
+  border-left: 0;
+}
+
+.pillar i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+@media (max-width: 400px) {
+  .pillar {
+    padding: 0 12px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+}
