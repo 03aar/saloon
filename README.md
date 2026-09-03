@@ -14,6 +14,7 @@ npm run preview    # serve the production bundle on :4173
 npm test           # unit + routing tests (Vitest, jsdom)
 npm run typecheck  # tsc -b
 npm run lint       # oxlint
+npm run sweep      # headless check of every route, both roles — see below
 ```
 
 ## Demo auth (no backend)
@@ -51,6 +52,7 @@ src/
   lib/          auth helpers, useLoad (simulated fetch lifecycle), useOnline
   styles/       tokens (colour, type, radius, shadow), fonts, base
 scripts/screenshots.mjs   Playwright visual-QA capture for any set of routes
+scripts/route-sweep.mjs   Headless check of all 60+ routes, both roles: console errors + horizontal overflow
 ```
 
 ## Design decisions worth knowing
@@ -66,7 +68,7 @@ What's actually been checked, not just assumed:
 - **Types & lint**: `tsc -b` and `oxlint` are clean (two informational-only fast-refresh notices on files that intentionally co-export a hook and its types).
 - **Tests**: 15 Vitest cases cover the auth helpers, the persisted store (sign in/out, save/shortlist toggles, corrupt-state recovery), and routing (role guards, brand vs. creator navigation, 404, forced error state). `npm test` must pass before shipping a change.
 - **Build**: `npm run build` type-checks then bundles; every screen is route-split via `React.lazy`, so the initial JS payload is small and each screen's chunk loads on navigation.
-- **Every route** was rendered headlessly (Playwright) for both roles with console-error capture — no runtime errors, no unstyled/overflowing layouts at phone (390–430px), tablet (768px) or desktop (1280px) widths.
+- **Every route** (60+, both roles, signed-out included) is checked by `npm run sweep` — console/page-error capture plus a horizontal-overflow check at 390px. This isn't theoretical: it's how a page-wide typography change was caught leaving three onboarding screens' decorative art bleeding into a phantom horizontal scroll region, fixed with one `overflow-x: hidden` on the shared page shell, then re-verified clean. Also spot-checked visually at tablet (768px) and desktop (1280px).
 - **Accessibility**: every input has a label or `aria-label`; every icon-only button carries an `aria-label`; focus states are visible (`:focus-visible` outline); `<html lang="en">`; verified against a full-file scan, not spot checks.
 - **Security**: no `dangerouslySetInnerHTML`, `eval`, or raw `innerHTML`; no `target="_blank"` without `rel`; no hardcoded secrets; the only `console.*` call is dev-gated inside the error boundary.
 - **Resilience**: a top-level error boundary keeps one crashed screen from taking down the app; an offline banner and a dedicated offline recovery screen handle lost connectivity; every data screen has loading, error and (where applicable) empty states.

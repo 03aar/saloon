@@ -4,6 +4,10 @@
   flex-direction: column;
   align-items: center;
   background: var(--bg);
+  /* Decorative SVGs (arches, coins, silk corners) intentionally bleed past
+     their container's edge for a full-bleed look; clip that bleed here so
+     it never grows the page's horizontal scroll range. */
+  overflow-x: hidden;
 }
 
 .col {

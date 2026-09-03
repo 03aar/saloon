@@ -15,7 +15,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc -b",
-    "shots": "node scripts/screenshots.mjs"
+    "shots": "node scripts/screenshots.mjs",
+    "sweep": "node scripts/route-sweep.mjs"
   },
   "dependencies": {
     "@hugeicons/core-free-icons": "^4.3.0",
