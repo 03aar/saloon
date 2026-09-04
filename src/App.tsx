@@ -8,7 +8,7 @@ import { OfflineBar } from './components/OfflineBar'
 import { RouteFallback } from './components/RouteFallback'
 
 // Auth
-const Splash = lazy(() => import('./screens/Splash'))
+const Landing = lazy(() => import('./screens/Landing'))
 const Welcome = lazy(() => import('./screens/Welcome'))
 const ChooseRole = lazy(() => import('./screens/ChooseRole'))
 const BrandSignup = lazy(() => import('./screens/BrandSignup'))
@@ -122,9 +122,8 @@ export default function App() {
       <Suspense fallback={<RouteFallback />}>
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Splash />} />
-
           <Route element={<PublicOnly />}>
+            <Route path="/" element={<Landing />} />
             <Route path="/welcome" element={<Welcome />} />
             <Route path="/role" element={<ChooseRole />} />
             <Route path="/signup/brand" element={<BrandSignup />} />

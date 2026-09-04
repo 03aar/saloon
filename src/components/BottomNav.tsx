@@ -31,23 +31,33 @@ export function BottomNav({ role }: { role: 'brand' | 'creator' }) {
   const tabs = role === 'brand' ? brandTabs : creatorTabs
   const isActive = (t: Tab) => (t.match ?? [t.to]).some((m) => pathname.startsWith(m))
 
+  const renderTabs = () =>
+    tabs.map((t) => {
+      const on = isActive(t)
+      return (
+        <NavLink key={t.to} to={t.to} className={[s.tab, on ? s.active : ''].join(' ')} aria-current={on ? 'page' : undefined}>
+          <span className={s.tabIcon}>
+            <Icon icon={t.icon} size={24} strokeWidth={on ? 1.9 : 1.6} />
+          </span>
+          {t.label}
+        </NavLink>
+      )
+    })
+
   return (
-    <div className={s.wrap}>
-      <nav className={s.nav} aria-label="Primary">
-        <div className={s.shell}>
-          {tabs.map((t) => {
-            const on = isActive(t)
-            return (
-              <NavLink key={t.to} to={t.to} className={[s.tab, on ? s.active : ''].join(' ')} aria-current={on ? 'page' : undefined}>
-                <span className={s.tabIcon}>
-                  <Icon icon={t.icon} size={24} strokeWidth={on ? 1.9 : 1.6} />
-                </span>
-                {t.label}
-              </NavLink>
-            )
-          })}
-        </div>
-      </nav>
-    </div>
+    <>
+      {/* Phone/tablet: bottom pill bar. Hidden at >=1024px in favor of the top nav below. */}
+      <div className={s.wrap}>
+        <nav className={s.nav} aria-label="Primary">
+          <div className={s.shell}>{renderTabs()}</div>
+        </nav>
+      </div>
+      {/* Desktop dashboard: a centered top pill bar instead of a sidebar. Hidden below 1024px. */}
+      <div className={s.topWrap}>
+        <nav className={s.topNav} aria-label="Primary">
+          <div className={s.topShell}>{renderTabs()}</div>
+        </nav>
+      </div>
+    </>
   )
 }

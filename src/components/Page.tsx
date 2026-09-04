@@ -4,11 +4,13 @@ import s from './Page.module.css'
 
 type Props = {
   children: ReactNode
-  /** 'auth' = narrow centred column; 'app' = wider column with room for bottom nav. */
-  layout?: 'auth' | 'app'
+  /** 'auth' = narrow centred column; 'app' = wider column with room for bottom nav; 'split' = 'auth' on phone/tablet, a two-pane desktop split screen (promo panel + form card) at >=1024px. */
+  layout?: 'auth' | 'app' | 'split'
   className?: string
   /** Disable default top safe-area padding (e.g. splash). */
   bare?: boolean
+  /** layout="split" only: content for the desktop-only left promo panel. */
+  promo?: ReactNode
 }
 
 const variants = {
@@ -17,10 +19,16 @@ const variants = {
   exit: { opacity: 0, y: -8, transition: { duration: 0.18, ease: 'easeIn' as const } },
 }
 
-export function Page({ children, layout = 'auth', className, bare }: Props) {
+export function Page({ children, layout = 'auth', className, bare, promo }: Props) {
+  const split = layout === 'split'
   return (
-    <motion.main className={s.page} variants={variants} initial="initial" animate="animate" exit="exit">
-      <div className={[s.col, layout === 'app' ? s.app : '', bare ? '' : s.top, className ?? ''].filter(Boolean).join(' ')}>
+    <motion.main className={[s.page, split ? s.splitPage : ''].join(' ')} variants={variants} initial="initial" animate="animate" exit="exit">
+      {split && (
+        <div className={s.splitPromo} aria-hidden>
+          {promo}
+        </div>
+      )}
+      <div className={[s.col, layout === 'app' ? s.app : '', split ? s.splitCol : '', bare ? '' : s.top, className ?? ''].filter(Boolean).join(' ')}>
         {children}
       </div>
     </motion.main>

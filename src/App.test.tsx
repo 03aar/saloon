@@ -35,20 +35,21 @@ describe('App routing', () => {
     expect(await screen.findByRole('heading', { name: /Create.*brand account/s })).toBeInTheDocument()
   })
 
-  it('renders the brand home with its bottom navigation', async () => {
+  it('renders the brand home with its navigation', async () => {
     seed('brand')
     mount('/home')
     expect(await screen.findByText(/Top priority/i)).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Campaigns' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Create' })).toBeInTheDocument()
+    // Both the phone bottom bar and the desktop top bar render (CSS media queries pick one; jsdom has no layout).
+    expect(screen.getAllByRole('link', { name: 'Campaigns' }).length).toBeGreaterThan(0)
+    expect(screen.getAllByRole('link', { name: 'Create' }).length).toBeGreaterThan(0)
   })
 
   it('renders the creator home with the creator navigation', async () => {
     seed('creator')
     mount('/creator/home')
     expect(await screen.findByText(/brand deals/i)).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Deals' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Pitch' })).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: 'Deals' }).length).toBeGreaterThan(0)
+    expect(screen.getAllByRole('link', { name: 'Pitch' }).length).toBeGreaterThan(0)
   })
 
   it('keeps a brand user out of creator routes', async () => {

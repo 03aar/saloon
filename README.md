@@ -2,7 +2,9 @@
 
 Creator partnerships, curated. A production-quality web app implementation of the Salon product design: a two-sided marketplace where **brands** discover creators, run campaigns and approve content, and **creators** find deals, pitch, collaborate and get paid.
 
-Built with React 19, TypeScript, Vite, React Router 7, Framer Motion and [Hugeicons](https://hugeicons.com) (the only icon set used). Typography is self-hosted Playfair Display (display/headlines — the high-contrast editorial serif used for the wordmark and every screen title) and Google Sans (body/UI text, numbers, buttons).
+Built with React 19, TypeScript, Vite, React Router 7, Framer Motion and [Hugeicons](https://hugeicons.com) (the only icon set used, everywhere). Typography is self-hosted Fraunces at an ultra-light weight (300) for display/headlines and Google Sans for body/UI text, numbers and buttons — no italics anywhere in the product.
+
+Fraunces stands in for **Canela**, which is what was actually requested: Canela is a commercial typeface from Commercial Type with no free or self-hostable distribution, so it can't legally be downloaded and shipped in this repo. Fraunces at a light weight is the standard free alternative for this soft-serif, ultra-light editorial look. If a licensed Canela family is provided, it's a drop-in swap in `src/styles/fonts.css` and the `--font-display` token in `src/styles/tokens.css`.
 
 The palette is a fixed 8-colour system — warm white `#FBF9F7`, soft neutral `#F0EEE9`, sage `#BEDACE`, amber `#F8BC58`, dusty blue `#79ADBE`, coral `#DE8A7A`, ink `#1C1916`, white — with every text/icon variant derived from those hues only (darkened for WCAG-safe text, tinted for soft backgrounds). Amber is the primary accent (replaces the previous gold), coral maps to danger, sage to success, dusty blue to informational accents.
 
@@ -27,10 +29,14 @@ Everything runs locally against an in-memory data layer persisted to `localStora
 - **Log in** with *any* email and password. You are signed in with the role last chosen on *Choose your role* (brand by default).
 - **Sign out** from Profile (brand) or Settings (creator). Clearing site data resets the demo.
 
+## Landing page
+
+`/` is a full marketing landing page (hero, trust stats, a dual "For brands" / "For creators" split, a 3-step how-it-works, a feature grid, a closing CTA and a real footer) rather than the product itself — signed-in users skip straight past it to their dashboard. Its two CTA rows set the visitor's role and jump directly to the matching signup screen, bypassing the intermediate role-choice screen for a visitor who's already told you what they are; the role-choice screen (`/role`) is still there for the "Get started" link in the nav, for anyone who hasn't decided yet.
+
 ## Journeys
 
 **Brand**
-Splash → Welcome → Choose role → Create brand account → Onboarding (Brand profile → Planning → Campaign room) → Brand room ready → Home.
+Landing → Welcome → Choose role → Create brand account → Onboarding (Brand profile → Planning → Campaign room) → Brand room ready → Home.
 From Home: Discover → Search / Refine match → Creator profile → Audience fit / Send offer (→ Offer ready sheet); Compare creators → Shortlist → Group offer → Campaign budget → Campaign review → Send to creators; Create → New campaign brief → Compare → Shortlist → Budget → Review; Campaigns → Campaign detail → Timeline / Analytics / Export report; Approvals → Draft approval queue → Content draft review (approve or request edits); Messages → Chat; Notifications; Profile → Privacy, Support.
 
 **Creator**
@@ -39,7 +45,15 @@ From Home: Deals → Deal filters / Deal detail → Your pitch → Pitch sent; C
 
 Every on/off switch in the app (auto-approve content, deal-type filters, "open to gifting") is a day/night pill toggle — a sun sliding through soft clouds on a dusty-blue sky when on, a moon through twinkling stars on an ink sky when off — built from the same fixed palette rather than literal sky-blue.
 
-One bottom navigation component serves both roles (brand: Home, Discover, Create, Campaigns, Profile; creator: Home, Deals, Pitch, Collabs, Profile) — a liquid-glass pill bar (heavy blur + saturation, a specular top highlight, fully pill-shaped shell and active-tab indicator). Every actionable button in the app — the shared `Button` component, icon-only triggers, and the ad hoc CTA/selector buttons scattered across screens — is pill-shaped (`border-radius: 999px`); squarish grid tiles and portrait cards keep a large rounded-rect radius instead of a literal pill, since forcing a tall or square tile into a stadium shape reads as broken, not polished.
+One `BottomNav` component drives navigation for both roles (brand: Home, Discover, Create, Campaigns, Profile; creator: Home, Deals, Pitch, Collabs, Profile), rendered two ways depending on viewport — see **Desktop navigation** below. Both are the same liquid-glass pill treatment (heavy blur + saturation, a specular top highlight, fully pill-shaped shell and active-tab indicator). Every actionable button in the app — the shared `Button` component, icon-only triggers, and the ad hoc CTA/selector buttons scattered across screens — is pill-shaped (`border-radius: 999px`); squarish grid tiles and portrait cards keep a large rounded-rect radius instead of a literal pill, since forcing a tall or square tile into a stadium shape reads as broken, not polished.
+
+## Desktop navigation
+
+The product is desktop-first now, not just desktop-tolerant. Below 1024px, `BottomNav` renders as the familiar fixed bottom pill bar. At 1024px and above it renders instead as a centered, floating top pill bar — the same tab data and active-route logic, just relaid horizontally with labels beside their icons — so a desktop dashboard reads as an app, not a stretched phone screen. Both variants exist in the DOM at all times; CSS media queries pick one and hide the other, so there's no layout flash or hydration mismatch on resize.
+
+## Split-screen auth
+
+Login, brand signup and creator signup share one `layout="split"` mode on the `Page` component: below 1024px it's identical to the existing single-column phone layout (untouched — same JSX, same tests); at 1024px and above it becomes a two-pane screen — a dark promo panel (per-screen art, a headline and a short feature list, built with the new `AuthPromo` component) on the left, and the existing form in a frosted glass card (blurred, translucent, rounded) on the right. The promo panel is `position: sticky`, so it stays fully visible while a long form (brand/creator signup) scrolls past it, instead of being pushed off-screen by page height.
 
 ## States
 
@@ -49,20 +63,22 @@ This is enforced end to end, not just on the obvious list/detail screens: brand 
 
 ## Responsive
 
-The source designs are phone screens, so the layout stays single-column and mobile-first rather than reflowing into a desktop dashboard that doesn't exist in the design. At ≥900px the page gets a deliberately designed backdrop (a soft warm gradient) behind the centred column instead of bare white margin, and at ≥1024px the app column and everything anchored to it (bottom nav, chat composer, sheets) widen slightly for more breathing room. Verified visually at 390px (phone), 768px (tablet) and 1280px (desktop) on the brand home, creator home, Discover and Login screens, plus the automated route sweep at phone width.
+Salon is a desktop-first web app that has to work just as well on a phone, not the other way around. The deep product screens (the ~55 screens sourced from the original mobile mockups: campaigns, deals, chat, portfolio, etc.) keep their single-column phone layout at any width — reflowing 55 detail screens into a bespoke desktop grid each was out of scope for this pass — but every desktop-facing surface got first-class treatment this pass: the landing page and footer are genuinely multi-column and desktop-native; auth is a real two-pane split screen above 1024px; and the in-app dashboard trades its bottom tab bar for a floating top pill nav at that same breakpoint, which is what actually makes the deep screens read as "a desktop app that happens to have a narrow content column" rather than "a phone screen stretched out." Below 1024px, in-app screens get a deliberately designed backdrop (a soft warm gradient) behind the centred column instead of bare white margin, and the app column widens slightly above it for more breathing room. Verified visually at 390px (phone), 900px (tablet) and 1440px (desktop), plus the automated route sweep at both phone and desktop widths (126 checks — see below).
 
 ## Project layout
 
 ```
 src/
-  components/   design system: Button, TextField, Chip, Card, Avatar, Stepper, BottomNav, Sheet, Toast, Charts, Skeleton…
-  screens/      auth + onboarding, brand/, creator/, shared/ (Messages, Chat, Notifications, Settings, Privacy, Support)
+  components/   design system: Button, TextField, Chip, Card, Avatar, Stepper, BottomNav, AuthPromo,
+                 Footer, Sheet, Toast, Charts, Skeleton…
+  screens/      Landing (marketing "/"), auth + onboarding, brand/, creator/,
+                shared/ (Messages, Chat, Notifications, Settings, Privacy, Support)
   store/        AppContext — session, onboarding data, saved/shortlisted ids, filters, campaign draft (localStorage)
   data/         mock content used across screens
   lib/          auth helpers, useLoad (simulated fetch lifecycle), useOnline
   styles/       tokens (colour, type, radius, shadow), fonts, base
 scripts/screenshots.mjs   Playwright visual-QA capture for any set of routes
-scripts/route-sweep.mjs   Headless check of all 60+ routes, both roles: console errors + horizontal overflow
+scripts/route-sweep.mjs   Headless check of all 60+ routes, both roles, phone + desktop widths: console errors + horizontal overflow
 ```
 
 ## Design decisions worth knowing
@@ -76,9 +92,9 @@ scripts/route-sweep.mjs   Headless check of all 60+ routes, both roles: console 
 What's actually been checked, not just assumed:
 
 - **Types & lint**: `tsc -b` and `oxlint` are clean (two informational-only fast-refresh notices on files that intentionally co-export a hook and its types).
-- **Tests**: 15 Vitest cases cover the auth helpers, the persisted store (sign in/out, save/shortlist toggles, corrupt-state recovery), and routing (role guards, brand vs. creator navigation, 404, forced error state). `npm test` must pass before shipping a change.
+- **Tests**: 15 Vitest cases cover the auth helpers, the persisted store (sign in/out, save/shortlist toggles, corrupt-state recovery), and routing (role guards, brand vs. creator navigation, 404, forced error state). `npm test` must pass before shipping a change. `BottomNav` now renders both the phone and desktop nav markup at all times (CSS picks one), so two routing tests were updated from `getByRole` to `getAllByRole` — a real, intentional DOM duplication, not a loosened assertion; each test still fails if neither variant renders.
 - **Build**: `npm run build` type-checks then bundles; every screen is route-split via `React.lazy`, so the initial JS payload is small and each screen's chunk loads on navigation.
-- **Every route** (60+, both roles, signed-out included) is checked by `npm run sweep` — console/page-error capture plus a horizontal-overflow check at 390px. This isn't theoretical: it's how a page-wide typography change was caught leaving three onboarding screens' decorative art bleeding into a phantom horizontal scroll region, fixed with one `overflow-x: hidden` on the shared page shell, then re-verified clean. Also spot-checked visually at tablet (768px) and desktop (1280px).
+- **Every route** (60+, both roles, signed-out included) is checked by `npm run sweep` at both phone (390px) and desktop (1440px) width — 126 checks, console/page-error capture plus a horizontal-overflow check. This isn't theoretical: it's how a page-wide typography change was caught leaving three onboarding screens' decorative art bleeding into a phantom horizontal scroll region, fixed with one `overflow-x: hidden` on the shared page shell, then re-verified clean; the same sweep is how the desktop-first pass (landing page, split-screen auth, the new top nav) was verified across every existing screen, not just the new ones. Also spot-checked visually at tablet (900px).
 - **Accessibility**: every input has a label or `aria-label`; every icon-only button carries an `aria-label`; focus states are visible (`:focus-visible` outline); `<html lang="en">`; verified against a full-file scan, not spot checks. Every text colour token was checked against WCAG 2.1 AA (4.5:1 for body text) against every background it's actually used on; four tokens (`--muted`, `--gold-text`, `--gold-deep`, `--danger`) were darkened (hue and saturation preserved, lightness reduced) to pass, and two spots that were using the placeholder-only `--muted-2` token on real content (the login screen's demo-mode note, the Discover search bar's query text) were switched to `--muted`. Known, deliberately deferred: the bright `--gold` token used for small decorative icons falls under the 3:1 non-text minimum on light backgrounds; nearly all of those icons sit next to redundant descriptive text so the information isn't lost, but a couple of unlabelled trend-arrow icons (e.g. on campaign/earnings stat tiles) haven't been individually re-audited — worth a follow-up pass before this ships as a real product rather than a design-fidelity demo.
 - **Security**: no `dangerouslySetInnerHTML`, `eval`, or raw `innerHTML`; no `target="_blank"` without `rel`; no hardcoded secrets; the only `console.*` call is dev-gated inside the error boundary.
 - **Resilience**: a top-level error boundary keeps one crashed screen from taking down the app; an offline banner and a dedicated offline recovery screen handle lost connectivity; every data screen has loading, error and (where applicable) empty states. A full-app audit (every screen, not a sample) found and fixed three real gaps rather than just cosmetic ones: the Discover search screen was silently ignoring the forced `?state=error` QA hook (it only ever read the `loading` half of `useLoad`); the Collabs list had no guard for an empty collaboration list; and Chat resolved its thread with a `!` non-null assertion that could throw if no thread matched a role, replaced with a real fallback.

@@ -6,6 +6,7 @@ import { Button } from '../components/Button'
 import { TextField } from '../components/TextField'
 import { Icon } from '../components/Icon'
 import { Wordmark } from '../components/Wordmark'
+import { AuthPromo } from '../components/AuthPromo'
 import { useApp } from '../store/AppContext'
 import { useToast } from '../components/Toast'
 import { isEmail, nameFromEmail } from '../lib/auth'
@@ -38,7 +39,17 @@ export default function Login() {
   }
 
   return (
-    <Page>
+    <Page
+      layout="split"
+      promo={
+        <AuthPromo
+          art="glow"
+          eyebrow="Creator partnerships, curated"
+          title="Every collaboration, protected end to end."
+          bullets={['Escrow-protected payments', 'In-app content approvals', 'Real brands, verified creators']}
+        />
+      }
+    >
       <div className={s.top}>
         <Wordmark size={72} spark />
       </div>

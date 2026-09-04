@@ -1,8 +1,8 @@
 // Full-route regression check: loads every route in the app for both roles (and
-// signed-out), and fails loudly on any console/page error or horizontal overflow
-// at phone width (390px). This is what actually caught real bugs during
-// development — a global font or layout change can silently break a screen no
-// one thought to re-check by hand.
+// signed-out), at phone width (390px) and desktop width (1440px), and fails
+// loudly on any console/page error or horizontal overflow. This is what
+// actually caught real bugs during development — a global font or layout
+// change can silently break a screen no one thought to re-check by hand.
 //
 // Usage: npm run build && npm run preview -- --port 4174   (in one terminal)
 //        npm run sweep                                      (in another)
@@ -80,31 +80,33 @@ const brandSeed = JSON.stringify({ session: { role: 'brand', email: 'n@n.co', na
 const creatorSeed = JSON.stringify({ session: { role: 'creator', email: 'm@m.co', name: 'Mira Alia' }, onboardingComplete: true })
 
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {})
-const page = await (await browser.newContext({ viewport: { width: 390, height: 844 } })).newPage()
 
-await page.goto(base + '/welcome')
 let failures = 0
-for (const [path, seed] of routes) {
-  const errs = []
-  const onErr = (e) => errs.push('pageerror: ' + e.message)
-  const onConsole = (m) => { if (m.type() === 'error' && !m.text().includes('net::')) errs.push('console: ' + m.text()) }
-  page.on('pageerror', onErr)
-  page.on('console', onConsole)
-  await page.evaluate((s) => { localStorage.clear(); if (s) localStorage.setItem('salon.state.v1', s) }, seed === 'brand' ? brandSeed : seed === 'creator' ? creatorSeed : '')
-  await page.goto(base + path, { waitUntil: 'networkidle', timeout: 15000 }).catch((e) => errs.push('nav: ' + e.message))
-  await page.waitForTimeout(400)
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 2)
-  page.off('pageerror', onErr)
-  page.off('console', onConsole)
-  const label = `${path} [${seed || 'signed-out'}]`
-  if (errs.length || overflow) {
-    failures++
-    console.log(`FAIL ${label}${overflow ? ' OVERFLOW' : ''}`)
-    for (const e of errs) console.log('   ' + e)
-  } else {
-    console.log(`ok   ${label}`)
+for (const viewport of [{ width: 390, height: 844, label: 'phone' }, { width: 1440, height: 900, label: 'desktop' }]) {
+  const page = await (await browser.newContext({ viewport })).newPage()
+  await page.goto(base + '/welcome')
+  for (const [path, seed] of routes) {
+    const errs = []
+    const onErr = (e) => errs.push('pageerror: ' + e.message)
+    const onConsole = (m) => { if (m.type() === 'error' && !m.text().includes('net::')) errs.push('console: ' + m.text()) }
+    page.on('pageerror', onErr)
+    page.on('console', onConsole)
+    await page.evaluate((s) => { localStorage.clear(); if (s) localStorage.setItem('salon.state.v1', s) }, seed === 'brand' ? brandSeed : seed === 'creator' ? creatorSeed : '')
+    await page.goto(base + path, { waitUntil: 'networkidle', timeout: 15000 }).catch((e) => errs.push('nav: ' + e.message))
+    await page.waitForTimeout(400)
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 2)
+    page.off('pageerror', onErr)
+    page.off('console', onConsole)
+    const label = `${path} [${seed || 'signed-out'}] @${viewport.label}`
+    if (errs.length || overflow) {
+      failures++
+      console.log(`FAIL ${label}${overflow ? ' OVERFLOW' : ''}`)
+      for (const e of errs) console.log('   ' + e)
+    } else {
+      console.log(`ok   ${label}`)
+    }
   }
 }
-console.log(`\n${routes.length} routes checked, ${failures} with issues`)
+console.log(`\n${routes.length * 2} checks run (phone + desktop), ${failures} with issues`)
 await browser.close()
 process.exit(failures ? 1 : 0)

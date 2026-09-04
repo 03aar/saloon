@@ -9,6 +9,7 @@ import { Wordmark } from '../components/Wordmark'
 import { Avatar } from '../components/Avatar'
 import { Chip } from '../components/Chip'
 import { Verified } from '../components/Verified'
+import { AuthPromo } from '../components/AuthPromo'
 import { useApp } from '../store/AppContext'
 import { isEmail } from '../lib/auth'
 import s from './Signup.module.css'
@@ -37,7 +38,17 @@ export default function CreatorSignup() {
   }
 
   return (
-    <Page>
+    <Page
+      layout="split"
+      promo={
+        <AuthPromo
+          art="noir"
+          eyebrow="For creators"
+          title="Showcase your work. Partner with brands you love."
+          bullets={['Pitch deals and set your own rate', 'Clear approval flow, no back-and-forth', 'Secure, on-time payouts']}
+        />
+      }
+    >
       <header className={s.hero}>
         <span className={s.silkCorner} aria-hidden />
         <Wordmark variant="spaced" size={22} />

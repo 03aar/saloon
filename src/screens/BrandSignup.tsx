@@ -13,6 +13,7 @@ import { Page } from '../components/Page'
 import { Button } from '../components/Button'
 import { TextField } from '../components/TextField'
 import { Icon } from '../components/Icon'
+import { AuthPromo } from '../components/AuthPromo'
 import { useApp } from '../store/AppContext'
 import { passwordRules, isEmail } from '../lib/auth'
 import s from './Signup.module.css'
@@ -51,7 +52,17 @@ export default function BrandSignup() {
   }
 
   return (
-    <Page>
+    <Page
+      layout="split"
+      promo={
+        <AuthPromo
+          art="marble"
+          eyebrow="For brands"
+          title="Discover creators who actually fit your brand."
+          bullets={['Audience-fit matching', 'Campaigns, approvals and payouts in one place', 'Verified companies only']}
+        />
+      }
+    >
       <header className={s.hero}>
         <svg className={s.coin} viewBox="0 0 220 230" fill="none" aria-hidden>
           <defs>
@@ -69,7 +80,7 @@ export default function BrandSignup() {
           <path d="M220 40v160h-40c-26-8-48-24-56-56s-16-56-24-78 0-26 40-26Z" fill="#f4ede0" />
           <circle cx="132" cy="140" r="52" fill="url(#coinG)" />
           <circle cx="132" cy="140" r="44" fill="none" stroke="#fff" strokeOpacity=".35" />
-          <text x="132" y="160" textAnchor="middle" fontFamily="Playfair Display, Georgia, serif" fontSize="56" fill="#7a5a12" fillOpacity=".8">
+          <text x="132" y="160" textAnchor="middle" fontFamily="Fraunces, Georgia, serif" fontWeight="300" fontSize="56" fill="#7a5a12" fillOpacity=".8">
             S
           </text>
         </svg>
