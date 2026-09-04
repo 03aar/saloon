@@ -97,7 +97,7 @@ export default function Refine() {
               </span>
             </div>
             <div style={{ marginTop: 14 }}>
-              <Segmented variant="gold" items={[{ id: 'GCC', label: 'GCC' }, { id: 'Global', label: 'Global' }, { id: 'Both', label: 'Both' }]} value={f.region} onChange={(v) => set({ region: v as Filters['region'] })} />
+              <Segmented variant="primary" items={[{ id: 'GCC', label: 'GCC' }, { id: 'Global', label: 'Global' }, { id: 'Both', label: 'Both' }]} value={f.region} onChange={(v) => set({ region: v as Filters['region'] })} />
             </div>
           </div>
           <div style={{ padding: 20, borderTop: '1px solid var(--line)' }}>

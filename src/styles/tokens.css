@@ -34,6 +34,21 @@
   --info-text: #3f7182;
   --info-soft: #e2edf1;
 
+  /* Primary (buttons) — coral, not amber. Amber stays for decorative
+     accents, icons and status indicators, but never as a button's own fill.
+     Text on the raw/pressed coral is ink, not white: white-on-#DE8A7A is
+     2.6:1 and white-on-#D97565 is 3.1:1, both well under WCAG AA's 4.5:1
+     for text — ink-on-coral is 6.7:1. No separate "primary-deep" text
+     colour: a coral dark enough for text doubles as --danger, so
+     secondary/tint/ghost buttons use plain ink text instead of a
+     coral-tinted one — matches the brief's own point that only the
+     primary action should carry the accent colour. */
+  --primary: #de8a7a;
+  --primary-pressed: #d97565;
+  --primary-soft: #f9eae7;
+  --primary-tint: #fcf6f4;
+  --primary-glow: rgba(222, 138, 122, 0.32);
+
   /* Status */
   --success: #437660;
   --success-soft: #ecf4f0;
@@ -57,6 +72,7 @@
   --shadow-sm: 0 2px 8px rgba(28, 25, 22, 0.05);
   --shadow-md: 0 10px 30px rgba(28, 25, 22, 0.07);
   --shadow-gold: 0 10px 26px rgba(248, 188, 88, 0.32);
+  --shadow-primary: 0 10px 26px rgba(121, 173, 190, 0.32);
   --shadow-dark: 0 20px 44px rgba(18, 16, 14, 0.28);
 
   /* Layout */

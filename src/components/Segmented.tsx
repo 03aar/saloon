@@ -6,7 +6,7 @@ type Props = {
   items: Item[]
   value: string
   onChange: (id: string) => void
-  variant?: 'soft' | 'gold' | 'dark' | 'underline'
+  variant?: 'soft' | 'primary' | 'dark' | 'underline'
   size?: 'md' | 'sm'
   /** Show a small gold dot under the active item (Campaigns tabs). */
   dot?: boolean

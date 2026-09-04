@@ -51,24 +51,28 @@
 }
 
 .primary {
-  background: linear-gradient(180deg, #f9c56f 0%, var(--gold) 100%);
+  background: linear-gradient(180deg, #e39a8d 0%, var(--primary) 100%);
   color: var(--ink);
-  box-shadow: 0 6px 18px rgba(248, 188, 88, 0.28);
+  box-shadow: 0 6px 18px rgba(222, 138, 122, 0.28);
 }
 
 .primary:hover:not(:disabled) {
-  box-shadow: var(--shadow-gold);
-  background: linear-gradient(180deg, #f9c369 0%, #cc9b4b 100%);
+  box-shadow: var(--shadow-primary);
+  background: linear-gradient(180deg, #e19687 0%, var(--primary-pressed) 100%);
+}
+
+.primary:active:not(:disabled) {
+  background: var(--primary-pressed);
 }
 
 .outline {
   background: transparent;
   color: var(--ink);
-  border: 1.5px solid var(--gold);
+  border: 1.5px solid var(--primary);
 }
 
 .outline:hover:not(:disabled) {
-  background: var(--gold-tint);
+  background: var(--primary-tint);
 }
 
 .soft {
@@ -83,24 +87,28 @@
   background: #fff;
 }
 
+.soft:active:not(:disabled) {
+  background: var(--surface-2);
+}
+
 .tint {
-  background: var(--gold-tint);
-  color: var(--gold-deep);
-  border: 1px solid var(--gold-soft);
+  background: var(--primary-tint);
+  color: var(--ink);
+  border: 1px solid var(--primary-soft);
 }
 
 .tint:hover:not(:disabled) {
-  background: var(--gold-soft);
+  background: var(--primary-soft);
 }
 
 .ghost {
   background: transparent;
-  color: var(--gold-deep);
+  color: var(--ink);
   padding: 0 12px;
 }
 
 .ghost:hover:not(:disabled) {
-  background: var(--gold-tint);
+  background: var(--primary-tint);
 }
 
 .dark {

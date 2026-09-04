@@ -296,7 +296,7 @@ export default function Chat() {
             <input value={text} onChange={(e) => setText(e.target.value)} placeholder={role === 'brand' ? 'Type a message…' : `Message ${themName}…`} aria-label="Message" style={{ flex: 1, border: 0, outline: 0, background: 'transparent', fontSize: 17, minWidth: 0 }} />
             {role === 'creator' && <Icon icon={SmileIcon} size={22} color="var(--ink-2)" />}
           </label>
-          <button type="submit" aria-label="Send" disabled={!text.trim()} style={{ width: 56, height: 56, borderRadius: '50%', background: text.trim() ? 'var(--gold)' : 'var(--gold-soft)', color: text.trim() ? '#fff' : 'var(--gold-deep)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'background-color 200ms' }}>
+          <button type="submit" aria-label="Send" disabled={!text.trim()} style={{ width: 56, height: 56, borderRadius: '50%', background: text.trim() ? 'var(--primary)' : 'var(--primary-soft)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'background-color 200ms' }}>
             <Icon icon={SentIcon} size={22} />
           </button>
         </div>

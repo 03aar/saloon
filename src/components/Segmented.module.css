@@ -53,11 +53,11 @@
 }
 
 /* variants */
-.gold .pill {
-  background: var(--gold);
+.primary .pill {
+  background: var(--primary);
 }
-.gold .item.active {
-  color: #fff;
+.primary .item.active {
+  color: var(--ink);
 }
 
 .dark .pill {

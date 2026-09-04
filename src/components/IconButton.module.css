@@ -42,15 +42,15 @@
 }
 
 .tint {
-  background: var(--gold-tint);
-  border-color: var(--gold-soft);
-  color: var(--gold-deep);
+  background: var(--primary-tint);
+  border-color: var(--primary-soft);
+  color: var(--ink);
 }
 
 .active {
-  background: var(--gold-tint);
-  border-color: var(--gold);
-  color: var(--gold-deep);
+  background: var(--primary-tint);
+  border-color: var(--primary);
+  color: var(--ink);
 }
 
 .dot {

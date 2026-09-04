@@ -276,7 +276,7 @@ export default function SendOffer() {
             ))}
           </Card>
 
-          <button type="button" onClick={() => toast('Escrow protects both parties', 'info')} style={{ display: 'flex', alignItems: 'center', gap: 16, width: '100%', textAlign: 'left', marginTop: 16, padding: '18px 20px', borderRadius: 'var(--r-pill)', background: 'var(--gold)', color: 'var(--ink)' }}>
+          <button type="button" onClick={() => toast('Escrow protects both parties', 'info')} style={{ display: 'flex', alignItems: 'center', gap: 16, width: '100%', textAlign: 'left', marginTop: 16, padding: '18px 20px', borderRadius: 'var(--r-pill)', background: 'var(--primary)', color: 'var(--ink)' }}>
             <span style={{ width: 66, height: 66, borderRadius: 18, background: 'rgba(255,255,255,0.45)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
               <Icon icon={SquareLock02Icon} size={30} strokeWidth={1.4} />
             </span>

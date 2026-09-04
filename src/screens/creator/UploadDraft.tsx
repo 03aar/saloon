@@ -69,7 +69,7 @@ export default function UploadDraft() {
       <Card tone="dark" padding="md" style={{ marginTop: 22 }} radius="xl" className={a.dark}>
         <input ref={fileRef} type="file" accept="video/*,image/*" hidden onChange={(e) => onFiles(e.target.files)} />
         <div style={{ textAlign: 'center' }}>
-          <button type="button" onClick={openPicker} aria-label="Upload content" style={{ width: 120, height: 120, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 0 14px rgba(248,188,88,0.15)' }}>
+          <button type="button" onClick={openPicker} aria-label="Upload content" style={{ width: 120, height: 120, borderRadius: '50%', background: 'var(--primary)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 0 14px rgba(121,173,190,0.15)' }}>
             {uploading ? <span style={{ width: 28, height: 28, borderRadius: '50%', border: '3px solid rgba(255,255,255,0.4)', borderTopColor: '#fff', animation: 'spin 700ms linear infinite' }} /> : <Icon icon={Upload01Icon} size={40} strokeWidth={1.6} />}
           </button>
           <div className="display" style={{ fontSize: 40, color: '#fff', marginTop: 22 }}>

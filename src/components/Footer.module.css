@@ -44,8 +44,8 @@
 }
 
 .social:hover {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: var(--primary);
+  border-color: var(--primary);
   color: var(--ink);
 }
 

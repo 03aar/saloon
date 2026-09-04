@@ -123,7 +123,7 @@ export default function Shortlist() {
                         const on = selected.includes(c.id)
                         return view === 'grid' ? (
                           <div key={c.id} style={{ position: 'relative', flexShrink: 0, width: 150, padding: '18px 12px 12px', borderRadius: 18, border: '1px solid var(--line)', background: 'var(--surface)', textAlign: 'left' }}>
-                            <button type="button" aria-label="Remove from shortlist" onClick={() => setRemoved((l) => [...l, c.id])} style={{ position: 'absolute', right: 12, top: -1, width: 24, height: 30, background: 'var(--gold)', clipPath: 'polygon(0 0,100% 0,100% 100%,50% 75%,0 100%)' }} />
+                            <button type="button" aria-label="Remove from shortlist" onClick={() => setRemoved((l) => [...l, c.id])} style={{ position: 'absolute', right: 12, top: -1, width: 24, height: 30, background: 'var(--primary)', clipPath: 'polygon(0 0,100% 0,100% 100%,50% 75%,0 100%)' }} />
                             <Avatar name={c.name} size={104} tone={c.tone} portrait />
                             <div className="display" style={{ fontSize: 18, marginTop: 12, lineHeight: 1.1 }}>
                               {c.name}
