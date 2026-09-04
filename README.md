@@ -37,6 +37,8 @@ From Home: Discover → Search / Refine match → Creator profile → Audience f
 Create creator account → Onboarding (Shape your profile → Add your best work → Rate card) → Profile is live → Home.
 From Home: Deals → Deal filters / Deal detail → Your pitch → Pitch sent; Collabs → Collab detail → Contract terms / Upload draft / Brand feedback; Messages → Chat; Profile (Settings) → Profile analytics, Portfolio editor → Media kit, Earnings → Payout detail, Rate card, Subscription, Privacy, Support, Notifications.
 
+Every on/off switch in the app (auto-approve content, deal-type filters, "open to gifting") is a day/night pill toggle — a sun sliding through soft clouds on a dusty-blue sky when on, a moon through twinkling stars on an ink sky when off — built from the same fixed palette rather than literal sky-blue.
+
 One bottom navigation component serves both roles (brand: Home, Discover, Create, Campaigns, Profile; creator: Home, Deals, Pitch, Collabs, Profile) — a liquid-glass pill bar (heavy blur + saturation, a specular top highlight, fully pill-shaped shell and active-tab indicator). Every actionable button in the app — the shared `Button` component, icon-only triggers, and the ad hoc CTA/selector buttons scattered across screens — is pill-shaped (`border-radius: 999px`); squarish grid tiles and portrait cards keep a large rounded-rect radius instead of a literal pill, since forcing a tall or square tile into a stadium shape reads as broken, not polished.
 
 ## States
