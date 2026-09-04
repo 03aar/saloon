@@ -75,6 +75,13 @@
   padding-bottom: 14px;
 }
 
+@media (min-width: 1024px) {
+  .footerApp {
+    bottom: 0;
+    padding-bottom: 24px;
+  }
+}
+
 .topbar {
   display: flex;
   align-items: center;

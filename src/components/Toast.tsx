@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useMemo, useRef, useState, type
 import { AnimatePresence, motion } from 'framer-motion'
 import { CheckmarkCircle02Icon, InformationCircleIcon } from '@hugeicons/core-free-icons'
 import { Icon } from './Icon'
+import { useMediaQuery } from '../lib/useMediaQuery'
 
 type Toast = { id: number; text: string; kind: 'success' | 'info' }
 type Ctx = { toast: (text: string, kind?: Toast['kind']) => void }
@@ -11,6 +12,7 @@ const ToastCtx = createContext<Ctx>({ toast: () => {} })
 export function ToastProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<Toast[]>([])
   const idRef = useRef(0)
+  const desktop = useMediaQuery('(min-width: 1024px)')
   const toast = useCallback((text: string, kind: Toast['kind'] = 'success') => {
     const id = ++idRef.current
     setItems((l) => [...l, { id, text, kind }])
@@ -25,7 +27,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
           position: 'fixed',
           left: 0,
           right: 0,
-          bottom: 'calc(var(--nav-h) + 16px)',
+          bottom: desktop ? 28 : 'calc(var(--nav-h) + 16px)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',

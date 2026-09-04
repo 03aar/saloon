@@ -280,14 +280,14 @@ export default function Chat() {
         <span style={{ flex: 1, height: 1, background: 'var(--line)' }} />
       </div>
 
-      <div style={{ paddingBottom: 90 }}>
+      <div style={{ paddingBottom: 110 }}>
         {msgs.map(bubble)}
         <div ref={endRef} />
       </div>
         </>
       )}
 
-      <form onSubmit={send} style={{ position: 'fixed', left: 0, right: 0, bottom: 'var(--nav-h)', display: 'flex', justifyContent: 'center', pointerEvents: 'none', zIndex: 30 }}>
+      <form onSubmit={send} className={a.composerBar}>
         <div style={{ width: '100%', maxWidth: 'var(--col-app)', padding: '10px var(--page-x) 12px', display: 'flex', gap: 10, alignItems: 'center', pointerEvents: 'auto', background: 'linear-gradient(180deg, rgba(250,248,244,0) 0%, var(--bg) 30%)' }}>
           <IconButton label="Attach" size="lg" onClick={() => toast('Attach files (demo)', 'info')}>
             <Icon icon={role === 'brand' ? Attachment01Icon : Add01Icon} size={22} />
