@@ -1,8 +1,8 @@
 {
-  "name": "salon",
+  "name": "bloop",
   "private": true,
   "version": "0.1.0",
-  "description": "Salon — creator partnerships, curated. Brand and creator marketplace web app.",
+  "description": "Bloop — creator partnerships, curated. Brand and creator marketplace web app by Cayana Technologies Inc.",
   "type": "module",
   "engines": {
     "node": ">=20"

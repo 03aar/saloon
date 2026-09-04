@@ -280,7 +280,7 @@ export default function Chat() {
         <span style={{ flex: 1, height: 1, background: 'var(--line)' }} />
       </div>
 
-      <div style={{ paddingBottom: 110 }}>
+      <div className={a.chatSpacer}>
         {msgs.map(bubble)}
         <div ref={endRef} />
       </div>

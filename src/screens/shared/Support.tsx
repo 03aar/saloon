@@ -61,7 +61,7 @@ export default function Support() {
             </defs>
             <circle cx="75" cy="75" r="72" fill="none" stroke="var(--gold)" strokeWidth="1" />
             <text fontSize="11" letterSpacing="3" fill="var(--ink)" fontFamily="var(--font-body)">
-              <textPath href="#ring" startOffset="2%">SALON SUPPORT • CREATORS FIRST •</textPath>
+              <textPath href="#ring" startOffset="2%">BLOOP SUPPORT • CREATORS FIRST •</textPath>
             </text>
             <text x="75" y="95" textAnchor="middle" fontFamily="var(--font-display)" fontSize="64" fill="var(--gold)">
               S

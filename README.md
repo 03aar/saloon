@@ -1,6 +1,6 @@
-# Salon
+# Bloop
 
-Creator partnerships, curated. A production-quality web app implementation of the Salon product design: a two-sided marketplace where **brands** discover creators, run campaigns and approve content, and **creators** find deals, pitch, collaborate and get paid.
+Creator partnerships, curated. A production-quality web app for Bloop (by Cayana Technologies Inc): a two-sided marketplace where **brands** discover creators, run campaigns and approve content, and **creators** find deals, pitch, collaborate and get paid.
 
 Built with React 19, TypeScript, Vite, React Router 7, Framer Motion and [Hugeicons](https://hugeicons.com) (the only icon set used, everywhere). Typography is self-hosted Fraunces at an ultra-light weight (300) for display/headlines and Google Sans for body/UI text, numbers and buttons — no italics anywhere in the product.
 

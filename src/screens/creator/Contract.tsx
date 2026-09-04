@@ -51,7 +51,7 @@ export default function Contract() {
           <circle cx="60" cy="60" r="58" fill="none" stroke="var(--gold)" strokeWidth="1" />
           <circle cx="60" cy="60" r="38" fill="none" stroke="var(--gold)" strokeWidth="1" />
           <text fontSize="10" letterSpacing="3" fill="var(--gold)" fontFamily="var(--font-body)">
-            <textPath href="#seal" startOffset="4%">SALON ★ PROTECTED ★</textPath>
+            <textPath href="#seal" startOffset="4%">BLOOP ★ PROTECTED ★</textPath>
           </text>
           <path d="M60 44l12 5v10c0 8-5 14-12 17-7-3-12-9-12-17V49z" fill="none" stroke="var(--gold)" strokeWidth="2" />
           <path d="M53 60l5 5 9-10" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" />
