@@ -9,6 +9,8 @@ import { Card } from '../../components/Card'
 import { Chip } from '../../components/Chip'
 import { Avatar } from '../../components/Avatar'
 import { IconTile } from '../../components/IconTile'
+import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { useLoad } from '../../lib/useLoad'
 import { useApp } from '../../store/AppContext'
 import { useToast } from '../../components/Toast'
 import a from '../../components/app.module.css'
@@ -23,6 +25,7 @@ export default function Subscription() {
   const nav = useNavigate()
   const { state } = useApp()
   const { toast } = useToast()
+  const { loading, error, retry } = useLoad('subscription')
   const [current, setCurrent] = useState('basic')
 
   return (
@@ -44,6 +47,12 @@ export default function Subscription() {
         Unlock advanced tools, more visibility, and premium opportunities.
       </p>
 
+      {loading ? (
+        <ScreenSkeleton hero={0} tiles={3} rows={3} />
+      ) : error ? (
+        <ErrorState onAction={retry} />
+      ) : (
+        <>
       <div className={a.grid3} style={{ marginTop: 26, alignItems: 'stretch' }}>
         {plans.map((p) => {
           const on = current === p.id
@@ -136,6 +145,8 @@ export default function Subscription() {
           Learn more <Icon icon={ArrowRight01Icon} size={14} />
         </button>
       </div>
+        </>
+      )}
     </Page>
   )
 }

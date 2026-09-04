@@ -24,12 +24,18 @@
   right: var(--page-x);
   bottom: 10px;
   height: 72px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid var(--line);
-  border-radius: 36px;
-  box-shadow: 0 -2px 24px rgba(28, 27, 25, 0.06), var(--shadow-md);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.42) 100%),
+    rgba(251, 249, 247, 0.4);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--r-pill);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 -2px 24px rgba(28, 25, 22, 0.06),
+    var(--shadow-md);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
@@ -65,11 +71,12 @@
   justify-content: center;
   width: 40px;
   height: 32px;
-  border-radius: 16px;
+  border-radius: var(--r-pill);
   transition: background-color 200ms var(--ease);
 }
 
 .tab.active .tabIcon {
-  background: var(--gold-tint);
+  background: rgba(248, 188, 88, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 

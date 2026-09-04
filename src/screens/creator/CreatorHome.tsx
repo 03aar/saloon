@@ -72,7 +72,7 @@ export default function CreatorHome() {
               <div className="display" style={{ fontSize: 46, color: '#fff', marginTop: 8 }}>
                 AED 42K
               </div>
-              <button type="button" onClick={() => nav('/creator/analytics')} style={{ marginTop: 26, display: 'inline-flex', alignItems: 'center', gap: 12, height: 56, padding: '0 20px', borderRadius: 16, border: '1px solid rgba(201,162,74,0.6)', color: '#fff', fontSize: 16, whiteSpace: 'nowrap' }}>
+              <button type="button" onClick={() => nav('/creator/analytics')} style={{ marginTop: 26, display: 'inline-flex', alignItems: 'center', gap: 12, height: 56, padding: '0 20px', borderRadius: 'var(--r-pill)', border: '1px solid rgba(248,188,88,0.6)', color: '#fff', fontSize: 16, whiteSpace: 'nowrap' }}>
                 <Icon icon={BarChartIcon} size={20} color="var(--gold)" /> View analytics
               </button>
             </div>

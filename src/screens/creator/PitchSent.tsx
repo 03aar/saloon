@@ -44,7 +44,7 @@ export default function PitchSent() {
           ))}
         </svg>
         <div style={{ position: 'relative', padding: '44px 24px 28px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <span style={{ width: 180, height: 180, borderRadius: '50%', border: '3px solid var(--gold)', background: 'radial-gradient(circle at 50% 40%, #3a3631, #1a1918)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)', boxShadow: '0 0 60px rgba(201,162,74,0.35)' }}>
+          <span style={{ width: 180, height: 180, borderRadius: '50%', border: '3px solid var(--gold)', background: 'radial-gradient(circle at 50% 40%, #36302a, #17140f)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)', boxShadow: '0 0 60px rgba(248,188,88,0.35)' }}>
             <Icon icon={SentIcon} size={80} strokeWidth={1.1} />
           </span>
           <div className={a.row} style={{ gap: 22, alignSelf: 'stretch', marginTop: 60 }}>

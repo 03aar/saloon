@@ -10,6 +10,8 @@ import { Chip } from '../../components/Chip'
 import { Avatar } from '../../components/Avatar'
 import { Verified } from '../../components/Verified'
 import { Art } from '../../components/Art'
+import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { useLoad } from '../../lib/useLoad'
 import { useApp } from '../../store/AppContext'
 import { useToast } from '../../components/Toast'
 import { conversation, threads, type Msg } from '../../data/messages'
@@ -21,7 +23,8 @@ export default function Chat() {
   const { state } = useApp()
   const { toast } = useToast()
   const role = state.session?.role ?? 'brand'
-  const thread = threads.find((t) => t.id === id) ?? threads.find((t) => t.for === role)!
+  const thread = threads.find((t) => t.id === id) ?? threads.find((t) => t.for === role) ?? threads[0]
+  const { loading, error, retry } = useLoad(`chat-${thread.id}`)
   const [msgs, setMsgs] = useState<Msg[]>(conversation[role])
   const [text, setText] = useState('')
   const endRef = useRef<HTMLDivElement>(null)
@@ -211,6 +214,12 @@ export default function Chat() {
         }
       />
 
+      {loading ? (
+        <ScreenSkeleton hero={140} tiles={0} rows={4} />
+      ) : error ? (
+        <ErrorState onAction={retry} />
+      ) : (
+        <>
       {role === 'brand' ? (
         <Card padding="md" style={{ marginTop: 14 }} radius="xl" onClick={() => nav('/campaigns/ramadan-2026')}>
           <div className={a.row}>
@@ -275,6 +284,8 @@ export default function Chat() {
         {msgs.map(bubble)}
         <div ref={endRef} />
       </div>
+        </>
+      )}
 
       <form onSubmit={send} style={{ position: 'fixed', left: 0, right: 0, bottom: 'var(--nav-h)', display: 'flex', justifyContent: 'center', pointerEvents: 'none', zIndex: 30 }}>
         <div style={{ width: '100%', maxWidth: 'var(--col-app)', padding: '10px var(--page-x) 12px', display: 'flex', gap: 10, alignItems: 'center', pointerEvents: 'auto', background: 'linear-gradient(180deg, rgba(250,248,244,0) 0%, var(--bg) 30%)' }}>

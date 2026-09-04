@@ -10,6 +10,20 @@
   overflow-x: hidden;
 }
 
+/* Tablet/desktop: the product is designed mobile-first (these are phone
+   screens), so we keep the single-column layout rather than reflowing it —
+   but a fixed-width column pinned to the left of a wide browser window reads
+   as broken, not intentional. Center it in a deliberately designed backdrop
+   instead of bare white margin, and give the app column a touch more room. */
+@media (min-width: 900px) {
+  .page {
+    background:
+      radial-gradient(120% 70% at 50% -10%, rgba(248, 188, 88, 0.07), transparent 60%),
+      var(--bg-deep);
+    padding: 40px 0;
+  }
+}
+
 .col {
   width: 100%;
   max-width: var(--col-auth);

@@ -62,7 +62,7 @@ export default function Compare() {
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 17 }}>
                 Overall fit <Icon icon={InformationCircleIcon} size={16} />
               </span>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', borderRadius: 999, border: '1px solid rgba(201,162,74,0.5)', color: 'var(--gold)', fontSize: 14 }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', borderRadius: 999, border: '1px solid rgba(248,188,88,0.5)', color: 'var(--gold)', fontSize: 14 }}>
                 <Icon icon={SparklesIcon} size={14} /> Based on your brief
               </span>
             </div>

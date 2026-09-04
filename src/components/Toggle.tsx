@@ -11,7 +11,7 @@ export function Toggle({ checked, onChange, label }: Props) {
       style={{
         width: 56,
         height: 32,
-        borderRadius: 16,
+        borderRadius: 'var(--r-pill)',
         background: checked ? 'var(--gold)' : 'var(--surface-3)',
         position: 'relative',
         transition: 'background-color 220ms var(--ease)',
@@ -27,7 +27,7 @@ export function Toggle({ checked, onChange, label }: Props) {
           height: 26,
           borderRadius: '50%',
           background: '#fff',
-          boxShadow: '0 2px 6px rgba(28,27,25,0.2)',
+          boxShadow: '0 2px 6px rgba(28,25,22,0.2)',
           transition: 'left 220ms var(--ease)',
         }}
       />

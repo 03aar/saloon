@@ -57,11 +57,11 @@ export default function BrandSignup() {
           <defs>
             <linearGradient id="coinG" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stopColor="#f1dda2" />
-              <stop offset="0.55" stopColor="#c9a24a" />
+              <stop offset="0.55" stopColor="#f8bc58" />
               <stop offset="1" stopColor="#8f6a17" />
             </linearGradient>
             <linearGradient id="nook" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#fbf7ee" />
+              <stop offset="0" stopColor="#fefaf2" />
               <stop offset="1" stopColor="#e7dcc6" />
             </linearGradient>
           </defs>

@@ -67,7 +67,7 @@ export default function RateCard() {
         </span>
         <div style={{ position: 'relative', maxWidth: '60%' }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: 'var(--gold)', letterSpacing: '0.18em', fontSize: 13, fontWeight: 500 }}>
-            <span style={{ width: 52, height: 52, borderRadius: 12, border: '1px solid rgba(201,162,74,0.5)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ width: 52, height: 52, borderRadius: 12, border: '1px solid rgba(248,188,88,0.5)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
               <Icon icon={SparklesIcon} size={24} />
             </span>
             BASE RATE

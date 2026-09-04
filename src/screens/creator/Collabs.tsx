@@ -9,7 +9,7 @@ import { Chip } from '../../components/Chip'
 import { Avatar } from '../../components/Avatar'
 import { Ring } from '../../components/Ring'
 import { Art } from '../../components/Art'
-import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { ScreenSkeleton, ErrorState, EmptyState } from '../../components/Skeleton'
 import { useLoad } from '../../lib/useLoad'
 import { useToast } from '../../components/Toast'
 import { collabs } from '../../data/collabs'
@@ -44,6 +44,10 @@ export default function Collabs() {
         <ScreenSkeleton hero={520} tiles={0} rows={3} />
       ) : error ? (
         <ErrorState onAction={retry} />
+      ) : collabs.length === 0 ? (
+        <Card padding="none" style={{ marginTop: 22 }}>
+          <EmptyState title="No active collaborations yet" sub="Accepted deals and their delivery timeline will show up here." action="Find deals" onAction={() => nav('/creator/deals')} />
+        </Card>
       ) : (
         <>
           <Card padding="none" style={{ marginTop: 22, position: 'relative', overflow: 'hidden' }} radius="xl">

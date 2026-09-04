@@ -157,7 +157,7 @@ export default function CampaignAnalytics() {
                   )}
                 </div>
               ))}
-              <button type="button" onClick={() => toast('Leaderboard (demo)', 'info')} style={{ width: '100%', marginTop: 16, height: 44, borderRadius: 12, background: 'var(--gold-tint)', color: 'var(--gold-deep)', fontSize: 15 }}>
+              <button type="button" onClick={() => toast('Leaderboard (demo)', 'info')} style={{ width: '100%', marginTop: 16, height: 44, borderRadius: 'var(--r-pill)', background: 'var(--gold-tint)', color: 'var(--gold-deep)', fontSize: 15 }}>
                 View full leaderboard
               </button>
             </Card>

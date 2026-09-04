@@ -73,7 +73,7 @@ export default function BrandTeam() {
 
       <section className={s.teamCard} aria-label="Team">
         <div className={s.teamHead}>
-          <span className={s.monoRing} style={{ width: 84, height: 84, fontSize: 42, borderColor: 'rgba(201,162,74,0.6)', background: 'rgba(255,255,255,0.03)' }}>
+          <span className={s.monoRing} style={{ width: 84, height: 84, fontSize: 42, borderColor: 'rgba(248,188,88,0.6)', background: 'rgba(255,255,255,0.03)' }}>
             {(state.brand.name || 'L').charAt(0).toUpperCase()}
           </span>
           <div>

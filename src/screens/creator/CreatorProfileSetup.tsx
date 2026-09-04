@@ -108,7 +108,7 @@ export default function CreatorProfileSetup() {
           Languages you create in
           <Icon icon={InformationCircleIcon} size={20} />
         </div>
-        <button type="button" onClick={() => setPicking(true)} style={{ marginTop: 14, width: '100%', minHeight: 60, padding: '10px 14px', borderRadius: 14, border: '1px solid var(--line)', background: 'var(--surface)', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', textAlign: 'left' }}>
+        <button type="button" onClick={() => setPicking(true)} style={{ marginTop: 14, width: '100%', minHeight: 60, padding: '10px 14px', borderRadius: 'var(--r-pill)', border: '1px solid var(--line)', background: 'var(--surface)', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', textAlign: 'left' }}>
           {langs.map((l) => (
             <span key={l} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '8px 14px', borderRadius: 999, background: 'var(--surface-2)', fontSize: 17 }}>
               {l}

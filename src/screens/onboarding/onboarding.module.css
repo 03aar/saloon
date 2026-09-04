@@ -162,7 +162,7 @@
 .goal.on {
   background: var(--gold-tint);
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(201, 162, 74, 0.12);
+  box-shadow: 0 0 0 3px rgba(248, 188, 88, 0.12);
 }
 
 .marketBtn {
@@ -293,7 +293,7 @@
   margin-left: auto;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(201, 162, 74, 0.16);
+  background: rgba(248, 188, 88, 0.16);
   color: var(--gold);
   font-size: 14px;
   white-space: nowrap;

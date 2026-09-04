@@ -119,7 +119,7 @@ export default function Campaigns() {
                   <span className={a.metaSm}>42% of budget used</span>
                   <span className={a.metaSm}>14 days left</span>
                 </div>
-                <button type="button" onClick={() => nav('/campaigns/ramadan-2026')} style={{ width: '100%', marginTop: 18, height: 60, borderRadius: 16, background: 'var(--gold-tint)', border: '1px solid var(--gold-soft)', color: 'var(--gold-deep)', fontSize: 18, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+                <button type="button" onClick={() => nav('/campaigns/ramadan-2026')} style={{ width: '100%', marginTop: 18, height: 60, borderRadius: 'var(--r-pill)', background: 'var(--gold-tint)', border: '1px solid var(--gold-soft)', color: 'var(--gold-deep)', fontSize: 18, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
                   View Campaign <Icon icon={ArrowRight01Icon} size={18} />
                 </button>
               </div>
@@ -191,7 +191,7 @@ export default function Campaigns() {
                 [File01Icon, 'Contracts', '/approvals'],
                 [BarChartIcon, 'Analytics', '/campaigns/ramadan-2026/analytics'],
               ].map(([ic, l, to]) => (
-                <button key={l as string} type="button" onClick={() => nav(to as string)} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '14px 12px', borderRadius: 16, border: '1px solid var(--line)', background: 'var(--surface)', fontSize: 14, textAlign: 'left' }}>
+                <button key={l as string} type="button" onClick={() => nav(to as string)} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '14px 12px', borderRadius: 'var(--r-pill)', border: '1px solid var(--line)', background: 'var(--surface)', fontSize: 14, textAlign: 'left' }}>
                   <Icon icon={ic as typeof UserIcon} size={22} />
                   {l as string}
                 </button>

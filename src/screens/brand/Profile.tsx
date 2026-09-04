@@ -9,6 +9,8 @@ import { AvatarStack } from '../../components/Avatar'
 import { IconTile } from '../../components/IconTile'
 import { Art } from '../../components/Art'
 import { Verified } from '../../components/Verified'
+import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { useLoad } from '../../lib/useLoad'
 import { useApp } from '../../store/AppContext'
 import { useToast } from '../../components/Toast'
 import a from '../../components/app.module.css'
@@ -17,6 +19,7 @@ export default function Profile() {
   const nav = useNavigate()
   const { state, signOut } = useApp()
   const { toast } = useToast()
+  const { loading, error, retry } = useLoad('brand-profile')
   const b = state.brand
   const initials = b.name.split(' ').slice(0, 2).map((w) => w[0]).join('')
 
@@ -43,6 +46,12 @@ export default function Profile() {
         </IconButton>
       </div>
 
+      {loading ? (
+        <ScreenSkeleton hero={340} tiles={2} rows={2} />
+      ) : error ? (
+        <ErrorState onAction={retry} />
+      ) : (
+        <>
       <Card tone="dark" padding="none" style={{ marginTop: 22, position: 'relative', overflow: 'hidden' }} radius="xl" className={a.dark}>
         <span style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '45%', opacity: 0.9 }}>
           <Art kind="noir" />
@@ -120,6 +129,8 @@ export default function Profile() {
           <Icon icon={ArrowRight01Icon} size={20} />
         </button>
       </Card>
+        </>
+      )}
     </Page>
   )
 }

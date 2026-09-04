@@ -9,7 +9,7 @@ import { Verified } from '../../components/Verified'
 import { Chip } from '../../components/Chip'
 import { Card } from '../../components/Card'
 import { SectionHeader } from '../../components/SectionHeader'
-import { EmptyState, SkCard } from '../../components/Skeleton'
+import { EmptyState, ErrorState, SkCard } from '../../components/Skeleton'
 import { useLoad } from '../../lib/useLoad'
 import { useApp } from '../../store/AppContext'
 import { useToast } from '../../components/Toast'
@@ -23,7 +23,7 @@ export default function Search() {
   const nav = useNavigate()
   const { state, update, toggleSaved } = useApp()
   const { toast } = useToast()
-  const { loading } = useLoad('search', 450)
+  const { loading, error, retry } = useLoad('search', 450)
   const [q, setQ] = useState(state.searchQuery)
   const [active, setActive] = useState<string[]>(quick)
 
@@ -85,6 +85,10 @@ export default function Search() {
             <SkCard avatar lines={0} />
             <SkCard avatar lines={0} />
           </div>
+        ) : error ? (
+          <Card padding="none">
+            <ErrorState onAction={retry} />
+          </Card>
         ) : results.length === 0 ? (
           <Card padding="none">
             <EmptyState title="No creators found" sub={`We couldn’t find anyone matching “${q}”. Try a broader term or adjust your filters.`} action="Clear search" onAction={() => setQ('')} />
@@ -124,7 +128,7 @@ export default function Search() {
         <SectionHeader title="Recommended searches" size="lg" />
         <div className={a.grid2}>
           {recommendedSearches.map((r) => (
-            <button key={r} type="button" onClick={() => setQ(r)} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 14, borderRadius: 18, border: '1px solid var(--line)', background: 'var(--surface)', textAlign: 'left' }}>
+            <button key={r} type="button" onClick={() => setQ(r)} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 14, borderRadius: 'var(--r-pill)', border: '1px solid var(--line)', background: 'var(--surface)', textAlign: 'left' }}>
               <span style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid var(--line)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold-deep)', flexShrink: 0 }}>
                 <Icon icon={Search01Icon} size={20} />
               </span>

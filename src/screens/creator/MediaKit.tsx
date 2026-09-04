@@ -8,6 +8,8 @@ import { Card } from '../../components/Card'
 import { Chip } from '../../components/Chip'
 import { Avatar } from '../../components/Avatar'
 import { Art } from '../../components/Art'
+import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { useLoad } from '../../lib/useLoad'
 import { useApp } from '../../store/AppContext'
 import { useToast } from '../../components/Toast'
 import a from '../../components/app.module.css'
@@ -16,6 +18,7 @@ export default function MediaKit() {
   const nav = useNavigate()
   const { state } = useApp()
   const { toast } = useToast()
+  const { loading, error, retry } = useLoad('media-kit')
   const name = state.session?.name ?? 'Mira Alia'
 
   return (
@@ -37,6 +40,12 @@ export default function MediaKit() {
       </h1>
       <p className={a.sub}>This is how brands see your media kit.</p>
 
+      {loading ? (
+        <ScreenSkeleton hero={250} tiles={3} rows={3} />
+      ) : error ? (
+        <ErrorState onAction={retry} />
+      ) : (
+        <>
       <Card padding="md" style={{ marginTop: 22 }} radius="xl">
         <div style={{ display: 'grid', gridTemplateColumns: '38% 1fr', gap: 22 }}>
           <span style={{ borderRadius: '60px 60px 16px 16px', overflow: 'hidden', minHeight: 250, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--surface-2)' }}>
@@ -152,6 +161,8 @@ export default function MediaKit() {
           <Icon icon={SquareLock02Icon} size={18} /> Secure Payouts
         </span>
       </div>
+        </>
+      )}
     </Page>
   )
 }

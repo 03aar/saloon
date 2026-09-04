@@ -57,7 +57,7 @@ export default function Contract() {
           <path d="M53 60l5 5 9-10" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" />
         </svg>
         <div className={a.row} style={{ gap: 14 }}>
-          <span style={{ width: 66, height: 66, borderRadius: 14, border: '1px solid rgba(201,162,74,0.5)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: 30, color: 'var(--gold)' }}>LS</span>
+          <span style={{ width: 66, height: 66, borderRadius: 14, border: '1px solid rgba(248,188,88,0.5)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: 30, color: 'var(--gold)' }}>LS</span>
           <div>
             <div className="display" style={{ fontSize: 26, color: '#fff' }}>
               Lumière Studio

@@ -9,6 +9,8 @@ import { Avatar } from '../../components/Avatar'
 import { Verified } from '../../components/Verified'
 import { IconTile } from '../../components/IconTile'
 import { Art } from '../../components/Art'
+import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { useLoad } from '../../lib/useLoad'
 import { useApp } from '../../store/AppContext'
 import { useToast } from '../../components/Toast'
 import a from '../../components/app.module.css'
@@ -18,6 +20,7 @@ export default function Settings() {
   const nav = useNavigate()
   const { state, signOut } = useApp()
   const { toast } = useToast()
+  const { loading, error, retry } = useLoad('creator-settings')
   const name = state.session?.name ?? 'Mira Alia'
   const handle = '@' + name.toLowerCase().replace(/\s+/g, '')
 
@@ -44,6 +47,12 @@ export default function Settings() {
         </IconButton>
       </div>
 
+      {loading ? (
+        <ScreenSkeleton hero={300} tiles={2} rows={2} />
+      ) : error ? (
+        <ErrorState onAction={retry} />
+      ) : (
+        <>
       <Card padding="none" style={{ marginTop: 22, position: 'relative', overflow: 'hidden' }} radius="xl">
         <span style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '45%', maskImage: 'linear-gradient(90deg, transparent, #000 50%)', WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 50%)' }}>
           <Art kind="silk" />
@@ -132,6 +141,8 @@ export default function Settings() {
           </button>
         ))}
       </Card>
+        </>
+      )}
     </Page>
   )
 }

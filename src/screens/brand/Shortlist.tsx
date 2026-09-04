@@ -157,7 +157,7 @@ export default function Shortlist() {
                         )
                       })}
                       {g.id === 'niche' && view === 'grid' && (
-                        <button type="button" onClick={() => nav('/discover')} style={{ flexShrink: 0, width: 150, borderRadius: 18, border: '1.5px dashed var(--line-strong)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10, padding: 16 }}>
+                        <button type="button" onClick={() => nav('/discover')} style={{ flexShrink: 0, width: 150, borderRadius: 'var(--r-lg)', border: '1.5px dashed var(--line-strong)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10, padding: 16 }}>
                           <span style={{ width: 64, height: 64, borderRadius: '50%', border: '1px solid var(--line)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)' }}>
                             <Icon icon={UserAdd01Icon} size={24} />
                           </span>

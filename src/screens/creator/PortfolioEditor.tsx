@@ -12,6 +12,8 @@ import { IconTile } from '../../components/IconTile'
 import { Art } from '../../components/Art'
 import { Sheet } from '../../components/Sheet'
 import { TextArea } from '../../components/TextArea'
+import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { useLoad } from '../../lib/useLoad'
 import { useApp } from '../../store/AppContext'
 import { useToast } from '../../components/Toast'
 import a from '../../components/app.module.css'
@@ -22,6 +24,7 @@ export default function PortfolioEditor() {
   const nav = useNavigate()
   const { state } = useApp()
   const { toast } = useToast()
+  const { loading, error, retry } = useLoad('portfolio-editor')
   const name = state.session?.name ?? 'Mira Alia'
   const [bio, setBio] = useState('I create elegant, everyday content that inspires confidence and connection. Beauty, style, travel and the moments in between.')
   const [cats, setCats] = useState(['Beauty', 'Fashion', 'Travel', 'Lifestyle', 'Wellness'])
@@ -47,6 +50,12 @@ export default function PortfolioEditor() {
       </h1>
       <p className={a.sub}>Show brands who you are and what you do.</p>
 
+      {loading ? (
+        <ScreenSkeleton hero={220} tiles={0} rows={4} />
+      ) : error ? (
+        <ErrorState onAction={retry} />
+      ) : (
+        <>
       <Card padding="none" style={{ marginTop: 22, position: 'relative', overflow: 'hidden' }} radius="xl">
         <span style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '45%', maskImage: 'linear-gradient(90deg, transparent, #000 50%)', WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 50%)' }}>
           <Art kind="silk" />
@@ -201,6 +210,8 @@ export default function PortfolioEditor() {
           </Button>
         </div>
       </div>
+        </>
+      )}
 
       <Sheet open={editing === 'bio'} onClose={() => setEditing(null)} label="Edit bio">
         <h2 className="display" style={{ fontSize: 32, marginTop: 12 }}>

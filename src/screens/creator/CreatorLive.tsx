@@ -18,7 +18,7 @@ export default function CreatorLive() {
   return (
     <Page>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', paddingTop: 24 }}>
-        <span style={{ width: 100, height: 100, borderRadius: '50%', border: '6px solid var(--gold)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)', boxShadow: '0 0 0 12px rgba(201,162,74,0.12)' }}>
+        <span style={{ width: 100, height: 100, borderRadius: '50%', border: '6px solid var(--gold)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)', boxShadow: '0 0 0 12px rgba(248,188,88,0.12)' }}>
           <Icon icon={SparklesIcon} size={40} strokeWidth={1.4} />
         </span>
         <h1 className={['display', a.h1].join(' ')} style={{ marginTop: 26, fontSize: 'clamp(48px, 13vw, 66px)' }}>
@@ -32,12 +32,12 @@ export default function CreatorLive() {
       </div>
 
       <Card tone="dark" padding="none" style={{ marginTop: 26, position: 'relative', overflow: 'hidden' }} radius="xl" className={a.dark}>
-        <span style={{ position: 'absolute', right: -60, top: -20, width: 260, height: 460, borderRadius: '50%', background: 'radial-gradient(circle at 30% 50%, rgba(201,162,74,0.45), rgba(201,162,74,0) 60%)' }} />
+        <span style={{ position: 'absolute', right: -60, top: -20, width: 260, height: 460, borderRadius: '50%', background: 'radial-gradient(circle at 30% 50%, rgba(248,188,88,0.45), rgba(248,188,88,0) 60%)' }} />
         <div style={{ position: 'relative', padding: 24 }}>
           <div className={a.row} style={{ gap: 22 }}>
             <span style={{ position: 'relative' }}>
               <Avatar name={name} size={190} tone="noir" portrait ring="gold" />
-              <span style={{ position: 'absolute', left: '50%', bottom: -12, transform: 'translateX(-50%)', width: 44, height: 44, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: '3px solid #1b1b1a' }}>
+              <span style={{ position: 'absolute', left: '50%', bottom: -12, transform: 'translateX(-50%)', width: 44, height: 44, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: '3px solid #1c1916' }}>
                 <Icon icon={Tick02Icon} size={22} strokeWidth={2.4} />
               </span>
             </span>

@@ -173,7 +173,7 @@ export default function CampaignDetail() {
               ['Analytics', `/campaigns/${id}/analytics`],
               ['Export report', `/campaigns/${id}/export`],
             ].map(([l, to]) => (
-              <button key={l} type="button" onClick={() => nav(to)} style={{ padding: '16px 12px', borderRadius: 16, border: '1px solid var(--line)', background: 'var(--surface)', fontSize: 14, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <button key={l} type="button" onClick={() => nav(to)} style={{ padding: '16px 12px', borderRadius: 'var(--r-pill)', border: '1px solid var(--line)', background: 'var(--surface)', fontSize: 14, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 {l} <Icon icon={ArrowRight01Icon} size={16} />
               </button>
             ))}

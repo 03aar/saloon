@@ -142,7 +142,7 @@ export default function Pitch() {
             </div>
           ))}
           {portfolio.length < 5 && (
-            <button type="button" aria-label="Add portfolio item" onClick={() => { setPortfolio((p) => [...p, (['noir', 'arch', 'wave'] as ArtKind[])[p.length % 3]]); toast('Added from your portfolio') }} style={{ aspectRatio: '1 / 1.15', borderRadius: 16, border: '1.5px dashed var(--line-strong)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            <button type="button" aria-label="Add portfolio item" onClick={() => { setPortfolio((p) => [...p, (['noir', 'arch', 'wave'] as ArtKind[])[p.length % 3]]); toast('Added from your portfolio') }} style={{ aspectRatio: '1 / 1.15', borderRadius: 'var(--r-lg)', border: '1.5px dashed var(--line-strong)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ width: 44, height: 44, borderRadius: '50%', border: '1px solid var(--line-strong)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Icon icon={Add01Icon} size={18} />
               </span>

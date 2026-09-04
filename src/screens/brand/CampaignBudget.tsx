@@ -138,7 +138,7 @@ export default function CampaignBudget() {
           {tiers.map((t) => {
             const on = c.tier === t.id
             return (
-              <button key={t.id} type="button" aria-pressed={on} onClick={() => set({ tier: t.id })} style={{ position: 'relative', width: 200, padding: '16px 16px', borderRadius: 18, border: `1.5px solid ${on ? 'var(--gold)' : 'var(--line)'}`, background: on ? 'var(--gold-tint)' : 'var(--surface)', textAlign: 'left', display: 'flex', alignItems: 'center', gap: 12 }}>
+              <button key={t.id} type="button" aria-pressed={on} onClick={() => set({ tier: t.id })} style={{ position: 'relative', width: 200, padding: '16px 16px', borderRadius: 'var(--r-pill)', border: `1.5px solid ${on ? 'var(--gold)' : 'var(--line)'}`, background: on ? 'var(--gold-tint)' : 'var(--surface)', textAlign: 'left', display: 'flex', alignItems: 'center', gap: 12 }}>
                 <Icon icon={StarIcon} size={26} color={on ? 'var(--gold)' : 'var(--muted-2)'} style={{ flexShrink: 0 }} />
                 <span>
                   <b style={{ display: 'block', fontSize: 16, fontWeight: 500 }}>{t.l}</b>

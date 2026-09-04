@@ -7,6 +7,8 @@ import { Icon } from '../../components/Icon'
 import { Card } from '../../components/Card'
 import { Chip } from '../../components/Chip'
 import { Art } from '../../components/Art'
+import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { useLoad } from '../../lib/useLoad'
 import { useToast } from '../../components/Toast'
 import { payouts } from '../../data/payouts'
 import a from '../../components/app.module.css'
@@ -16,6 +18,7 @@ export default function PayoutDetail() {
   const { id } = useParams()
   const { toast } = useToast()
   const p = payouts.find((x) => x.id === id) ?? payouts[0]
+  const { loading, error, retry } = useLoad(`payout-${p.id}`)
 
   const rows = [
     { i: BankIcon, l: 'Bank account', v: 'Emirates NBD', d: '•••• 4587', chev: true },
@@ -42,11 +45,17 @@ export default function PayoutDetail() {
         Payout detail
       </h1>
 
+      {loading ? (
+        <ScreenSkeleton hero={290} tiles={0} rows={4} />
+      ) : error ? (
+        <ErrorState onAction={retry} />
+      ) : (
+        <>
       <Card padding="none" style={{ marginTop: 26, position: 'relative', overflow: 'hidden', minHeight: 290 }} radius="xl">
         <span style={{ position: 'absolute', inset: 0 }}>
           <Art kind="silk" />
         </span>
-        <span style={{ position: 'absolute', right: 60, top: 80, width: 130, height: 130, borderRadius: '50%', border: '8px solid var(--gold)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)', boxShadow: '0 20px 40px rgba(120,90,30,0.2)', background: 'rgba(255,255,255,0.5)' }}>
+        <span style={{ position: 'absolute', right: 60, top: 80, width: 130, height: 130, borderRadius: '50%', border: '8px solid var(--gold)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)', boxShadow: '0 20px 40px rgba(105,82,45,0.2)', background: 'rgba(255,255,255,0.5)' }}>
           <Icon icon={Tick02Icon} size={60} strokeWidth={1.8} />
         </span>
         <div style={{ position: 'relative', padding: '36px 28px' }}>
@@ -101,6 +110,8 @@ export default function PayoutDetail() {
         </span>
         <Icon icon={ArrowRight01Icon} size={22} />
       </button>
+        </>
+      )}
     </Page>
   )
 }

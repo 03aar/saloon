@@ -18,7 +18,7 @@ export function Art({ kind, className }: { kind: ArtKind; className?: string }) 
       )}
       {kind === 'wave' && (
         <svg className={s.svg} viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path d="M0 62c20-14 32 8 52-6s30-6 48-18v62H0Z" fill="#c9a24a" opacity=".55" />
+          <path d="M0 62c20-14 32 8 52-6s30-6 48-18v62H0Z" fill="#f8bc58" opacity=".55" />
           <path d="M0 72c22-14 36 6 56-8s26-2 44-14v50H0Z" fill="#e2c37a" opacity=".55" />
         </svg>
       )}
@@ -37,8 +37,8 @@ export function Art({ kind, className }: { kind: ArtKind; className?: string }) 
       {kind === 'glow' && (
         <svg className={s.svg} viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
           <rect x="44" y="34" width="12" height="40" rx="3" fill="#e9d6a4" />
-          <rect x="47" y="26" width="6" height="10" rx="1.5" fill="#c9a24a" />
-          <circle cx="30" cy="78" r="8" fill="#b08a2e" />
+          <rect x="47" y="26" width="6" height="10" rx="1.5" fill="#f8bc58" />
+          <circle cx="30" cy="78" r="8" fill="#925e06" />
         </svg>
       )}
       {kind === 'noir' && (

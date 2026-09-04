@@ -1,33 +1,44 @@
 :root {
   /* Surfaces */
-  --bg: #faf8f4;
-  --bg-deep: #f5f1ea;
+  --bg: #fbf9f7;
+  --bg-deep: #f0eee9;
   --surface: #ffffff;
-  --surface-2: #f6f3ec;
-  --surface-3: #efe9dd;
-  --dark: #1b1b1a;
-  --dark-2: #2b2a28;
-  --dark-3: #3a3835;
+  --surface-2: #f0eee9;
+  --surface-3: #eae7e0;
+  --dark: #1c1916;
+  --dark-2: #2a2621;
+  --dark-3: #36302a;
 
   /* Ink */
-  --ink: #1c1b19;
-  --ink-2: #4a4845;
-  --muted: #76726b;
-  --muted-2: #a9a49b;
-  --line: #e9e4da;
-  --line-strong: #d9d2c4;
+  --ink: #1c1916;
+  --ink-2: #574e45;
+  --muted: #776a5d;
+  --muted-2: #968779;
+  --line: #e8e5dd;
+  --line-strong: #d7d2c5;
 
-  /* Gold */
-  --gold: #c9a24a;
-  --gold-deep: #846722;
-  --gold-text: #8b6e2c;
-  --gold-soft: #f3ecda;
-  --gold-tint: #fbf7ee;
-  --gold-glow: rgba(201, 162, 74, 0.28);
+  /* Gold (amber) */
+  --gold: #f8bc58;
+  --gold-deep: #925e06;
+  --gold-text: #976106;
+  --gold-soft: #fef3e1;
+  --gold-tint: #fefaf2;
+  --gold-glow: rgba(248, 188, 88, 0.32);
+
+  /* Sage — secondary accent (positive / card tint) */
+  --sage: #bedace;
+  --sage-soft: #ecf4f0;
+
+  /* Water — secondary accent (info) */
+  --info: #79adbe;
+  --info-text: #3f7182;
+  --info-soft: #e2edf1;
 
   /* Status */
-  --success: #6f9a4b;
-  --danger: #bc503c;
+  --success: #437660;
+  --success-soft: #ecf4f0;
+  --danger: #b6432d;
+  --danger-soft: #f8e5e2;
 
   /* Type */
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -42,11 +53,11 @@
   --r-pill: 999px;
 
   /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(28, 27, 25, 0.04);
-  --shadow-sm: 0 2px 8px rgba(28, 27, 25, 0.05);
-  --shadow-md: 0 10px 30px rgba(28, 27, 25, 0.07);
-  --shadow-gold: 0 10px 26px rgba(201, 162, 74, 0.32);
-  --shadow-dark: 0 20px 44px rgba(20, 19, 17, 0.28);
+  --shadow-xs: 0 1px 2px rgba(28, 25, 22, 0.04);
+  --shadow-sm: 0 2px 8px rgba(28, 25, 22, 0.05);
+  --shadow-md: 0 10px 30px rgba(28, 25, 22, 0.07);
+  --shadow-gold: 0 10px 26px rgba(248, 188, 88, 0.32);
+  --shadow-dark: 0 20px 44px rgba(18, 16, 14, 0.28);
 
   /* Layout */
   --page-x: 20px;
@@ -62,5 +73,11 @@
 @media (min-width: 640px) {
   :root {
     --page-x: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --col-app: 720px;
   }
 }

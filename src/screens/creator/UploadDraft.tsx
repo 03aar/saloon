@@ -56,7 +56,7 @@ export default function UploadDraft() {
           <h1 className={['display', a.h1].join(' ')}>Upload Draft</h1>
           <p className={a.sub}>Review your content before submitting for brand approval.</p>
         </div>
-        <button type="button" onClick={() => nav(`/creator/collabs/${c.id}`)} className={a.row} style={{ gap: 12, padding: '14px 16px', borderRadius: 18, border: '1px solid var(--line)', background: 'var(--surface)', textAlign: 'left' }}>
+        <button type="button" onClick={() => nav(`/creator/collabs/${c.id}`)} className={a.row} style={{ gap: 12, padding: '14px 16px', borderRadius: 'var(--r-pill)', border: '1px solid var(--line)', background: 'var(--surface)', textAlign: 'left' }}>
           <Avatar name="Glowd" size={44} tone="cream" />
           <span>
             <span style={{ display: 'block', fontSize: 16, fontWeight: 500 }}>Glowd.</span>
@@ -69,7 +69,7 @@ export default function UploadDraft() {
       <Card tone="dark" padding="md" style={{ marginTop: 22 }} radius="xl" className={a.dark}>
         <input ref={fileRef} type="file" accept="video/*,image/*" hidden onChange={(e) => onFiles(e.target.files)} />
         <div style={{ textAlign: 'center' }}>
-          <button type="button" onClick={openPicker} aria-label="Upload content" style={{ width: 120, height: 120, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 0 14px rgba(201,162,74,0.15)' }}>
+          <button type="button" onClick={openPicker} aria-label="Upload content" style={{ width: 120, height: 120, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 0 14px rgba(248,188,88,0.15)' }}>
             {uploading ? <span style={{ width: 28, height: 28, borderRadius: '50%', border: '3px solid rgba(255,255,255,0.4)', borderTopColor: '#fff', animation: 'spin 700ms linear infinite' }} /> : <Icon icon={Upload01Icon} size={40} strokeWidth={1.6} />}
           </button>
           <div className="display" style={{ fontSize: 40, color: '#fff', marginTop: 22 }}>
@@ -105,7 +105,7 @@ export default function UploadDraft() {
             </div>
           ))}
           {frames.length < 3 && (
-            <button type="button" onClick={openPicker} aria-label="Add story frame" style={{ height: 260, borderRadius: 18, border: '1.5px dashed rgba(255,255,255,0.35)', color: 'var(--gold)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            <button type="button" onClick={openPicker} aria-label="Add story frame" style={{ height: 260, borderRadius: 'var(--r-lg)', border: '1.5px dashed rgba(255,255,255,0.35)', color: 'var(--gold)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ width: 44, height: 44, borderRadius: '50%', border: '1.5px solid var(--gold)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Icon icon={Add01Icon} size={20} />
               </span>

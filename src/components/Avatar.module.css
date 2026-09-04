@@ -9,7 +9,7 @@
   font-family: var(--font-display);
   font-weight: 400;
   color: var(--ink);
-  border: 1px solid rgba(28, 27, 25, 0.06);
+  border: 1px solid rgba(28, 25, 22, 0.06);
   isolation: isolate;
 }
 
@@ -55,7 +55,7 @@
   background: linear-gradient(160deg, #f6efe1 0%, #d8c8a9 100%);
 }
 .gold {
-  background: linear-gradient(160deg, #e5cf95 0%, #b8923a 100%);
+  background: linear-gradient(160deg, #fbdaa3 0%, #925e06 100%);
   color: var(--ink);
 }
 

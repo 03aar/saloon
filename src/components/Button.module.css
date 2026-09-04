@@ -51,14 +51,14 @@
 }
 
 .primary {
-  background: linear-gradient(180deg, #d1ab55 0%, var(--gold) 100%);
+  background: linear-gradient(180deg, #f9c56f 0%, var(--gold) 100%);
   color: var(--ink);
-  box-shadow: 0 6px 18px rgba(201, 162, 74, 0.28);
+  box-shadow: 0 6px 18px rgba(248, 188, 88, 0.28);
 }
 
 .primary:hover:not(:disabled) {
   box-shadow: var(--shadow-gold);
-  background: linear-gradient(180deg, #d5b05c 0%, #c99f43 100%);
+  background: linear-gradient(180deg, #f9c369 0%, #cc9b4b 100%);
 }
 
 .outline {
@@ -141,7 +141,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2px solid rgba(28, 27, 25, 0.25);
+  border: 2px solid rgba(28, 25, 22, 0.25);
   border-top-color: currentColor;
   animation: spin 700ms linear infinite;
 }

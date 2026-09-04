@@ -85,7 +85,7 @@ export default function ExportReport() {
                   [TradeUpIcon, 'Total Spend', '$86.2K', '+12%'],
                 ].map(([ic, l, v, d]) => (
                   <div key={l as string}>
-                    <span style={{ width: 54, height: 54, borderRadius: '50%', background: 'rgba(201,162,74,0.12)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)' }}>
+                    <span style={{ width: 54, height: 54, borderRadius: '50%', background: 'rgba(248,188,88,0.12)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)' }}>
                       <Icon icon={ic as typeof ViewIcon} size={24} />
                     </span>
                     <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)', marginTop: 12 }}>{l as string}</div>
@@ -106,7 +106,7 @@ export default function ExportReport() {
             {formats.map((f) => {
               const on = fmt === f.id
               return (
-                <Card key={f.id} padding="md" radius="xl" as="button" onClick={() => setFmt(f.id)} style={{ borderColor: on ? 'var(--gold)' : undefined, boxShadow: on ? '0 0 0 3px rgba(201,162,74,0.12)' : undefined }} aria-pressed={on}>
+                <Card key={f.id} padding="md" radius="xl" as="button" onClick={() => setFmt(f.id)} style={{ borderColor: on ? 'var(--gold)' : undefined, boxShadow: on ? '0 0 0 3px rgba(248,188,88,0.12)' : undefined }} aria-pressed={on}>
                   <div className={a.row} style={{ gap: 18 }}>
                     <span style={{ width: 118, height: 118, borderRadius: 22, border: '1px solid var(--line)', background: 'var(--surface)', display: 'inline-flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 6, color: 'var(--gold)', flexShrink: 0, boxShadow: 'var(--shadow-xs)' }}>
                       <Icon icon={f.icon} size={48} strokeWidth={1.2} />

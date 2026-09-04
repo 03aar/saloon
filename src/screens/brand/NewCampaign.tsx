@@ -74,7 +74,7 @@ export default function NewCampaign() {
               <Icon icon={Globe02Icon} size={18} /> GCC • Global
             </div>
           </div>
-          <IconButton label="Edit campaign details" onClick={() => setEdit(true)} style={{ background: 'rgba(255,255,255,0.06)', borderColor: 'rgba(201,162,74,0.5)', color: 'var(--gold)', position: 'absolute', right: 20, top: 20 }}>
+          <IconButton label="Edit campaign details" onClick={() => setEdit(true)} style={{ background: 'rgba(255,255,255,0.06)', borderColor: 'rgba(248,188,88,0.5)', color: 'var(--gold)', position: 'absolute', right: 20, top: 20 }}>
             <Icon icon={PencilEdit02Icon} size={20} />
           </IconButton>
         </div>
@@ -104,7 +104,7 @@ export default function NewCampaign() {
           {objectives.map((o) => {
             const on = c.objectives.includes(o.id)
             return (
-              <button key={o.id} type="button" aria-pressed={on} onClick={() => toggleObj(o.id)} style={{ position: 'relative', padding: '18px 16px', borderRadius: 18, border: `1.5px solid ${on ? 'var(--gold)' : 'var(--line)'}`, background: on ? 'var(--gold-tint)' : 'var(--surface)', textAlign: 'left', minHeight: 116 }}>
+              <button key={o.id} type="button" aria-pressed={on} onClick={() => toggleObj(o.id)} style={{ position: 'relative', padding: '18px 16px', borderRadius: 'var(--r-lg)', border: `1.5px solid ${on ? 'var(--gold)' : 'var(--line)'}`, background: on ? 'var(--gold-tint)' : 'var(--surface)', textAlign: 'left', minHeight: 116 }}>
                 <Icon icon={o.icon} size={26} strokeWidth={1.4} />
                 <span style={{ position: 'absolute', right: 14, top: 14, width: 26, height: 26, borderRadius: '50%', border: `1.5px solid ${on ? 'var(--gold)' : 'var(--line-strong)'}`, background: on ? 'var(--gold)' : 'transparent', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
                   {on && <Icon icon={Tick02Icon} size={14} strokeWidth={2.6} />}
