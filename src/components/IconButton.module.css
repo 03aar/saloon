@@ -1,0 +1,74 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  box-shadow: var(--shadow-xs);
+  transition:
+    transform 160ms var(--ease),
+    background-color 200ms var(--ease),
+    border-color 200ms var(--ease);
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+.btn:hover {
+  border-color: var(--line-strong);
+}
+
+.btn:active {
+  transform: scale(0.94);
+}
+
+.sm {
+  width: 36px;
+  height: 36px;
+}
+
+.lg {
+  width: 52px;
+  height: 52px;
+}
+
+.plain {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.tint {
+  background: var(--primary-tint);
+  border-color: var(--primary-soft);
+  color: var(--ink);
+}
+
+.active {
+  background: var(--primary-tint);
+  border-color: var(--primary);
+  color: var(--ink);
+}
+
+.dot {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--surface);
+}
+
+.pill {
+  width: auto;
+  padding: 0 18px;
+  gap: 8px;
+  border-radius: var(--r-pill);
+  font-size: 15px;
+  font-weight: 500;
+}

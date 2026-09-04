@@ -1,0 +1,156 @@
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg);
+  /* Decorative SVGs (arches, coins, silk corners) intentionally bleed past
+     their container's edge for a full-bleed look; clip that bleed here so
+     it never grows the page's horizontal scroll range. */
+  overflow-x: hidden;
+}
+
+/* Tablet/desktop: the product is designed mobile-first (these are phone
+   screens), so we keep the single-column layout rather than reflowing it —
+   but a fixed-width column pinned to the left of a wide browser window reads
+   as broken, not intentional. Center it in a deliberately designed backdrop
+   instead of bare white margin, and give the app column a touch more room. */
+@media (min-width: 900px) {
+  .page {
+    background:
+      radial-gradient(120% 70% at 50% -10%, rgba(248, 188, 88, 0.07), transparent 60%),
+      var(--bg-deep);
+    padding: 40px 0;
+  }
+}
+
+.col {
+  width: 100%;
+  max-width: var(--col-auth);
+  padding: 0 var(--page-x);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.app {
+  max-width: var(--col-app);
+  padding-bottom: calc(var(--nav-h) + 28px);
+}
+
+.top {
+  padding-top: max(20px, env(safe-area-inset-top));
+}
+
+/* Desktop: the app nav moves from a fixed bottom bar to a fixed top bar
+   (see BottomNav), so app screens need top clearance instead of bottom. */
+@media (min-width: 1024px) {
+  .app.top {
+    padding-top: 128px;
+  }
+  .app {
+    padding-bottom: 48px;
+  }
+}
+
+.grow {
+  flex: 1;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  margin: 0 calc(-1 * var(--page-x));
+  padding: 14px var(--page-x) max(20px, env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, rgba(250, 248, 244, 0) 0%, var(--bg) 26%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 5;
+}
+
+.footerApp {
+  bottom: var(--nav-h);
+  padding-bottom: 14px;
+}
+
+@media (min-width: 1024px) {
+  .footerApp {
+    bottom: 0;
+    padding-bottom: 24px;
+  }
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  gap: 12px;
+}
+
+.topbarSide {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 44px;
+}
+
+.topbarCenter {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Split-screen auth (Login/BrandSignup/CreatorSignup layout="split"): a
+   plain single column below 1024px (identical to layout="auth" — the promo
+   panel is desktop-only and stays out of the DOM's visible flow entirely),
+   a two-pane desktop layout above it — a dark promo panel and a frosted
+   form card. */
+.splitPromo {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .splitPage {
+    flex-direction: row;
+    align-items: flex-start;
+    min-height: 100dvh;
+    padding: 0;
+    background: var(--bg-deep);
+  }
+
+  .splitPromo {
+    display: flex;
+    flex: 1 1 46%;
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    overflow: hidden;
+    align-items: flex-end;
+    background: linear-gradient(160deg, var(--dark) 0%, var(--dark-3) 100%);
+  }
+
+  .col.splitCol {
+    flex: 1 1 54%;
+    max-width: 520px;
+    width: 100%;
+    margin: auto;
+    padding: 56px 48px 48px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: var(--r-xl);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+@media (min-width: 1280px) {
+  .col.splitCol {
+    max-width: 560px;
+    padding: 64px 56px 56px;
+  }
+}

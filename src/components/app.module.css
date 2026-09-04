@@ -1,0 +1,421 @@
+/* Shared building blocks for in-app screens (post-auth). */
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.h1 {
+  font-size: clamp(42px, 11.5vw, 56px);
+  line-height: 1;
+}
+
+.h1sm {
+  font-size: clamp(36px, 9.5vw, 46px);
+  line-height: 1.02;
+}
+
+.sub {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--ink-2);
+  max-width: 520px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  padding-top: 6px;
+}
+
+.section {
+  margin-top: 28px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.label {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.metaSm {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.num {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.numLg {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.numXl {
+  font-family: var(--font-display);
+  font-size: 64px;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.gold {
+  color: var(--gold-deep);
+}
+
+.divider {
+  height: 1px;
+  background: var(--line);
+}
+
+.dividerDark {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* stat tile in a bordered card */
+.stat {
+  padding: 18px 16px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+}
+
+.statVal {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1;
+  margin-top: 12px;
+  color: var(--ink);
+}
+
+.statLbl {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* horizontally split stats separated by hairlines */
+.splitStats {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.splitStats > * {
+  padding: 4px 12px;
+  border-left: 1px solid var(--line);
+}
+
+.splitStats > *:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.dark .splitStats > * {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* horizontal scrollers */
+.scroller {
+  display: flex;
+  scroll-padding-left: var(--page-x);
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin: 0 calc(-1 * var(--page-x));
+  padding: 4px var(--page-x) 8px;
+  scrollbar-width: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroller > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* list row */
+.listRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  width: 100%;
+  text-align: left;
+}
+
+.listRow + .listRow {
+  border-top: 1px solid var(--line);
+}
+
+.listRowBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.listRowTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.listRowSub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.listRowRight {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.chev {
+  color: var(--ink-2);
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+/* dark hero card */
+.dark {
+  color: #fff;
+}
+
+.dark .muted,
+.dark .meta {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.darkEyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.darkTitle {
+  font-family: var(--font-display);
+  font-size: 38px;
+  line-height: 1.04;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+/* pill with dot (status) */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.status.live i {
+  background: var(--success);
+}
+
+/* progress bar */
+.bar {
+  display: block;
+  height: 6px;
+  border-radius: 6px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--gold);
+  transition: width 700ms var(--ease);
+}
+
+.barThin {
+  height: 4px;
+}
+
+/* link-style button */
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold-deep);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.linkInk {
+  color: var(--ink);
+}
+
+/* footnote under primary buttons */
+.footnote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* soft info banner */
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.bannerTint {
+  background: var(--gold-tint);
+  border-color: var(--gold-soft);
+}
+
+.bannerBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.bannerTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.bannerSub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* text-heavy two-column layouts collapse on narrow phones */
+.twoCol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.wrapRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Chat's fixed message composer: on phone/tablet it sits above the bottom
+   nav (var(--nav-h)); at desktop that nav is a top bar instead, so the
+   composer should sit flush with the true viewport bottom. */
+.composerBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: var(--nav-h);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 30;
+}
+
+@media (min-width: 1024px) {
+  .composerBar {
+    bottom: 0;
+    padding-bottom: 24px;
+  }
+}

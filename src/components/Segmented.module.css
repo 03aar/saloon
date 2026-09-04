@@ -1,0 +1,100 @@
+.wrap {
+  display: flex;
+  padding: 4px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-xs);
+  position: relative;
+}
+
+.item {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 6px;
+  border-radius: var(--r-pill);
+  font-size: 15px;
+  color: var(--ink-2);
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 200ms var(--ease);
+  white-space: nowrap;
+}
+
+.item.active {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.pill {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-xs);
+  transition: left 260ms var(--ease), width 260ms var(--ease);
+}
+
+.dot {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* variants */
+.primary .pill {
+  background: var(--primary);
+}
+.primary .item.active {
+  color: var(--ink);
+}
+
+.dark .pill {
+  background: var(--dark);
+}
+.dark .item.active {
+  color: #fff;
+}
+
+.underline {
+  padding: 0;
+  border-radius: 18px;
+}
+.underline .pill {
+  top: auto;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--gold);
+  box-shadow: none;
+}
+
+.count {
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 11px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sm .item {
+  height: 40px;
+  font-size: 15px;
+}

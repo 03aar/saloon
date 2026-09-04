@@ -1,0 +1,71 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(200deg, rgba(18, 16, 14, 0.35) 0%, rgba(18, 16, 14, 0.78) 65%, rgba(18, 16, 14, 0.94) 100%);
+}
+
+.content {
+  position: relative;
+  padding: 48px;
+  color: #fff;
+  width: 100%;
+}
+
+.mark {
+  display: inline-block;
+  filter: brightness(0) invert(1);
+}
+
+.spacer {
+  height: clamp(120px, 26vh, 260px);
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(30px, 2.6vw, 42px);
+  line-height: 1.12;
+  margin-top: 14px;
+  max-width: 420px;
+}
+
+.bullets {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bullets li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.bullets li svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}

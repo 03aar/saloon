@@ -1,0 +1,161 @@
+.btn {
+  --h: 56px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: var(--h);
+  padding: 0 24px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    transform 160ms var(--ease),
+    box-shadow 200ms var(--ease),
+    background-color 200ms var(--ease),
+    border-color 200ms var(--ease),
+    opacity 200ms var(--ease);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.985);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.sm {
+  --h: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.md {
+  --h: 48px;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+.primary {
+  background: linear-gradient(180deg, #e39a8d 0%, var(--primary) 100%);
+  color: var(--ink);
+  box-shadow: 0 6px 18px rgba(222, 138, 122, 0.28);
+}
+
+.primary:hover:not(:disabled) {
+  box-shadow: var(--shadow-primary);
+  background: linear-gradient(180deg, #e19687 0%, var(--primary-pressed) 100%);
+}
+
+.primary:active:not(:disabled) {
+  background: var(--primary-pressed);
+}
+
+.outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--primary);
+}
+
+.outline:hover:not(:disabled) {
+  background: var(--primary-tint);
+}
+
+.soft {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-xs);
+}
+
+.soft:hover:not(:disabled) {
+  border-color: var(--line-strong);
+  background: #fff;
+}
+
+.soft:active:not(:disabled) {
+  background: var(--surface-2);
+}
+
+.tint {
+  background: var(--primary-tint);
+  color: var(--ink);
+  border: 1px solid var(--primary-soft);
+}
+
+.tint:hover:not(:disabled) {
+  background: var(--primary-soft);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--ink);
+  padding: 0 12px;
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--primary-tint);
+}
+
+.dark {
+  background: var(--dark);
+  color: #fff;
+}
+
+.leading,
+.trailing {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Trailing arrow pushed to the edge (Continue → style) */
+.spread {
+  justify-content: space-between;
+  padding-left: 28px;
+  padding-right: 10px;
+}
+
+.spread .label {
+  flex: 1;
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(28, 25, 22, 0.25);
+  border-top-color: currentColor;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

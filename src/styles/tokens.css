@@ -1,0 +1,99 @@
+:root {
+  /* Surfaces */
+  --bg: #fbf9f7;
+  --bg-deep: #f0eee9;
+  --surface: #ffffff;
+  --surface-2: #f0eee9;
+  --surface-3: #eae7e0;
+  --dark: #1c1916;
+  --dark-2: #2a2621;
+  --dark-3: #36302a;
+
+  /* Ink */
+  --ink: #1c1916;
+  --ink-2: #574e45;
+  --muted: #776a5d;
+  --muted-2: #968779;
+  --line: #e8e5dd;
+  --line-strong: #d7d2c5;
+
+  /* Gold (amber) */
+  --gold: #f8bc58;
+  --gold-deep: #925e06;
+  --gold-text: #976106;
+  --gold-soft: #fef3e1;
+  --gold-tint: #fefaf2;
+  --gold-glow: rgba(248, 188, 88, 0.32);
+
+  /* Sage — secondary accent (positive / card tint) */
+  --sage: #bedace;
+  --sage-soft: #ecf4f0;
+
+  /* Water — secondary accent (info) */
+  --info: #79adbe;
+  --info-text: #3f7182;
+  --info-soft: #e2edf1;
+
+  /* Primary (buttons) — coral, not amber. Amber stays for decorative
+     accents, icons and status indicators, but never as a button's own fill.
+     Text on the raw/pressed coral is ink, not white: white-on-#DE8A7A is
+     2.6:1 and white-on-#D97565 is 3.1:1, both well under WCAG AA's 4.5:1
+     for text — ink-on-coral is 6.7:1. No separate "primary-deep" text
+     colour: a coral dark enough for text doubles as --danger, so
+     secondary/tint/ghost buttons use plain ink text instead of a
+     coral-tinted one — matches the brief's own point that only the
+     primary action should carry the accent colour. */
+  --primary: #de8a7a;
+  --primary-pressed: #d97565;
+  --primary-soft: #f9eae7;
+  --primary-tint: #fcf6f4;
+  --primary-glow: rgba(222, 138, 122, 0.32);
+
+  /* Status */
+  --success: #437660;
+  --success-soft: #ecf4f0;
+  --danger: #b6432d;
+  --danger-soft: #f8e5e2;
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Google Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-arabic: 'Noto Naskh Arabic', 'Geeza Pro', serif;
+
+  /* Radii */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(28, 25, 22, 0.04);
+  --shadow-sm: 0 2px 8px rgba(28, 25, 22, 0.05);
+  --shadow-md: 0 10px 30px rgba(28, 25, 22, 0.07);
+  --shadow-gold: 0 10px 26px rgba(248, 188, 88, 0.32);
+  --shadow-primary: 0 10px 26px rgba(121, 173, 190, 0.32);
+  --shadow-dark: 0 20px 44px rgba(18, 16, 14, 0.28);
+
+  /* Layout */
+  --page-x: 20px;
+  --col-auth: 560px;
+  --col-app: 640px;
+  --nav-h: 82px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 240ms;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --page-x: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --col-app: 720px;
+  }
+}

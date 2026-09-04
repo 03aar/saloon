@@ -1,0 +1,590 @@
+.stepRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.stepChip {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: var(--gold-tint);
+  color: var(--gold-deep);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.stepName {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.stepName span {
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.h1 {
+  font-size: clamp(50px, 13.5vw, 68px);
+  margin-top: 22px;
+}
+
+.sub {
+  margin-top: 14px;
+  font-size: 17px;
+  color: var(--ink-2);
+  max-width: 480px;
+}
+
+.formCard {
+  margin-top: 26px;
+  padding: 22px 20px;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.preview {
+  margin-top: 16px;
+  position: relative;
+  overflow: hidden;
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.previewArt {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  pointer-events: none;
+  mask-image: linear-gradient(90deg, transparent, #000 60%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 60%);
+}
+
+.previewName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.previewTag {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 2px;
+}
+
+.previewMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.previewMeta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.previewMeta i {
+  width: 1px;
+  height: 14px;
+  background: var(--line);
+}
+
+.eyebrow {
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  font-weight: 500;
+}
+
+.qLabel {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 26px 0 14px;
+}
+
+.goals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.goal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 92px;
+  padding: 10px 12px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.2;
+  transition: all 200ms var(--ease);
+  text-align: left;
+}
+
+.goal svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.goal:hover {
+  border-color: var(--line-strong);
+}
+
+.goal.on {
+  background: var(--gold-tint);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(248, 188, 88, 0.12);
+}
+
+.marketBtn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+  padding: 14px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  position: relative;
+}
+
+.marketBtn select {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.budgetCard {
+  padding: 22px 20px 18px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-align: center;
+}
+
+.budgetVal {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.budgetSub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 4px;
+  margin-bottom: 18px;
+}
+
+/* team card */
+.teamCard {
+  margin-top: 22px;
+  padding: 20px;
+  border-radius: 28px;
+  background: radial-gradient(120% 90% at 100% 0%, #2f2d2a 0%, #1d1c1a 50%, #151413 100%);
+  color: #fff;
+  box-shadow: var(--shadow-dark);
+}
+
+.teamHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.teamName {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+.teamSub {
+  color: var(--gold);
+  font-size: 15px;
+  margin-top: 4px;
+}
+
+.count {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+}
+
+.teamList {
+  margin-top: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  width: 100%;
+  text-align: left;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.member:first-child {
+  border-top: 0;
+}
+
+.member .role {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.member .name {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.86);
+  margin-top: 2px;
+}
+
+.member .email {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.tag {
+  margin-left: auto;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(248, 188, 88, 0.16);
+  color: var(--gold);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px;
+  color: var(--gold);
+  font-size: 16px;
+  font-weight: 500;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.addBtn span {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.approvals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.approval {
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-align: left;
+  position: relative;
+}
+
+.approval b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  margin-top: 14px;
+  padding-right: 22px;
+  line-height: 1.1;
+}
+
+.approval span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.approvalChev {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  margin-top: 4px;
+  color: var(--ink-2);
+  display: inline-flex;
+}
+
+/* ready screen */
+.readyTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 36px;
+}
+
+.readyIcon {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-soft);
+  background: var(--gold-tint);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-deep);
+}
+
+.readyH1 {
+  font-size: clamp(46px, 12.5vw, 62px);
+  margin-top: 22px;
+}
+
+.readySub {
+  margin-top: 14px;
+  font-size: 17px;
+  color: var(--ink-2);
+  max-width: 420px;
+}
+
+.roomCard {
+  margin-top: 26px;
+  border-radius: 28px;
+  padding: 22px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(110% 80% at 100% 0%, #3a3733 0%, #1f1e1c 45%, #151413 100%);
+  box-shadow: var(--shadow-dark);
+}
+
+.roomCard::after {
+  content: '';
+  position: absolute;
+  right: -20%;
+  top: -30%;
+  width: 70%;
+  height: 160%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 40px rgba(255, 255, 255, 0.015);
+  pointer-events: none;
+}
+
+.roomHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.mono {
+  width: 96px;
+  height: 96px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #2f2d2a, #141312);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.monoRing {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--gold);
+}
+
+.roomName {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.roomTag {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.roomMeta {
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+}
+
+.roomLoc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+.roomStats {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  z-index: 1;
+}
+
+.roomStat {
+  padding: 0 14px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.roomStat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.roomStat .top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold);
+}
+
+.roomStat .val {
+  font-family: var(--font-display);
+  font-size: 30px;
+  color: #fff;
+}
+
+.roomStat .lbl {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 8px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.tile {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 18px 20px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-align: left;
+  min-height: 210px;
+}
+
+.tileTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tileTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-top: 22px;
+  position: relative;
+}
+
+.tileVal {
+  font-family: var(--font-display);
+  font-size: 52px;
+  line-height: 1;
+  color: var(--gold-deep);
+  margin-top: 6px;
+  position: relative;
+}
+
+.tileSub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+  line-height: 1.4;
+  max-width: 70%;
+  position: relative;
+}
+
+.tileArt {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: 50%;
+  height: 55%;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.ghost {
+  text-align: center;
+  color: var(--gold-deep);
+  font-size: 17px;
+  padding: 14px;
+}

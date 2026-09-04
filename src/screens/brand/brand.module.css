@@ -1,0 +1,682 @@
+/* Brand-side screens: hero cards and screen-specific layouts */
+
+.hello {
+  font-size: clamp(50px, 13vw, 66px);
+  line-height: 1;
+}
+
+.heroDark {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 24px;
+  border-radius: 28px;
+  color: #fff;
+  background: radial-gradient(110% 90% at 100% 0%, #35322d 0%, #1e1d1b 45%, #141312 100%);
+  box-shadow: var(--shadow-dark);
+}
+
+.heroDark::before {
+  content: '';
+  position: absolute;
+  right: -30%;
+  top: -40%;
+  width: 90%;
+  height: 180%;
+  border-radius: 50%;
+  border: 1px solid rgba(248, 188, 88, 0.18);
+  box-shadow: inset 0 0 0 30px rgba(248, 188, 88, 0.03), inset 0 0 0 60px rgba(248, 188, 88, 0.02);
+  pointer-events: none;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1.04;
+  margin-top: 14px;
+  letter-spacing: -0.02em;
+}
+
+.heroSub {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 16px;
+  max-width: 260px;
+}
+
+.heroSoft {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #fdfcfa 0%, #f9f6ef 100%);
+  box-shadow: var(--shadow-sm);
+}
+
+.heroSoftArt {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 42%;
+  pointer-events: none;
+}
+
+/* On phone/tablet the two "hero" cards stack (unchanged); at desktop width
+   there's room to show them side by side like a real dashboard instead of
+   a long single column. */
+.heroRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+@media (min-width: 1024px) {
+  .heroRow {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .heroRow > .heroDark {
+    flex: 1.2;
+  }
+  .heroRow > .heroSoft {
+    flex: 1;
+  }
+}
+
+.pulse {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pulseCard {
+  padding: 18px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-align: left;
+}
+
+.pulseLbl {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 26px;
+  font-weight: 500;
+}
+
+.pulseVal {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 5px;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 7vw, 34px);
+  line-height: 1;
+  margin-top: 8px;
+}
+
+.pulseVal small {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.pulseSub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.campRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  width: 100%;
+  text-align: left;
+}
+
+.campRow + .campRow {
+  border-top: 1px solid var(--line);
+}
+
+.campThumb {
+  width: 76px;
+  height: 76px;
+  align-self: flex-start;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.campName {
+  font-family: var(--font-display);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* Discover */
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.searchInput {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 60px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 17px;
+  text-align: left;
+  box-shadow: var(--shadow-xs);
+}
+
+.searchInput input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 17px;
+  color: var(--ink);
+  min-width: 0;
+}
+
+.searchInput input::placeholder {
+  color: var(--muted-2);
+}
+
+.featured {
+  margin-top: 22px;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 44% 1fr;
+}
+
+.featPhoto {
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
+}
+
+.featBody {
+  padding: 22px 18px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.featName {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.featLoc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-2);
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.featStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.featStats > div + div {
+  border-left: 1px solid var(--line);
+  padding-left: 14px;
+}
+
+.featStats b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.featStats span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.featStats i {
+  display: block;
+  height: 3px;
+  width: 70%;
+  background: var(--gold);
+  border-radius: 3px;
+  margin-top: 8px;
+}
+
+.featPrice {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.featPrice small {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.featPrice b {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.featActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 14px 18px 18px;
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--line);
+}
+
+.why {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.whyCard {
+  padding: 16px 14px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.whyCard b {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.whyCard span {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Phone/tablet: identical to the shared app.module.css .scroller (horizontal,
+   snap-scrolling). Desktop: a wrapping grid — browsing creators by scrolling
+   a strip sideways reads as a phone habit, not a desktop one. */
+.miniCreatorRow {
+  display: flex;
+  scroll-padding-left: var(--page-x);
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin: 0 calc(-1 * var(--page-x));
+  padding: 4px var(--page-x) 8px;
+  scrollbar-width: none;
+}
+
+.miniCreatorRow::-webkit-scrollbar {
+  display: none;
+}
+
+.miniCreatorRow > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .miniCreatorRow {
+    display: grid;
+    /* Auto-fit rather than a fixed 3-column split: each card's internal
+       layout (avatar + name + tags + stat row) needs real room, so let the
+       grid settle on however many 260px+ columns actually fit rather than
+       squeezing a fixed count and truncating their content. */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    overflow-x: visible;
+    margin: 0;
+    padding: 4px 0 8px;
+  }
+  .miniCreatorRow > * {
+    flex-shrink: initial;
+    width: 100%;
+  }
+}
+
+.miniCreator {
+  width: 280px;
+  padding: 14px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-align: left;
+}
+
+.miniCreatorTop {
+  display: flex;
+  gap: 12px;
+}
+
+.miniName {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.05;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.miniStats {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.miniStats b {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--ink);
+}
+
+/* Creator profile */
+.profileHero {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  min-height: 560px;
+}
+
+.profileArt {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60%;
+  mask-image: linear-gradient(90deg, transparent, #000 35%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%);
+}
+
+.profileBody {
+  position: relative;
+  padding: 28px 22px 22px;
+  max-width: 64%;
+}
+
+.profileName {
+  font-family: var(--font-display);
+  font-size: 46px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.arabic {
+  font-family: var(--font-arabic);
+  font-size: 30px;
+  margin-top: 8px;
+  color: var(--ink);
+  direction: rtl;
+  text-align: left;
+}
+
+.fitRow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.profileActions {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.statsCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px 8px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-align: center;
+}
+
+.statsCard > div + div {
+  border-left: 1px solid var(--line);
+}
+
+.statsCard b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 28px;
+  margin-top: 12px;
+}
+
+.statsCard span {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.portfolio {
+  width: 190px;
+  height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+}
+
+.portfolioViews {
+  position: absolute;
+  z-index: 1;
+  left: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+.audience {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 18px 20px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.audience > div + div {
+  border-left: 1px solid var(--line);
+  padding-left: 20px;
+}
+
+.audRow {
+  display: grid;
+  grid-template-columns: 84px 1fr 38px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.audRow b {
+  font-weight: 400;
+  color: var(--ink-2);
+  text-align: right;
+}
+
+/* Audience fit */
+.regions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.region {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-size: 15px;
+}
+
+.region svg:first-child {
+  color: var(--ink);
+}
+
+.region b {
+  font-weight: 500;
+}
+
+.region span {
+  color: var(--gold-deep);
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.cultural {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cultCard {
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.cultArt {
+  height: 130px;
+  position: relative;
+}
+
+.cultArt span:first-child {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 2;
+}
+
+.cultBody {
+  padding: 14px 14px 16px;
+}
+
+.cultBody b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.cultBody em {
+  display: block;
+  font-style: normal;
+  color: var(--gold-deep);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.cultBody p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+@media (max-width: 400px) {
+  .pulse,
+  .why,
+  .cultural,
+  .regions {
+    grid-template-columns: 1fr;
+  }
+  .featured {
+    grid-template-columns: 1fr;
+  }
+  .featPhoto {
+    min-height: 220px;
+  }
+  .featActions {
+    margin-top: 0;
+    grid-template-columns: 1fr 1fr;
+  }
+  .profileBody {
+    max-width: 100%;
+  }
+  .profileArt {
+    opacity: 0.35;
+  }
+}
