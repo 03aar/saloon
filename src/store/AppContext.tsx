@@ -24,6 +24,8 @@ export type Planning = {
   budget: [number, number]
 }
 
+export type AccessLevel = 'Owner' | 'Admin' | 'Member' | 'Viewer'
+
 export type TeamMember = {
   id: string
   role: string
@@ -32,6 +34,7 @@ export type TeamMember = {
   tag: string
   tone: 'sand' | 'noir' | 'stone' | 'rose' | 'olive' | 'cream'
   photo: boolean
+  access: AccessLevel
 }
 
 export type Approvals = Record<'content' | 'budget' | 'contract' | 'payout', string>

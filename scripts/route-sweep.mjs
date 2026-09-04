@@ -45,6 +45,7 @@ const routes = [
   ['/approvals', 'brand'],
   ['/approvals/d1', 'brand'],
   ['/profile', 'brand'],
+  ['/team', 'brand'],
   ['/messages', 'brand'],
   ['/messages/mira-alia', 'brand'],
   ['/notifications', 'brand'],

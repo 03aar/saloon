@@ -217,8 +217,8 @@ export const goals = [
 ]
 
 export const defaultTeam = [
-  { id: 't1', role: 'Owner', name: 'Faisal Al Zarooni', email: 'faisal@lumenstudios.ae', tag: 'Owner', tone: 'sand' as const, photo: true },
-  { id: 't2', role: 'Campaign lead', name: 'Maha Al Mansoori', email: 'maha@lumenstudios.ae', tag: 'Lead', tone: 'noir' as const, photo: true },
-  { id: 't3', role: 'Finance', name: 'Yousef Al Nuaimi', email: 'yousef@lumenstudios.ae', tag: 'Finance', tone: 'noir' as const, photo: false },
-  { id: 't4', role: 'Reviewer', name: 'Reem Al Hefzi', email: 'reem@lumenstudios.ae', tag: 'Reviewer', tone: 'stone' as const, photo: true },
+  { id: 't1', role: 'Owner', name: 'Faisal Al Zarooni', email: 'faisal@lumenstudios.ae', tag: 'Owner', tone: 'sand' as const, photo: true, access: 'Owner' as const },
+  { id: 't2', role: 'Campaign lead', name: 'Maha Al Mansoori', email: 'maha@lumenstudios.ae', tag: 'Lead', tone: 'noir' as const, photo: true, access: 'Admin' as const },
+  { id: 't3', role: 'Finance', name: 'Yousef Al Nuaimi', email: 'yousef@lumenstudios.ae', tag: 'Finance', tone: 'noir' as const, photo: false, access: 'Member' as const },
+  { id: 't4', role: 'Reviewer', name: 'Reem Al Hefzi', email: 'reem@lumenstudios.ae', tag: 'Reviewer', tone: 'stone' as const, photo: true, access: 'Viewer' as const },
 ]

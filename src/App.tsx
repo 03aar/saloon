@@ -40,6 +40,7 @@ const ExportReport = lazy(() => import('./screens/brand/ExportReport'))
 const ApprovalQueue = lazy(() => import('./screens/brand/ApprovalQueue'))
 const DraftReview = lazy(() => import('./screens/brand/DraftReview'))
 const Profile = lazy(() => import('./screens/brand/Profile'))
+const TeamPermissions = lazy(() => import('./screens/brand/TeamPermissions'))
 // Shared
 const Messages = lazy(() => import('./screens/shared/Messages'))
 const Chat = lazy(() => import('./screens/shared/Chat'))
@@ -164,6 +165,7 @@ export default function App() {
               <Route path="/approvals" element={<ApprovalQueue />} />
               <Route path="/approvals/:id" element={<DraftReview />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/team" element={<TeamPermissions />} />
             </Route>
           </Route>
 

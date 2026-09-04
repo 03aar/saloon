@@ -16,7 +16,7 @@ const brandTabs: Tab[] = [
   { to: '/discover', label: 'Discover', icon: Search01Icon, match: ['/discover', '/search', '/refine', '/creators', '/shortlist', '/compare'] },
   { to: '/create', label: 'Create', icon: Add01Icon },
   { to: '/campaigns', label: 'Campaigns', icon: Briefcase01Icon, match: ['/campaigns', '/approvals'] },
-  { to: '/profile', label: 'Profile', icon: UserIcon, match: ['/profile', '/privacy', '/support'] },
+  { to: '/profile', label: 'Profile', icon: UserIcon, match: ['/profile', '/team', '/privacy', '/support'] },
 ]
 const creatorTabs: Tab[] = [
   { to: '/creator/home', label: 'Home', icon: Home01Icon, match: ['/creator/home', '/notifications'] },
