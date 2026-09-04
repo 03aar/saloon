@@ -4,6 +4,7 @@ import { Page } from '../components/Page'
 import { Button } from '../components/Button'
 import { Icon } from '../components/Icon'
 import { Wordmark } from '../components/Wordmark'
+import { BrandMark } from '../components/BrandMark'
 import { Avatar } from '../components/Avatar'
 import { Art, type ArtKind } from '../components/Art'
 import s from './Welcome.module.css'
@@ -25,7 +26,10 @@ export default function Welcome() {
   return (
     <Page>
       <header className={s.hero}>
-        <Wordmark variant="spaced" size={22} />
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+          <BrandMark size={20} color="var(--primary)" />
+          <Wordmark variant="spaced" size={22} />
+        </div>
         <h1 className={['display', s.h1].join(' ')}>
           The room where brands and creators meet<span className="gold-dot">.</span>
         </h1>

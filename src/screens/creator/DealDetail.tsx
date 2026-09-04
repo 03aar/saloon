@@ -48,26 +48,26 @@ export default function DealDetail() {
           </IconButton>
         }
       />
-      <h1 className={['display', a.h1].join(' ')} style={{ marginTop: 18 }}>
-        {d.name}
-      </h1>
-      <div className={a.row} style={{ marginTop: 12, gap: 12 }}>
-        {d.isNew && (
-          <Chip size="sm" tone="tint">
-            New
-          </Chip>
-        )}
-        <span className={a.meta} style={{ fontSize: 16 }}>
-          Posted {d.posted} &nbsp;•&nbsp; Closes {d.closes}
-        </span>
-      </div>
-
       {loading ? (
         <ScreenSkeleton hero={300} tiles={4} rows={1} />
       ) : error ? (
         <ErrorState onAction={retry} />
       ) : (
         <>
+          <h1 className={['display', a.h1].join(' ')} style={{ marginTop: 18 }}>
+            {d.name}
+          </h1>
+          <div className={a.row} style={{ marginTop: 12, gap: 12 }}>
+            {d.isNew && (
+              <Chip size="sm" tone="tint">
+                New
+              </Chip>
+            )}
+            <span className={a.meta} style={{ fontSize: 16 }}>
+              Posted {d.posted} &nbsp;•&nbsp; Closes {d.closes}
+            </span>
+          </div>
+
           <Card padding="md" style={{ marginTop: 18 }} radius="xl" onClick={() => toast(`${d.brand} brand profile (demo)`, 'info')}>
             <div className={a.row} style={{ gap: 18 }}>
               <Avatar name={d.brand} size={110} tone="noir" />

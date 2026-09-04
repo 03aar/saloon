@@ -129,7 +129,7 @@ export default function UploadDraft() {
                   {r.d}
                 </p>
               </div>
-              <span style={{ width: 44, height: 44, borderRadius: '50%', background: r.ok ? 'var(--gold)' : 'var(--surface-3)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <span style={{ width: 44, height: 44, borderRadius: '50%', background: r.ok ? 'var(--gold)' : 'var(--surface-3)', color: r.ok ? '#fff' : 'var(--ink-2)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <Icon icon={Tick02Icon} size={20} strokeWidth={2.4} />
               </span>
             </div>
@@ -169,7 +169,7 @@ export default function UploadDraft() {
           Caption
         </h2>
         <div style={{ marginTop: 16 }}>
-          <TextArea value={caption} onChange={(e) => setCaption(e.target.value)} max={2200} rows={5} placeholder="Write a caption that includes the paid partnership disclosure." />
+          <TextArea aria-label="Caption" value={caption} onChange={(e) => setCaption(e.target.value)} max={2200} rows={5} placeholder="Write a caption that includes the paid partnership disclosure." />
         </div>
         <Button block style={{ marginTop: 14 }} onClick={() => setEditing(false)}>
           Done

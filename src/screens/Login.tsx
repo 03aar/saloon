@@ -6,6 +6,7 @@ import { Button } from '../components/Button'
 import { TextField } from '../components/TextField'
 import { Icon } from '../components/Icon'
 import { Wordmark } from '../components/Wordmark'
+import { BrandMark } from '../components/BrandMark'
 import { AuthPromo } from '../components/AuthPromo'
 import { useApp } from '../store/AppContext'
 import { useToast } from '../components/Toast'
@@ -50,7 +51,8 @@ export default function Login() {
         />
       }
     >
-      <div className={s.top}>
+      <div className={s.top} style={{ alignItems: 'center', gap: 12 }}>
+        <BrandMark size={52} color="var(--primary)" />
         <Wordmark size={72} spark />
       </div>
       <header className={s.hero}>

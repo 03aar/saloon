@@ -126,7 +126,9 @@
   flex-wrap: wrap;
   gap: 8px;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
+  /* 0.45 measured under 4.5:1 against the darkest part of the mesh
+     (~#4f1c13) — raised to hold WCAG AA for this small text. */
+  color: rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 860px) {

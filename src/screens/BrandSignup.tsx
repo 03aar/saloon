@@ -13,6 +13,7 @@ import { Page } from '../components/Page'
 import { Button } from '../components/Button'
 import { TextField } from '../components/TextField'
 import { Icon } from '../components/Icon'
+import { Wordmark } from '../components/Wordmark'
 import { AuthPromo } from '../components/AuthPromo'
 import { useApp } from '../store/AppContext'
 import { passwordRules, isEmail } from '../lib/auth'
@@ -64,6 +65,7 @@ export default function BrandSignup() {
       }
     >
       <header className={s.hero}>
+        <Wordmark variant="spaced" size={22} />
         <svg className={s.coin} viewBox="0 0 220 230" fill="none" aria-hidden>
           <defs>
             <linearGradient id="coinG" x1="0" y1="0" x2="1" y2="1">
@@ -81,7 +83,7 @@ export default function BrandSignup() {
           <circle cx="132" cy="140" r="52" fill="url(#coinG)" />
           <circle cx="132" cy="140" r="44" fill="none" stroke="#fff" strokeOpacity=".35" />
           <text x="132" y="160" textAnchor="middle" fontFamily="Fraunces, Georgia, serif" fontWeight="300" fontSize="56" fill="#7a5a12" fillOpacity=".8">
-            S
+            B
           </text>
         </svg>
         <h1 className={['display', s.h1].join(' ')}>

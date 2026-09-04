@@ -74,7 +74,7 @@ export type AppState = {
   searchQuery: string
 }
 
-const STORAGE_KEY = 'salon.state.v1'
+const STORAGE_KEY = 'bloop.state.v1'
 
 export const defaultFilters: Filters = {
   region: 'Both',

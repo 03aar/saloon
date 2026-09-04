@@ -12,6 +12,8 @@ import { IconTile } from '../../components/IconTile'
 import { Art, type ArtKind } from '../../components/Art'
 import { Sheet } from '../../components/Sheet'
 import { TextArea } from '../../components/TextArea'
+import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { useLoad } from '../../lib/useLoad'
 import { useToast } from '../../components/Toast'
 import { drafts } from '../../data/drafts'
 import a from '../../components/app.module.css'
@@ -28,6 +30,7 @@ export default function DraftReview() {
   const { id } = useParams()
   const { toast } = useToast()
   const d = drafts.find((x) => x.id === id) ?? drafts[0]
+  const { loading, error, retry } = useLoad(`draft-${id ?? d.id}`)
   const [slide, setSlide] = useState(0)
   const [state, setState] = useState<Record<string, 'good' | 'edit' | undefined>>({ fit: 'good', caption: 'good', disclosure: 'good' })
   const [asking, setAsking] = useState(false)
@@ -65,6 +68,12 @@ export default function DraftReview() {
           </>
         }
       />
+      {loading ? (
+        <ScreenSkeleton hero={440} tiles={0} rows={3} />
+      ) : error ? (
+        <ErrorState onAction={retry} />
+      ) : (
+        <>
       <h1 className={['display', a.h1].join(' ')} style={{ marginTop: 22 }}>
         Content Draft Review
       </h1>
@@ -157,6 +166,8 @@ export default function DraftReview() {
           </Button>
         </div>
       </Footer>
+        </>
+      )}
 
       <Sheet open={asking} onClose={() => setAsking(false)} label="Request edits">
         <h2 className="display" style={{ fontSize: 32, marginTop: 12 }}>

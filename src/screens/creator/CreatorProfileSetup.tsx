@@ -95,7 +95,7 @@ export default function CreatorProfileSetup() {
           <Icon icon={InformationCircleIcon} size={20} />
         </div>
         <div style={{ marginTop: 14 }}>
-          <SelectField value={region} onChange={(e) => setRegion(e.target.value)} compact options={['GCC', 'MENA', 'Global', 'Europe', 'South Asia'].map((r) => ({ value: r, label: r }))} />
+          <SelectField aria-label="Primary audience region" value={region} onChange={(e) => setRegion(e.target.value)} compact options={['GCC', 'MENA', 'Global', 'Europe', 'South Asia'].map((r) => ({ value: r, label: r }))} />
         </div>
         <p className="muted" style={{ fontSize: 14, marginTop: 10 }}>
           Where is your audience mostly located?

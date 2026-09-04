@@ -11,6 +11,8 @@ import { Sheet } from '../../components/Sheet'
 import { TextField } from '../../components/TextField'
 import { SelectField } from '../../components/SelectField'
 import { ScreenHeader } from '../../components/ScreenHeader'
+import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { useLoad } from '../../lib/useLoad'
 import { useToast } from '../../components/Toast'
 import { useApp, type TeamMember, type AccessLevel } from '../../store/AppContext'
 import { isEmail } from '../../lib/auth'
@@ -30,6 +32,7 @@ const accessLevels: { id: AccessLevel; icon: typeof CrownIcon; d: string }[] = [
 export default function TeamPermissions() {
   const { state, update } = useApp()
   const { toast } = useToast()
+  const { loading, error, retry } = useLoad('team-permissions')
   const [adding, setAdding] = useState(false)
   const [editingMember, setEditingMember] = useState<TeamMember | null>(null)
   const [editingApproval, setEditingApproval] = useState<keyof typeof state.approvals | null>(null)
@@ -69,6 +72,12 @@ export default function TeamPermissions() {
     <Page layout="app">
       <ScreenHeader title="Team & Permissions" back="/profile" sub="Manage who has access to this brand account, and exactly what they can do." />
 
+      {loading ? (
+        <ScreenSkeleton hero={0} tiles={0} rows={4} />
+      ) : error ? (
+        <ErrorState onAction={retry} />
+      ) : (
+        <>
       <div className={a.section}>
         <div className={a.between}>
           <div className={a.title} style={{ fontSize: 22 }}>
@@ -146,6 +155,8 @@ export default function TeamPermissions() {
           ))}
         </div>
       </div>
+        </>
+      )}
 
       <Sheet open={adding} onClose={() => setAdding(false)} label="Invite team member">
         <h2 className="display" style={{ fontSize: 34, marginTop: 12 }}>

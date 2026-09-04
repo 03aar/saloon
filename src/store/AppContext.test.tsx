@@ -17,7 +17,7 @@ describe('AppContext store', () => {
   it('persists state to localStorage and restores it', () => {
     const first = renderHook(() => useApp(), { wrapper })
     act(() => first.result.current.toggleSaved('mira-alia'))
-    expect(JSON.parse(localStorage.getItem('salon.state.v1')!).saved).toEqual(['mira-alia'])
+    expect(JSON.parse(localStorage.getItem('bloop.state.v1')!).saved).toEqual(['mira-alia'])
     const second = renderHook(() => useApp(), { wrapper })
     expect(second.result.current.state.saved).toEqual(['mira-alia'])
   })
@@ -34,7 +34,7 @@ describe('AppContext store', () => {
   })
 
   it('ignores corrupt persisted state', () => {
-    localStorage.setItem('salon.state.v1', '{not json')
+    localStorage.setItem('bloop.state.v1', '{not json')
     const { result } = renderHook(() => useApp(), { wrapper })
     expect(result.current.state.session).toBeNull()
   })

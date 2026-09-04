@@ -19,7 +19,7 @@ function mount(path: string) {
 }
 
 const seed = (role: 'brand' | 'creator') =>
-  localStorage.setItem('salon.state.v1', JSON.stringify({ session: { role, email: 'x@y.co', name: role === 'brand' ? 'Noura Beauty Co.' : 'Mira Alia', company: 'Noura Beauty Co.' }, onboardingComplete: true }))
+  localStorage.setItem('bloop.state.v1', JSON.stringify({ session: { role, email: 'x@y.co', name: role === 'brand' ? 'Noura Beauty Co.' : 'Mira Alia', company: 'Noura Beauty Co.' }, onboardingComplete: true }))
 
 describe('App routing', () => {
   it('shows the welcome screen to signed-out users and guards app routes', async () => {

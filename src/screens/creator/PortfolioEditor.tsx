@@ -218,7 +218,7 @@ export default function PortfolioEditor() {
           Bio
         </h2>
         <div style={{ marginTop: 16 }}>
-          <TextArea value={bio} onChange={(e) => setBio(e.target.value)} max={300} rows={5} />
+          <TextArea aria-label="Bio" value={bio} onChange={(e) => setBio(e.target.value)} max={300} rows={5} />
         </div>
         <Button block style={{ marginTop: 14 }} onClick={() => { setEditing(null); toast('Bio updated') }}>
           Save

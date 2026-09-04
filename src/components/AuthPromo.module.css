@@ -25,7 +25,10 @@
 }
 
 .mark {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
   filter: brightness(0) invert(1);
 }
 

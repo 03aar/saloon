@@ -3,6 +3,7 @@ import { CheckmarkCircle02Icon } from '@hugeicons/core-free-icons'
 import { Art, type ArtKind } from './Art'
 import { Icon } from './Icon'
 import { Wordmark } from './Wordmark'
+import { BrandMark } from './BrandMark'
 import s from './AuthPromo.module.css'
 
 type Props = { art: ArtKind; eyebrow: string; title: ReactNode; bullets?: string[] }
@@ -16,7 +17,10 @@ export function AuthPromo({ art, eyebrow, title, bullets }: Props) {
       </div>
       <div className={s.scrim} />
       <div className={s.content}>
-        <Wordmark size={26} className={s.mark} />
+        <div className={s.mark}>
+          <BrandMark size={22} color="currentColor" />
+          <Wordmark size={26} />
+        </div>
         <div className={s.spacer} />
         <p className={s.eyebrow}>{eyebrow}</p>
         <h2 className={s.title}>{title}</h2>
