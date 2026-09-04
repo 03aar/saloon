@@ -7,6 +7,7 @@ import { Button } from '../../components/Button'
 import { MarketingNav } from '../../components/MarketingNav'
 import { Footer } from '../../components/Footer'
 import { useApp } from '../../store/AppContext'
+import { useSeo } from '../../components/Seo'
 import m from './marketing.module.css'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -34,6 +35,11 @@ const steps = [
 ]
 
 export default function ForCreators() {
+  useSeo({
+    title: 'For Creators',
+    description: 'Pitch brands, collaborate on campaigns and get paid through escrow — Bloop is built for GCC creators.',
+    path: '/for-creators',
+  })
   const nav = useNavigate()
   const { update } = useApp()
   const start = () => {

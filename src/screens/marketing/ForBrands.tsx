@@ -7,6 +7,7 @@ import { Button } from '../../components/Button'
 import { MarketingNav } from '../../components/MarketingNav'
 import { Footer } from '../../components/Footer'
 import { useApp } from '../../store/AppContext'
+import { useSeo } from '../../components/Seo'
 import m from './marketing.module.css'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -34,6 +35,11 @@ const steps = [
 ]
 
 export default function ForBrands() {
+  useSeo({
+    title: 'For Brands',
+    description: 'Discover fit-scored creators, run campaigns and pay through escrow — built for brands marketing across the GCC.',
+    path: '/for-brands',
+  })
   const nav = useNavigate()
   const { update } = useApp()
   const start = () => {

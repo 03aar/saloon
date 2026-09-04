@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { defaultTeam } from '../data/mock'
+import { defaultTeam, type Creator } from '../data/mock'
 
 export type Role = 'brand' | 'creator'
 
@@ -83,6 +83,31 @@ export const defaultFilters: Filters = {
   engagement: 3,
   budget: [5000, 25000],
   deliverables: ['Instagram post', 'Instagram story', 'Reel'],
+}
+
+// Minimum engagement rate (%) required for each "Engagement quality" step in Refine.
+const ENGAGEMENT_THRESHOLDS = [0, 1, 2, 3, 5]
+
+/** Whether a mock Creator satisfies the current `state.filters`. Used by Discover and Search. */
+export function matchesFilters(creator: Creator, filters: Filters): boolean {
+  if (filters.region !== 'Both' && creator.region !== filters.region) return false
+
+  if (filters.categories.length > 0 && !creator.tags.some((t) => filters.categories.includes(t))) return false
+
+  const [ageMin, ageMax] = filters.age
+  const [cAgeMin, cAgeMax] = creator.audienceAge
+  if (cAgeMax < ageMin || cAgeMin > ageMax) return false
+
+  const erNum = parseFloat(creator.er)
+  const minEngagement = ENGAGEMENT_THRESHOLDS[filters.engagement] ?? 0
+  if (!Number.isNaN(erNum) && erNum < minEngagement) return false
+
+  const [budgetMin, budgetMax] = filters.budget
+  if (creator.budgetFrom < budgetMin || creator.budgetFrom > budgetMax) return false
+
+  if (filters.deliverables.length > 0 && !creator.deliverables.some((d) => filters.deliverables.includes(d))) return false
+
+  return true
 }
 
 const initialState: AppState = {

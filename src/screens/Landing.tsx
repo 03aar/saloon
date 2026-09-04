@@ -24,6 +24,7 @@ import { ScrollRail } from '../components/ScrollRail'
 import { Footer } from '../components/Footer'
 import { useApp } from '../store/AppContext'
 import { insights } from '../data/insights'
+import { useSeo } from '../components/Seo'
 import m from './marketing/marketing.module.css'
 import s from './Landing.module.css'
 
@@ -81,6 +82,11 @@ const features = [
 ]
 
 export default function Landing() {
+  useSeo({
+    title: 'Bloop — Creator partnerships, curated',
+    description: 'Bloop is the GCC-first marketplace where brands discover creators, run campaigns and pay through escrow — and creators pitch, collaborate and get paid.',
+    path: '/',
+  })
   const nav = useNavigate()
   const { update } = useApp()
   const [subscribed, setSubscribed] = useState(false)

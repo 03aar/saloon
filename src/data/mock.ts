@@ -15,6 +15,14 @@ export type Creator = {
   languages: string[]
   tone: 'rose' | 'sand' | 'olive' | 'stone' | 'noir' | 'cream'
   topMatch?: boolean
+  /** Derived from `country` — every creator in this dataset is GCC-based. */
+  region: 'GCC' | 'Global'
+  /** Numeric starting rate (AED), parsed from `rateFrom`, for budget-range filtering. */
+  budgetFrom: number
+  /** Audience age range this creator's followers skew toward. */
+  audienceAge: [number, number]
+  /** Content formats this creator offers, for the Refine "Deliverables" filter. */
+  deliverables: string[]
 }
 
 export const creators: Creator[] = [
@@ -36,6 +44,10 @@ export const creators: Creator[] = [
     languages: ['العربية', 'English'],
     tone: 'sand',
     topMatch: true,
+    region: 'GCC',
+    budgetFrom: 8500,
+    audienceAge: [20, 34],
+    deliverables: ['Instagram post', 'Instagram story', 'Reel'],
   },
   {
     id: 'nouf-al-qasimi',
@@ -52,6 +64,10 @@ export const creators: Creator[] = [
     about: 'Riyadh-based beauty and fashion creator with a focus on modern elegance and modest style.',
     languages: ['العربية', 'English'],
     tone: 'rose',
+    region: 'GCC',
+    budgetFrom: 7500,
+    audienceAge: [22, 36],
+    deliverables: ['Instagram post', 'Reel', 'TikTok video'],
   },
   {
     id: 'leen-haddad',
@@ -68,6 +84,10 @@ export const creators: Creator[] = [
     about: 'Lifestyle storyteller covering skincare rituals, travel and slow living across the Gulf.',
     languages: ['العربية', 'English'],
     tone: 'stone',
+    region: 'GCC',
+    budgetFrom: 6000,
+    audienceAge: [13, 19],
+    deliverables: ['Instagram post', 'Instagram story'],
   },
   {
     id: 'aseel-bahrani',
@@ -84,6 +104,10 @@ export const creators: Creator[] = [
     about: 'Doha-based creator known for luminous skincare tutorials and product deep-dives.',
     languages: ['العربية', 'English'],
     tone: 'olive',
+    region: 'GCC',
+    budgetFrom: 5500,
+    audienceAge: [24, 40],
+    deliverables: ['Instagram post', 'Instagram story'],
   },
   {
     id: 'lama-al-nuaimi',
@@ -100,6 +124,10 @@ export const creators: Creator[] = [
     about: 'Fashion and travel creator with a strong GCC audience and premium brand collaborations.',
     languages: ['العربية', 'English'],
     tone: 'noir',
+    region: 'GCC',
+    budgetFrom: 7000,
+    audienceAge: [21, 35],
+    deliverables: ['Instagram post', 'Reel', 'YouTube video'],
   },
 ]
 

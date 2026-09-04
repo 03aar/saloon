@@ -39,9 +39,9 @@ const columns: { title: string; links: Link[] }[] = [
   {
     title: 'Legal',
     links: [
-      { label: 'Privacy policy', soon: true },
-      { label: 'Terms of service', soon: true },
-      { label: 'Cookie policy', soon: true },
+      { label: 'Privacy policy', to: '/legal/privacy' },
+      { label: 'Terms of service', to: '/legal/terms' },
+      { label: 'Cookie policy', to: '/legal/cookies' },
     ],
   },
 ]

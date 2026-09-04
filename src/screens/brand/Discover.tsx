@@ -9,9 +9,9 @@ import { Avatar } from '../../components/Avatar'
 import { Verified } from '../../components/Verified'
 import { Chip } from '../../components/Chip'
 import { Art } from '../../components/Art'
-import { ScreenSkeleton, ErrorState } from '../../components/Skeleton'
+import { ScreenSkeleton, ErrorState, EmptyState } from '../../components/Skeleton'
 import { useLoad } from '../../lib/useLoad'
-import { useApp } from '../../store/AppContext'
+import { useApp, matchesFilters } from '../../store/AppContext'
 import { useToast } from '../../components/Toast'
 import { creators } from '../../data/mock'
 import a from '../../components/app.module.css'
@@ -23,7 +23,9 @@ export default function Discover() {
   const { toast } = useToast()
   const { loading, error, retry } = useLoad('discover')
   const top = creators[0]
-  const more = creators.slice(1, 4)
+  // "More creators you'll love" reflects the current filters from Refine/Search — everything
+  // else on the page (the featured hero) stays as the app's single top overall match.
+  const more = creators.filter((c) => c.id !== top.id && matchesFilters(c, state.filters)).slice(0, 3)
   const saved = (id: string) => state.saved.includes(id)
 
   return (
@@ -140,6 +142,14 @@ export default function Discover() {
                 See all
               </button>
             </div>
+            {more.length === 0 ? (
+              <EmptyState
+                title="No creators match your filters"
+                sub="Try widening your region, budget or age range in Refine."
+                action="Edit filters"
+                onAction={() => nav('/refine')}
+              />
+            ) : (
             <div className={s.miniCreatorRow}>
               {more.map((c) => (
                 <div key={c.id} className={s.miniCreator}>
@@ -185,6 +195,7 @@ export default function Discover() {
                 </div>
               ))}
             </div>
+            )}
           </div>
 
           <div className={a.banner} style={{ marginTop: 10 }}>

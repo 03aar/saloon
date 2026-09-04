@@ -6,6 +6,7 @@ import { Art } from '../../components/Art'
 import { Button } from '../../components/Button'
 import { MarketingNav } from '../../components/MarketingNav'
 import { Footer } from '../../components/Footer'
+import { useSeo } from '../../components/Seo'
 import m from './marketing.module.css'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -31,6 +32,11 @@ const values = [
 ]
 
 export default function About() {
+  useSeo({
+    title: 'About Bloop',
+    description: 'Bloop is built by Cayana Technologies Inc in Dubai to fix matching, trust and payments between brands and creators.',
+    path: '/about',
+  })
   const nav = useNavigate()
   return (
     <motion.main className={m.page} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.2 } }} transition={{ duration: 0.4, ease }}>

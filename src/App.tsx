@@ -16,6 +16,9 @@ const Pulse = lazy(() => import('./screens/marketing/Pulse'))
 const PulseArticle = lazy(() => import('./screens/marketing/PulseArticle'))
 const About = lazy(() => import('./screens/marketing/About'))
 const Careers = lazy(() => import('./screens/marketing/Careers'))
+const PrivacyPolicy = lazy(() => import('./screens/legal/PrivacyPolicy'))
+const TermsOfService = lazy(() => import('./screens/legal/TermsOfService'))
+const CookiePolicy = lazy(() => import('./screens/legal/CookiePolicy'))
 const Welcome = lazy(() => import('./screens/Welcome'))
 const ChooseRole = lazy(() => import('./screens/ChooseRole'))
 const BrandSignup = lazy(() => import('./screens/BrandSignup'))
@@ -146,6 +149,9 @@ export default function App() {
           <Route path="/pulse/:slug" element={<PulseArticle />} />
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/legal/privacy" element={<PrivacyPolicy />} />
+          <Route path="/legal/terms" element={<TermsOfService />} />
+          <Route path="/legal/cookies" element={<CookiePolicy />} />
 
           {/* Brand onboarding (no bottom nav) */}
           <Route element={<RequireAuth role="brand" />}>

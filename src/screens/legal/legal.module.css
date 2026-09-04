@@ -1,0 +1,126 @@
+/* Body-copy layer for legal pages. Reuses marketing.module.css for the
+   page shell / hero / container, and adds the typographic rules a long
+   numbered policy document needs that the card-and-grid marketing system
+   doesn't otherwise provide. */
+
+.doc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+}
+
+.updated {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.toc {
+  margin: 40px 0 56px;
+  padding: 20px 24px;
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+  border-radius: 16px;
+  background: var(--card, rgba(0, 0, 0, 0.02));
+}
+
+.tocTitle {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.tocList {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 640px) {
+  .tocList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tocList a {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.tocList a:hover {
+  color: var(--primary);
+}
+
+.section {
+  margin-top: 44px;
+  scroll-margin-top: 100px;
+}
+
+.sectionNum {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+}
+
+.h2 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: clamp(20px, 2.4vw, 24px);
+  color: var(--ink);
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+
+.h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+  margin-top: 22px;
+  margin-bottom: 8px;
+}
+
+.p {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0 0 14px;
+}
+
+.ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+  display: grid;
+  gap: 8px;
+}
+
+.ul li {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.note {
+  margin-top: 56px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: var(--card, rgba(0, 0, 0, 0.03));
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.contact {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+
+.contact strong {
+  color: var(--ink);
+}

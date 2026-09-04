@@ -7,6 +7,7 @@ import { Avatar } from '../../components/Avatar'
 import { MarketingNav } from '../../components/MarketingNav'
 import { Footer } from '../../components/Footer'
 import { insights } from '../../data/insights'
+import { useSeo } from '../../components/Seo'
 import m from './marketing.module.css'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -16,6 +17,13 @@ export default function PulseArticle() {
   const { slug } = useParams()
   const article = insights.find((a) => a.slug === slug)
   const more = insights.filter((a) => a.slug !== slug).slice(0, 3)
+
+  useSeo({
+    title: article ? article.title : 'Article not found',
+    description: article ? article.excerpt : 'This Bloop Pulse story may have been moved or removed.',
+    path: `/pulse/${slug ?? ''}`,
+    type: 'article',
+  })
 
   if (!article) {
     return (

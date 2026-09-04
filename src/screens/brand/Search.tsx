@@ -11,7 +11,7 @@ import { Card } from '../../components/Card'
 import { SectionHeader } from '../../components/SectionHeader'
 import { EmptyState, ErrorState, SkCard } from '../../components/Skeleton'
 import { useLoad } from '../../lib/useLoad'
-import { useApp } from '../../store/AppContext'
+import { useApp, matchesFilters } from '../../store/AppContext'
 import { useToast } from '../../components/Toast'
 import { recentCreators, recommendedSearches, creators } from '../../data/mock'
 import a from '../../components/app.module.css'
@@ -29,10 +29,35 @@ export default function Search() {
 
   const results = useMemo(() => {
     const term = q.trim().toLowerCase()
-    const pool = [...recentCreators.map((r) => ({ id: r.id, name: r.name, bio: r.bio, city: r.city, followers: r.followers, tone: r.tone })), ...creators.map((c) => ({ id: c.id, name: c.name, bio: c.tags.join(' & '), city: `${c.city}, ${c.country}`, followers: c.followers, tone: c.tone }))]
-    if (!term || term === 'modest fashion creators') return pool.slice(0, 4)
-    return pool.filter((p) => `${p.name} ${p.bio} ${p.city}`.toLowerCase().includes(term))
-  }, [q])
+    const pool = [
+      ...recentCreators.map((r) => ({ id: r.id, name: r.name, bio: r.bio, city: r.city, followers: r.followers, tone: r.tone, full: undefined as (typeof creators)[number] | undefined })),
+      ...creators.map((c) => ({ id: c.id, name: c.name, bio: c.tags.join(' & '), city: `${c.city}, ${c.country}`, followers: c.followers, tone: c.tone, full: c })),
+    ]
+
+    // Quick-filter chips narrow the pool by a real predicate. Entries without full creator data
+    // (recentCreators) can't be evaluated against a given predicate, so they're left in rather
+    // than dropped for a dimension the mock data doesn't carry.
+    const quickFiltered = pool.filter((p) => {
+      if (active.includes('GCC') && p.full && p.full.region !== 'GCC') return false
+      if (active.includes('Women 25-34') && p.full) {
+        const [min, max] = p.full.audienceAge
+        if (max < 25 || min > 34) return false
+      }
+      if (active.includes('Arabic') && p.full && !p.full.languages.includes('العربية')) return false
+      if (active.includes('Video') && p.full) {
+        const hasVideo = p.full.deliverables.some((d) => d === 'Reel' || d === 'TikTok video' || d === 'YouTube video')
+        if (!hasVideo) return false
+      }
+      return true
+    })
+
+    // Filters set in Refine (region, categories, age, engagement, budget, deliverables) apply to
+    // entries with full creator data.
+    const refined = quickFiltered.filter((p) => !p.full || matchesFilters(p.full, state.filters))
+
+    if (!term || term === 'modest fashion creators') return refined.slice(0, 4)
+    return refined.filter((p) => `${p.name} ${p.bio} ${p.city}`.toLowerCase().includes(term))
+  }, [q, active, state.filters])
 
   const toggleQuick = (k: string) => setActive((l) => (l.includes(k) ? l.filter((x) => x !== k) : [...l, k]))
 
@@ -91,7 +116,12 @@ export default function Search() {
           </Card>
         ) : results.length === 0 ? (
           <Card padding="none">
-            <EmptyState title="No creators found" sub={`We couldn’t find anyone matching “${q}”. Try a broader term or adjust your filters.`} action="Clear search" onAction={() => setQ('')} />
+            <EmptyState
+              title="No creators found"
+              sub={q.trim() ? `We couldn’t find anyone matching “${q}”. Try a broader term or adjust your filters.` : 'No creators match your current filters. Try widening them in Refine.'}
+              action={q.trim() ? 'Clear search' : 'Edit filters'}
+              onAction={q.trim() ? () => setQ('') : () => nav('/refine')}
+            />
           </Card>
         ) : (
           <Card padding="none">

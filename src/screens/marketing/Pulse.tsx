@@ -6,6 +6,7 @@ import { Art } from '../../components/Art'
 import { MarketingNav } from '../../components/MarketingNav'
 import { Footer } from '../../components/Footer'
 import { insights } from '../../data/insights'
+import { useSeo } from '../../components/Seo'
 import m from './marketing.module.css'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -17,6 +18,11 @@ const fadeUp = {
 }
 
 export default function Pulse() {
+  useSeo({
+    title: 'Bloop Pulse',
+    description: 'Data, playbooks and guides on creator marketing across the GCC, from the Bloop team.',
+    path: '/pulse',
+  })
   const nav = useNavigate()
   const [featured, ...rest] = insights
 

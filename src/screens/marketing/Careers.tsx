@@ -5,6 +5,7 @@ import { Button } from '../../components/Button'
 import { MarketingNav } from '../../components/MarketingNav'
 import { Footer } from '../../components/Footer'
 import { useToast } from '../../components/Toast'
+import { useSeo } from '../../components/Seo'
 import m from './marketing.module.css'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -30,6 +31,11 @@ const roles = [
 ]
 
 export default function Careers() {
+  useSeo({
+    title: 'Careers',
+    description: 'Join Cayana Technologies Inc in Dubai and help build the trust layer for creator partnerships across the GCC.',
+    path: '/careers',
+  })
   const { toast } = useToast()
 
   return (
