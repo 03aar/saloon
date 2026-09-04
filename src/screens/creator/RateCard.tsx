@@ -137,9 +137,10 @@ export default function RateCard() {
           block
           trailing={<Icon icon={ArrowRight02Icon} size={22} />}
           onClick={() => {
-            update({ onboardingComplete: true })
-            if (onboarding) nav('/onboarding/creator/live')
-            else {
+            if (onboarding) {
+              update({ onboardingComplete: true })
+              nav('/onboarding/creator/live')
+            } else {
               toast('Rate card saved')
               nav(-1)
             }
