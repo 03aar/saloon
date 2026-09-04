@@ -113,7 +113,7 @@ All bodies are JSON. Authenticated routes require `Authorization: Bearer <token>
 ## What's stubbed / pending
 
 - **Email delivery** — see above; logs to console, real provider not wired up (no API key available here).
-- **Frontend integration** — `src/store/AppContext.tsx` currently persists everything to `localStorage` with mock data from `src/data/mock.ts`. Swapping that for real calls into this API (sign-in/sign-up hitting `/api/auth`, campaigns/creators/team/messages/notifications hitting their respective routes, JWT storage/refresh, etc.) is a separate follow-up piece of work and was intentionally **not** done in this pass — this pass only builds the backend service itself.
+- **Frontend integration** — `src/lib/api.ts` is a typed client for `/api/auth`, and `Login.tsx` / `BrandSignup.tsx` / `CreatorSignup.tsx` call it for real signup/login/password-reset **only when the frontend is built with `VITE_API_URL` set** (see the root `.env.example`). Without that env var the frontend stays in demo mode — instant fake sign-in, no network calls — so the app keeps working exactly as before with no backend running. The rest of the app (campaigns, creators, team, messages, notifications) still reads/writes `localStorage` via `src/store/AppContext.tsx` and has **not** been wired to these routes yet — that's the remaining piece of this follow-up.
 
 ## Scripts
 

@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { defaultTeam, type Creator } from '../data/mock'
+import { setToken } from '../lib/api'
 
 export type Role = 'brand' | 'creator'
 
@@ -197,6 +198,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const signOut = useCallback(() => {
+    setToken(null)
     setState((s) => ({ ...initialState, brand: s.brand, planning: s.planning, team: s.team }))
   }, [])
 

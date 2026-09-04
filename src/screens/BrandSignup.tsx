@@ -16,12 +16,15 @@ import { Icon } from '../components/Icon'
 import { Wordmark } from '../components/Wordmark'
 import { AuthPromo } from '../components/AuthPromo'
 import { useApp } from '../store/AppContext'
+import { useToast } from '../components/Toast'
 import { passwordRules, isEmail } from '../lib/auth'
+import { apiEnabled, apiSignup, ApiError, setToken } from '../lib/api'
 import s from './Signup.module.css'
 
 export default function BrandSignup() {
   const nav = useNavigate()
   const { signIn, update } = useApp()
+  const { toast } = useToast()
   const [email, setEmail] = useState('')
   const [company, setCompany] = useState('')
   const [password, setPassword] = useState('')
@@ -36,6 +39,22 @@ export default function BrandSignup() {
     setTouched(true)
     if (!valid) return
     setLoading(true)
+
+    if (apiEnabled) {
+      apiSignup({ role: 'brand', name: company.trim(), email, password, company: company.trim() })
+        .then(({ token, user }) => {
+          setToken(token)
+          signIn({ role: 'brand', email: user.email, name: user.name, company: user.company })
+          update({ onboardingComplete: false })
+          nav('/onboarding/brand/profile')
+        })
+        .catch((err: unknown) => {
+          toast(err instanceof ApiError ? err.message : 'Could not create your account. Please try again.', 'info')
+          setLoading(false)
+        })
+      return
+    }
+
     window.setTimeout(() => {
       signIn({ role: 'brand', email, name: company.trim(), company: company.trim() })
       update({ onboardingComplete: false })
@@ -147,9 +166,11 @@ export default function BrandSignup() {
           <Button block type="submit" loading={loading} trailing={<Icon icon={ArrowRight02Icon} size={22} />} spread>
             Create account
           </Button>
-          <Button block type="button" variant="soft" leading={<Icon icon={Building03Icon} size={24} />} onClick={sso} disabled={loading}>
-            Continue with work SSO
-          </Button>
+          {!apiEnabled && (
+            <Button block type="button" variant="soft" leading={<Icon icon={Building03Icon} size={24} />} onClick={sso} disabled={loading}>
+              Continue with work SSO
+            </Button>
+          )}
         </div>
       </form>
     </Page>

@@ -35,6 +35,10 @@ const fadeUp = {
   viewport: { once: true, margin: '-80px' },
   transition: { duration: 0.6, ease },
 }
+const heroItem = {
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+}
 
 const sections = [
   { id: 'hero', label: 'Bloop' },
@@ -103,34 +107,43 @@ export default function Landing() {
 
       <section id="hero" className={[m.mesh, m.hero].join(' ')}>
         <div className={m.meshContent}>
-          <div className={m.container}>
-            <span className={m.heroKicker}>
+          <motion.div
+            className={m.container}
+            initial="initial"
+            animate="animate"
+            variants={{ animate: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } } }}
+          >
+            <motion.span className={m.heroKicker} variants={heroItem}>
               <Icon icon={SparklesIcon} size={15} color="var(--primary)" />
               Creator partnerships, curated
-            </span>
-            <h1 className={m.heroTitle}>Where ambitious brands meet extraordinary creators.</h1>
-            <p className={m.heroSub}>
-              Bloop is the marketplace built for real partnerships — discover the right fit, run campaigns with confidence, and get paid on time, every time.
-            </p>
-            <div className={m.heroCtas}>
+            </motion.span>
+            <motion.h1 className={m.heroTitle} variants={heroItem}>
+              The marketplace where creator partnerships actually work.
+            </motion.h1>
+            <motion.p className={m.heroSub} variants={heroItem}>
+              Bloop is built for real partnerships — discover the right fit, run campaigns without the endless email threads, and get paid on time, every time.
+            </motion.p>
+            <motion.div className={m.heroCtas} variants={heroItem}>
               <Button size="lg" trailing={<Icon icon={ArrowRight02Icon} size={20} />} onClick={() => startAs('brand')}>
                 Get started as a brand
               </Button>
               <Button size="lg" variant="outline" trailing={<Icon icon={ArrowRight02Icon} size={20} />} onClick={() => startAs('creator')}>
                 Get started as a creator
               </Button>
-            </div>
-            <p className={s.heroNote}>Free to join · No credit card required</p>
+            </motion.div>
+            <motion.p className={s.heroNote} variants={heroItem}>
+              Free to join · No credit card required
+            </motion.p>
 
-            <div className={s.stats}>
+            <motion.div className={s.stats} variants={heroItem}>
               {stats.map(([v, l]) => (
                 <div key={l} className={s.stat}>
                   <div className={s.statVal}>{v}</div>
                   <div className={s.statLabel}>{l}</div>
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -138,9 +151,7 @@ export default function Landing() {
         <div className={[m.container, s.vision].join(' ')}>
           <motion.div {...fadeUp}>
             <span className={m.eyebrow}>Our vision</span>
-            <h2 className={s.visionTitle}>
-              A great partnership isn't a transaction. It's two audiences recognizing something real in each other — and we build for that recognition, not for volume.
-            </h2>
+            <h2 className={s.visionTitle}>Fit beats reach. Trust beats hustle. Getting paid beats getting promised.</h2>
             <p className={m.sectionLead}>
               Bloop exists because creator marketing kept breaking down at the same three points: finding the right fit, trusting the other side, and getting paid on time. We built the matching, the escrow and the approval flow so none of those points break anymore.
             </p>

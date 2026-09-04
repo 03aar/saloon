@@ -11,12 +11,15 @@ import { Chip } from '../components/Chip'
 import { Verified } from '../components/Verified'
 import { AuthPromo } from '../components/AuthPromo'
 import { useApp } from '../store/AppContext'
+import { useToast } from '../components/Toast'
 import { isEmail } from '../lib/auth'
+import { apiEnabled, apiSignup, ApiError, setToken } from '../lib/api'
 import s from './Signup.module.css'
 
 export default function CreatorSignup() {
   const nav = useNavigate()
   const { signIn } = useApp()
+  const { toast } = useToast()
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
@@ -31,6 +34,21 @@ export default function CreatorSignup() {
     setTouched(true)
     if (!valid) return
     setLoading(true)
+
+    if (apiEnabled) {
+      apiSignup({ role: 'creator', name: name.trim(), email, password })
+        .then(({ token, user }) => {
+          setToken(token)
+          signIn({ role: 'creator', email: user.email, name: user.name })
+          nav('/onboarding/creator/profile')
+        })
+        .catch((err: unknown) => {
+          toast(err instanceof ApiError ? err.message : 'Could not create your account. Please try again.', 'info')
+          setLoading(false)
+        })
+      return
+    }
+
     window.setTimeout(() => {
       signIn({ role: 'creator', email, name: name.trim() })
       nav('/onboarding/creator/profile')

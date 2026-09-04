@@ -21,13 +21,15 @@ npm run lint       # oxlint
 npm run sweep      # headless check of every route, both roles — see below
 ```
 
-## Demo auth (no backend)
+## Demo auth (backend optional)
 
-Everything runs locally against an in-memory data layer persisted to `localStorage` (`salon.state.v1`). There is no server.
+By default everything runs locally against an in-memory data layer persisted to `localStorage` (`bloop.state.v1`) — no server needed.
 
 - **Sign up** as a brand or creator from *Get started → Choose your role*. Brand passwords must be 8+ chars with a number and an uppercase letter (the rules shown on screen); creator passwords need 8+ chars.
 - **Log in** with *any* email and password. You are signed in with the role last chosen on *Choose your role* (brand by default).
 - **Sign out** from Profile (brand) or Settings (creator). Clearing site data resets the demo.
+
+A real backend exists under `server/` (Express + Azure Cosmos DB — see `server/README.md`). Building the frontend with `VITE_API_URL` set (see `.env.example`) switches sign-up/login/forgot-password on `Login`, `BrandSignup` and `CreatorSignup` to real API calls against it instead of the instant fake sign-in above; every other screen still reads/writes `localStorage` regardless. Leave `VITE_API_URL` unset to keep the fully offline demo behavior described above.
 
 ## Landing page
 
@@ -63,7 +65,7 @@ This is enforced end to end, not just on the obvious list/detail screens: brand 
 
 ## Responsive
 
-Salon is a desktop-first web app that has to work just as well on a phone, not the other way around. Rather than reflow all ~55 mobile-sourced product screens into bespoke desktop grids, the highest-traffic ones got real multi-column desktop layouts, and everything else got the chrome-level treatment that makes even an unreflowed screen read as an intentional desktop app rather than a stretched phone screen:
+Bloop is a desktop-first web app that has to work just as well on a phone, not the other way around. Rather than reflow all ~55 mobile-sourced product screens into bespoke desktop grids, the highest-traffic ones got real multi-column desktop layouts, and everything else got the chrome-level treatment that makes even an unreflowed screen read as an intentional desktop app rather than a stretched phone screen:
 
 - **Real desktop layouts**: brand Home and creator Home show their two "hero" cards (top priority / next action) side by side above 1024px instead of stacked — an actual dashboard, not a long scroll. Discover's "more creators" row is a horizontal snap-scroller on phone/tablet (a scrolling strip is a phone habit) and a wrapping card grid at desktop (auto-fit columns, not a fixed count — a fixed 3-up split of the app column was tried first and found to truncate each card's content, so it settles on however many 260px+ columns actually fit instead of forcing a narrower split).
 - **Chrome-level treatment everywhere else**: a floating top pill nav replaces the bottom tab bar above 1024px (see below); a deliberately designed backdrop sits behind the centred column instead of bare white margin; the app column itself widens for more breathing room.
@@ -80,10 +82,11 @@ src/
                 shared/ (Messages, Chat, Notifications, Settings, Privacy, Support)
   store/        AppContext — session, onboarding data, saved/shortlisted ids, filters, campaign draft (localStorage)
   data/         mock content used across screens
-  lib/          auth helpers, useLoad (simulated fetch lifecycle), useOnline
+  lib/          auth helpers, useLoad (simulated fetch lifecycle), useOnline, api.ts (optional backend client)
   styles/       tokens (colour, type, radius, shadow), fonts, base
 scripts/screenshots.mjs   Playwright visual-QA capture for any set of routes
 scripts/route-sweep.mjs   Headless check of all 60+ routes, both roles, phone + desktop widths: console errors + horizontal overflow
+server/                   Express + Azure Cosmos DB backend — see server/README.md
 ```
 
 ## Design decisions worth knowing
@@ -107,4 +110,4 @@ What's actually been checked, not just assumed:
 - **Desktop polish pass**: after the desktop-first rework above shipped, a dedicated audit re-checked every shared overlay/positioned component for desktop correctness rather than assuming responsive CSS alone was enough, and found two real regressions the initial pass introduced: `Sheet` (used for in-place edits like a pitch's proposed fee) was still a mobile bottom sheet at any width, edge-pinned with mobile-nav padding baked in — it's now a centered modal card at ≥1024px, phone/tablet unchanged; and Chat's fixed message composer, positioned relative to the now-hidden bottom nav's height, overlapped the last message and floated with a dead gap beneath it at desktop — fixed by making its position nav-aware via CSS media query (`app.module.css`'s `.composerBar`) instead of a hardcoded offset, with the same fix applied to the sticky footer CTA used by onboarding and flow screens. A new `useMediaQuery` hook backs the two places (`Sheet`, `Toast`) that need to branch JS behavior (not just CSS) on viewport. Screenshotted a further 12 screens spanning both roles at 1440px specifically hunting for this class of bug (fixed-position elements, sticky footers, modals) — nothing else found.
 - **Colour system**: the entire palette was rebuilt from a fixed 8-colour input set (see above) and re-audited for WCAG 2.1 AA the same way as the previous pass — every derived text/icon tone checked against every background it's actually used on, at 4.5:1 for text and 3:1 for non-text. Same known, deliberately deferred item as before: a few small decorative icons using the raw accent colour directly (not the darkened text-safe variant) sit under the 3:1 non-text minimum on light backgrounds; almost all are paired with redundant descriptive text, but this hasn't been re-audited icon-by-icon.
 
-What intentionally stays out of scope for a design-fidelity demo: a real backend/API, real authentication and payments, and image/CDN assets (see the `Art`/`Avatar` note above).
+What intentionally stays out of scope: payments/escrow, and wiring the rest of the app (campaigns, creators, team, messages, notifications — auth is done, see above) to `server/`'s API instead of `localStorage`; also image/CDN assets (see the `Art`/`Avatar` note above). A real backend for auth, campaigns, creators, messages, notifications and team now exists under `server/` (Azure Cosmos DB) — see `server/README.md`.

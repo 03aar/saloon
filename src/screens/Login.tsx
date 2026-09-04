@@ -11,6 +11,7 @@ import { AuthPromo } from '../components/AuthPromo'
 import { useApp } from '../store/AppContext'
 import { useToast } from '../components/Toast'
 import { isEmail, nameFromEmail } from '../lib/auth'
+import { apiEnabled, apiLogin, apiRequestPasswordReset, ApiError, setToken } from '../lib/api'
 import s from './Login.module.css'
 
 export default function Login() {
@@ -29,6 +30,22 @@ export default function Login() {
     setTouched(true)
     if (!valid) return
     setLoading(true)
+
+    if (apiEnabled) {
+      apiLogin({ email, password })
+        .then(({ token, user }) => {
+          setToken(token)
+          signIn({ role: user.role, email: user.email, name: user.name, company: user.company })
+          update({ onboardingComplete: true })
+          nav(user.role === 'brand' ? '/home' : '/creator/home', { replace: true })
+        })
+        .catch((err: unknown) => {
+          toast(err instanceof ApiError ? err.message : 'Could not log in. Please try again.', 'info')
+          setLoading(false)
+        })
+      return
+    }
+
     window.setTimeout(() => {
       // Demo auth: any credentials work. Role is inferred from the last chosen role.
       const role = state.pendingRole
@@ -37,6 +54,20 @@ export default function Login() {
       update({ onboardingComplete: true })
       nav(role === 'brand' ? '/home' : '/creator/home', { replace: true })
     }, 700)
+  }
+
+  const forgotPassword = () => {
+    if (apiEnabled) {
+      if (!isEmail(email)) {
+        toast('Enter your email above first.', 'info')
+        return
+      }
+      apiRequestPasswordReset(email)
+        .then(() => toast('If that email is registered, a reset link has been sent.', 'info'))
+        .catch(() => toast('Could not send the reset link. Please try again.', 'info'))
+      return
+    }
+    toast('Password reset link sent (demo).', 'info')
   }
 
   return (
@@ -84,7 +115,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           error={touched && password.length === 0 ? 'Enter your password.' : undefined}
         />
-        <button type="button" className={s.forgot} onClick={() => toast('Password reset link sent (demo).', 'info')}>
+        <button type="button" className={s.forgot} onClick={forgotPassword}>
           Forgot password?
         </button>
         <Button block type="submit" loading={loading} style={{ marginTop: 10 }}>
@@ -105,7 +136,7 @@ export default function Login() {
         <Icon icon={ArrowRight01Icon} size={22} />
       </button>
 
-      <p className={s.demo}>Demo mode · any email and password will sign you in as a {state.pendingRole}.</p>
+      {!apiEnabled && <p className={s.demo}>Demo mode · any email and password will sign you in as a {state.pendingRole}.</p>}
     </Page>
   )
 }
