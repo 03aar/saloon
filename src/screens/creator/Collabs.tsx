@@ -146,7 +146,7 @@ export default function Collabs() {
               <div className="display" style={{ fontSize: 24 }}>
                 You’re protected
               </div>
-              <div className={a.bannerSub}>Contracts signed. Payments secured by Salon.</div>
+              <div className={a.bannerSub}>Contracts signed. Payments secured by Bloop.</div>
             </div>
             <Button size="md" variant="soft" trailing={<Icon icon={ArrowRight01Icon} size={16} />} onClick={() => nav('/creator/contract')} style={{ color: 'var(--gold-deep)' }}>
               View contracts

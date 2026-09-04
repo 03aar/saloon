@@ -58,7 +58,7 @@ export default function CreatorSignup() {
           creator account
         </h1>
         <p className={s.sub} style={{ maxWidth: '85%' }}>
-          Join Salon and connect with brands across GCC and global markets.
+          Join Bloop and connect with brands across GCC and global markets.
         </p>
       </header>
 
@@ -117,7 +117,7 @@ export default function CreatorSignup() {
             Create account
           </Button>
           <p className={s.legal}>
-            By creating an account, you agree to Salon’s
+            By creating an account, you agree to Bloop’s
             <br />
             <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a>.
           </p>

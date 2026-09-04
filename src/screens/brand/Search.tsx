@@ -40,7 +40,7 @@ export default function Search() {
     <Page layout="app">
       <div className={a.between} style={{ marginTop: 10 }}>
         <h1 className={['display', s.hello].join(' ')} style={{ fontSize: 'clamp(46px, 12vw, 60px)' }}>
-          Search Salon
+          Search Bloop
         </h1>
         <IconButton label="Filters" size="lg" onClick={() => nav('/refine')}>
           <Icon icon={SlidersHorizontalIcon} size={22} />

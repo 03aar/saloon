@@ -51,7 +51,7 @@ export default function ChooseRole() {
     <Page>
       <header className={s.hero}>
         <h1 className={['display', s.h1].join(' ')}>Choose your role</h1>
-        <p className={s.sub}>Salon tailors your experience to help you connect and grow.</p>
+        <p className={s.sub}>Bloop tailors your experience to help you connect and grow.</p>
         <svg className={s.arch} viewBox="0 0 210 250" fill="none" aria-hidden>
           <defs>
             <linearGradient id="archA" x1="0" y1="0" x2="0" y2="1">

@@ -177,7 +177,7 @@ export default function SendOffer() {
           </div>
           <div className={a.bannerSub}>Funds are held securely and released only when deliverables are approved.</div>
         </div>
-        <Button size="sm" variant="tint" onClick={() => toast('Salon Escrow holds funds until approval', 'info')}>
+        <Button size="sm" variant="tint" onClick={() => toast('Bloop Escrow holds funds until approval', 'info')}>
           Learn more
         </Button>
       </div>

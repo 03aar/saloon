@@ -163,7 +163,7 @@ export default function DealDetail() {
                 Paid collaboration
               </div>
             </div>
-            <Chip leading={<Icon icon={SecurityCheckIcon} size={18} color="var(--gold)" />}>Payment via Salon</Chip>
+            <Chip leading={<Icon icon={SecurityCheckIcon} size={18} color="var(--gold)" />}>Payment via Bloop</Chip>
           </div>
 
           <Footer app>

@@ -135,7 +135,7 @@ export default function BrandReady() {
           Enter brand room
         </Button>
         <button type="button" className={s.ghost} onClick={() => nav('/home', { replace: true })}>
-          Explore Salon dashboard
+          Explore Bloop dashboard
         </button>
       </Footer>
     </Page>

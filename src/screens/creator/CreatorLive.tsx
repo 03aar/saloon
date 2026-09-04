@@ -65,7 +65,7 @@ export default function CreatorLive() {
               <Icon icon={SecurityCheckIcon} size={40} strokeWidth={1.1} color="var(--gold)" /> Verified creator
             </span>
             <span className={a.row} style={{ gap: 12, fontFamily: 'var(--font-display)', fontSize: 24, borderLeft: '1px solid rgba(255,255,255,0.12)', paddingLeft: 18 }}>
-              <Icon icon={CheckmarkBadge02Icon} size={40} strokeWidth={1.1} color="var(--gold)" /> Salon Verified
+              <Icon icon={CheckmarkBadge02Icon} size={40} strokeWidth={1.1} color="var(--gold)" /> Bloop Verified
             </span>
           </div>
         </div>

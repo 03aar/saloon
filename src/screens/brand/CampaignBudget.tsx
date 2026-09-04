@@ -155,12 +155,12 @@ export default function CampaignBudget() {
         </div>
       </div>
 
-      <button type="button" className={a.banner} style={{ width: '100%', textAlign: 'left', marginTop: 14 }} onClick={() => toast('Payouts are processed through Salon Escrow', 'info')}>
+      <button type="button" className={a.banner} style={{ width: '100%', textAlign: 'left', marginTop: 14 }} onClick={() => toast('Payouts are processed through Bloop Escrow', 'info')}>
         <Icon icon={SecurityCheckIcon} size={30} color="var(--gold)" strokeWidth={1.3} />
         <span className={a.bannerBody}>
           <span className={a.bannerTitle}>Secure payments. Protected creators.</span>
           <span className={a.bannerSub} style={{ display: 'block' }}>
-            All payouts are processed securely via Salon Escrow.
+            All payouts are processed securely via Bloop Escrow.
           </span>
         </span>
         <Icon icon={ArrowRight01Icon} size={18} />
