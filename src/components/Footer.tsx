@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { InstagramIcon, Linkedin01Icon, NewTwitterIcon, TiktokIcon } from '@hugeicons/core-free-icons'
 import { Icon } from './Icon'
 import { Wordmark } from './Wordmark'
+import { BrandMark } from './BrandMark'
 import { useToast } from './Toast'
 import s from './Footer.module.css'
 
@@ -77,7 +78,10 @@ export function Footer() {
       </svg>
       <div className={s.top}>
         <div className={s.brand}>
-          <Wordmark size={24} className={s.brandMark} />
+          <div className={s.brandLockup}>
+            <BrandMark size={26} color="#fff" />
+            <Wordmark size={24} className={s.brandMark} />
+          </div>
           <p className={s.tagline}>Creator partnerships, curated.</p>
           <div className={s.socials}>
             {socials.map((soc) => (

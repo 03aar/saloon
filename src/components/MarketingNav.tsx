@@ -4,6 +4,7 @@ import { Menu01Icon } from '@hugeicons/core-free-icons'
 import { Button } from './Button'
 import { Icon } from './Icon'
 import { Wordmark } from './Wordmark'
+import { BrandMark } from './BrandMark'
 import s from './MarketingNav.module.css'
 
 const links = [
@@ -22,6 +23,7 @@ export function MarketingNav() {
     <div className={s.wrap}>
       <header className={s.pill}>
         <NavLink to="/" className={s.brand} aria-label="Bloop home">
+          <BrandMark size={22} color="var(--primary)" />
           <Wordmark size={20} />
         </NavLink>
         <nav className={s.links} aria-label="Primary">

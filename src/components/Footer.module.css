@@ -35,6 +35,12 @@
   gap: 48px;
 }
 
+.brandLockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .brandMark {
   /* Wordmark's serif variant hardcodes color: var(--ink) for use on light
      surfaces elsewhere in the app; this footer is dark, so it needs an
