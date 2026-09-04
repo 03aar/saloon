@@ -161,7 +161,7 @@
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--surface);
-  color: var(--muted-2);
+  color: var(--muted);
   font-size: 17px;
   text-align: left;
   box-shadow: var(--shadow-xs);

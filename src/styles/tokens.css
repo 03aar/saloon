@@ -12,22 +12,22 @@
   /* Ink */
   --ink: #1c1b19;
   --ink-2: #4a4845;
-  --muted: #86827a;
+  --muted: #76726b;
   --muted-2: #a9a49b;
   --line: #e9e4da;
   --line-strong: #d9d2c4;
 
   /* Gold */
   --gold: #c9a24a;
-  --gold-deep: #b08a2e;
-  --gold-text: #b8923a;
+  --gold-deep: #846722;
+  --gold-text: #8b6e2c;
   --gold-soft: #f3ecda;
   --gold-tint: #fbf7ee;
   --gold-glow: rgba(201, 162, 74, 0.28);
 
   /* Status */
   --success: #6f9a4b;
-  --danger: #c2543f;
+  --danger: #bc503c;
 
   /* Type */
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
