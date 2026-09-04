@@ -242,7 +242,7 @@ export default function Chat() {
           </span>
           <div style={{ position: 'relative', padding: 20 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--gold-deep)', fontFamily: 'var(--font-display)', fontSize: 22 }}>
-              <span style={{ width: 34, height: 34, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ width: 34, height: 34, borderRadius: '50%', background: 'var(--gold)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Icon icon={Tick02Icon} size={16} strokeWidth={2.4} />
               </span>
               Offer accepted

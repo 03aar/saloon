@@ -109,7 +109,7 @@ export default function DraftReview() {
         <h2 className="display" style={{ fontSize: 34 }}>
           Feedback checklist
         </h2>
-        <Chip trailing={<span style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><Icon icon={Tick02Icon} size={12} strokeWidth={2.6} /></span>}>
+        <Chip trailing={<span style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--gold)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><Icon icon={Tick02Icon} size={12} strokeWidth={2.6} /></span>}>
           {reviewed} of {checks.length} reviewed
         </Chip>
       </div>
@@ -126,7 +126,7 @@ export default function DraftReview() {
                 </span>
               </span>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: v === 'edit' ? 'var(--danger)' : 'var(--gold-deep)', fontFamily: 'var(--font-display)', fontSize: 18, whiteSpace: 'nowrap' }}>
-                <span style={{ width: 26, height: 26, borderRadius: '50%', background: v === 'edit' ? 'var(--danger)' : 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ width: 26, height: 26, borderRadius: '50%', background: v === 'edit' ? 'var(--danger)' : 'var(--gold)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Icon icon={Tick02Icon} size={14} strokeWidth={2.6} />
                 </span>
                 {v === 'edit' ? 'Needs edits' : 'Looks good'}

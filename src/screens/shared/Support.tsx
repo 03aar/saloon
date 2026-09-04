@@ -74,7 +74,7 @@ export default function Support() {
             {online ? 'Reach our team any time. Most questions are answered within a few hours.' : 'Don’t worry — your pitch is safe. We’ll send it once you’re back online.'}
           </p>
           <div style={{ marginTop: 22 }}>
-            <Chip leading={<span style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><Icon icon={Tick02Icon} size={12} strokeWidth={2.6} /></span>}>
+            <Chip leading={<span style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--gold)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><Icon icon={Tick02Icon} size={12} strokeWidth={2.6} /></span>}>
               {online ? 'All systems normal' : 'Saved just now'}
             </Chip>
           </div>

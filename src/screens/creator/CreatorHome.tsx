@@ -40,7 +40,7 @@ export default function CreatorHome() {
             <IconButton label="Notifications" size="lg" onClick={() => nav('/notifications')} style={{ width: 66, height: 66 }}>
               <Icon icon={Notification01Icon} size={24} />
             </IconButton>
-            <span style={{ position: 'absolute', right: -2, top: -2, minWidth: 24, height: 24, borderRadius: 12, background: 'var(--gold)', color: '#fff', fontSize: 12, fontWeight: 600, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0 6px' }}>3</span>
+            <span style={{ position: 'absolute', right: -2, top: -2, minWidth: 24, height: 24, borderRadius: 12, background: 'var(--gold)', color: 'var(--ink)', fontSize: 12, fontWeight: 600, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0 6px' }}>3</span>
           </span>
           <button type="button" onClick={() => nav('/creator/settings')} aria-label="Profile">
             <Avatar name={state.session?.name ?? 'Mira'} size={82} tone="noir" portrait />

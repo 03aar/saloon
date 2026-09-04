@@ -37,7 +37,7 @@ export default function CreatorLive() {
           <div className={a.row} style={{ gap: 22 }}>
             <span style={{ position: 'relative' }}>
               <Avatar name={name} size={190} tone="noir" portrait ring="gold" />
-              <span style={{ position: 'absolute', left: '50%', bottom: -12, transform: 'translateX(-50%)', width: 44, height: 44, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: '3px solid #1c1916' }}>
+              <span style={{ position: 'absolute', left: '50%', bottom: -12, transform: 'translateX(-50%)', width: 44, height: 44, borderRadius: '50%', background: 'var(--gold)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: '3px solid #1c1916' }}>
                 <Icon icon={Tick02Icon} size={22} strokeWidth={2.4} />
               </span>
             </span>

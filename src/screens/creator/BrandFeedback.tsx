@@ -107,7 +107,7 @@ export default function BrandFeedback() {
             {state.map((f, i) => (
               <Card key={f.t} padding="md" radius="xl">
                 <div className={a.row} style={{ gap: 18 }}>
-                  <span style={{ width: 62, height: 62, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: 28, flexShrink: 0 }}>{i + 1}</span>
+                  <span style={{ width: 62, height: 62, borderRadius: '50%', background: 'var(--gold)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: 28, flexShrink: 0 }}>{i + 1}</span>
                   <div style={{ flex: 1 }}>
                     <div className="display" style={{ fontSize: 28 }}>
                       {f.t}

@@ -145,7 +145,7 @@ export default function CampaignBudget() {
                   <span className={a.metaSm}>{t.r}</span>
                 </span>
                 {on && (
-                  <span style={{ position: 'absolute', right: 10, top: 10, width: 22, height: 22, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <span style={{ position: 'absolute', right: 10, top: 10, width: 22, height: 22, borderRadius: '50%', background: 'var(--gold)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon icon={Tick02Icon} size={12} strokeWidth={2.6} />
                   </span>
                 )}

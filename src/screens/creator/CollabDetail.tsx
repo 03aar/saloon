@@ -141,7 +141,7 @@ export default function CollabDetail() {
                       </span>
                       {st.done ? (
                         <span className={a.row} style={{ gap: 6, color: 'var(--gold-deep)', fontSize: 14, whiteSpace: 'nowrap' }}>
-                          {st.when} <span style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><Icon icon={Tick02Icon} size={11} strokeWidth={2.6} /></span>
+                          {st.when} <span style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--gold)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><Icon icon={Tick02Icon} size={11} strokeWidth={2.6} /></span>
                         </span>
                       ) : (
                         <Chip size="xs" tone="tintLight">
@@ -173,7 +173,7 @@ export default function CollabDetail() {
             {deliverables.map(([l, v], i) => (
               <div key={l} className={a.between} style={{ padding: '12px 0', borderTop: i ? '1px solid var(--line)' : 'none', marginTop: i ? 0 : 6 }}>
                 <span className={a.row} style={{ gap: 10 }}>
-                  <span style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--gold)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <span style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--gold)', color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon icon={Tick02Icon} size={12} strokeWidth={2.6} />
                   </span>
                   {l}
