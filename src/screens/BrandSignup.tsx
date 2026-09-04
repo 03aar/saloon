@@ -89,7 +89,7 @@ export default function BrandSignup() {
           <br />
           brand account
         </h1>
-        <p className={s.sub}>Join Salon to discover creators, launch campaigns, and grow your brand.</p>
+        <p className={s.sub}>Join Bloop to discover creators, launch campaigns, and grow your brand.</p>
       </header>
 
       <form className={s.form} onSubmit={submit} noValidate>
@@ -137,7 +137,7 @@ export default function BrandSignup() {
           </span>
           <div>
             <b>Verified companies only</b>
-            <p>We keep Salon trusted, safe, and built for serious partnerships.</p>
+            <p>We keep Bloop trusted, safe, and built for serious partnerships.</p>
           </div>
         </div>
 

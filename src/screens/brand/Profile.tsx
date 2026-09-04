@@ -24,7 +24,7 @@ export default function Profile() {
   const initials = b.name.split(' ').slice(0, 2).map((w) => w[0]).join('')
 
   const tiles = [
-    { icon: UserGroupIcon, t: 'Team', d: 'Manage members, roles and permissions', foot: <AvatarStack names={state.team.slice(0, 3).map((t) => t.name)} size={40} more={Math.max(0, state.team.length - 3) || undefined} />, to: '/onboarding/brand/team' },
+    { icon: UserGroupIcon, t: 'Team', d: 'Manage members, roles and permissions', foot: <AvatarStack names={state.team.slice(0, 3).map((t) => t.name)} size={40} more={Math.max(0, state.team.length - 3) || undefined} />, to: '/team' },
     { icon: Invoice01Icon, t: 'Billing', d: 'View invoices and subscription details', foot: <Foot l="Next invoice" v="May 12" />, to: '' },
     { icon: Notification01Icon, t: 'Notifications', d: 'Choose what you want to be notified', foot: <Foot l="Email, Push" v="On" />, to: '/notifications' },
     { icon: SecurityCheckIcon, t: 'Privacy', d: 'Manage data, visibility and security', foot: <Foot l="Data controls" v="Manage" />, to: '/privacy' },

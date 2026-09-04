@@ -1,0 +1,326 @@
+/* Shared design language for the public marketing site: landing + every
+   page reachable from its nav/footer (For brands, For creators, Bloop
+   Pulse, About, Careers). Distinct from the in-app product's serif/coral
+   system — this is a sans-led, gradient-mesh aesthetic on its own tokens,
+   so it can evolve without touching signed-in screens. */
+
+.page {
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.containerNarrow {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Soft blurred colour-mesh background, our palette standing in for the
+   reference's dreamy gradient blobs. Apply to a relatively-positioned
+   section; content needs z-index: 1 to sit above it. */
+.mesh {
+  position: relative;
+}
+
+.mesh::before {
+  content: '';
+  position: absolute;
+  inset: -15%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(32% 32% at 18% 22%, rgba(222, 138, 122, 0.5) 0%, transparent 70%),
+    radial-gradient(30% 30% at 82% 18%, rgba(248, 188, 88, 0.4) 0%, transparent 70%),
+    radial-gradient(34% 34% at 78% 82%, rgba(121, 173, 190, 0.42) 0%, transparent 70%),
+    radial-gradient(30% 30% at 22% 82%, rgba(190, 218, 206, 0.5) 0%, transparent 70%);
+  filter: blur(70px) saturate(130%);
+  opacity: 0.65;
+}
+
+.meshCool::before {
+  background:
+    radial-gradient(34% 34% at 20% 25%, rgba(121, 173, 190, 0.46) 0%, transparent 70%),
+    radial-gradient(30% 30% at 80% 20%, rgba(190, 218, 206, 0.48) 0%, transparent 70%),
+    radial-gradient(32% 32% at 75% 80%, rgba(222, 138, 122, 0.32) 0%, transparent 70%),
+    radial-gradient(28% 28% at 25% 80%, rgba(248, 188, 88, 0.3) 0%, transparent 70%);
+}
+
+.meshContent {
+  position: relative;
+  z-index: 1;
+}
+
+/* Eyebrow / section heading pattern */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.h1 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.sectionTitle {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: clamp(28px, 3.6vw, 42px);
+  color: var(--ink);
+  line-height: 1.08;
+}
+
+.sectionLead {
+  margin-top: 14px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 640px;
+}
+
+.section {
+  padding: 96px 0;
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 64px 0;
+  }
+}
+
+/* Card grid used for feature/value-prop tiles across pages */
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .grid3,
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  padding: 30px 26px;
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--primary-tint);
+  border: 1px solid var(--primary-soft);
+  color: var(--ink);
+}
+
+.cardTitle {
+  margin-top: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cardDesc {
+  margin-top: 6px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* Newsletter / CTA band */
+.band {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  padding: 56px 48px;
+  background: linear-gradient(155deg, var(--primary-soft) 0%, var(--gold-soft) 55%, var(--info-soft) 100%);
+}
+
+.bandTitle {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: clamp(26px, 3vw, 36px);
+  color: var(--ink);
+  max-width: 520px;
+}
+
+.bandSub {
+  margin-top: 10px;
+  font-size: 15.5px;
+  color: var(--ink-2);
+  max-width: 460px;
+}
+
+.bandForm {
+  margin-top: 26px;
+  display: flex;
+  gap: 10px;
+  max-width: 460px;
+}
+
+.bandInput {
+  flex: 1;
+  height: 52px;
+  padding: 0 20px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.bandInput::placeholder {
+  color: var(--muted);
+}
+
+.bandNote {
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .band {
+    padding: 40px 26px;
+  }
+  .bandForm {
+    flex-direction: column;
+  }
+}
+
+/* Article / resource card */
+.articleRow {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  width: 100%;
+}
+
+.articleThumb {
+  width: 96px;
+  height: 96px;
+  border-radius: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.articleKicker {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.articleTitle {
+  margin-top: 4px;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.articleMeta {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Steps-list + decorative image split (For brands / For creators pages) */
+.stepsSplit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.stepsSplitArt {
+  aspect-ratio: 4 / 5;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .stepsSplit {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .stepsSplitArt {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Hero */
+.hero {
+  padding: 64px 0 60px;
+  text-align: center;
+}
+
+.heroKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.heroTitle {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-size: clamp(42px, 7vw, 84px);
+  line-height: 1.02;
+  color: var(--ink);
+  margin: 22px auto 0;
+  max-width: 900px;
+}
+
+.heroSub {
+  margin: 22px auto 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 600px;
+}
+
+.heroCtas {
+  margin-top: 32px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -70,6 +70,15 @@
   z-index: 5;
 }
 
+/* .page switches to --bg-deep at this same breakpoint (see above); the
+   footer's fade has to target the same colour or it shows up as a visible
+   hard-edged rectangle where the two shades meet. */
+@media (min-width: 900px) {
+  .footer {
+    background: linear-gradient(180deg, rgba(240, 238, 233, 0) 0%, var(--bg-deep) 26%);
+  }
+}
+
 .footerApp {
   bottom: var(--nav-h);
   padding-bottom: 14px;

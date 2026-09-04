@@ -12,7 +12,7 @@ describe('auth helpers', () => {
   it('reports each password rule independently', () => {
     expect(passwordRules('short').map((r) => r.ok)).toEqual([false, false, false])
     expect(passwordRules('longenough').map((r) => r.ok)).toEqual([true, false, false])
-    expect(passwordRules('Salon2026').map((r) => r.ok)).toEqual([true, true, true])
+    expect(passwordRules('Bloop2026').map((r) => r.ok)).toEqual([true, true, true])
   })
 
   it('derives a display name from an email', () => {

@@ -16,7 +16,7 @@ import { useToast } from '../../components/Toast'
 import a from '../../components/app.module.css'
 
 const plans = [
-  { id: 'basic', icon: UserIcon, name: 'Basic', price: 0, d: 'For creators getting started on Salon.' },
+  { id: 'basic', icon: UserIcon, name: 'Basic', price: 0, d: 'For creators getting started on Bloop.' },
   { id: 'pro', icon: CrownIcon, name: 'Pro', price: 240, d: 'For creators ready to grow and earn.', popular: true },
   { id: 'portfolio', icon: Diamond01Icon, name: 'Portfolio+', price: 600, d: 'For top creators building global brands.' },
 ]
@@ -41,7 +41,7 @@ export default function Subscription() {
       />
       <div className={a.divider} style={{ margin: '16px calc(-1 * var(--page-x)) 0' }} />
       <h1 className={['display', a.h1].join(' ')} style={{ marginTop: 34, fontSize: 'clamp(40px, 11vw, 54px)' }}>
-        Elevate your creator journey with Salon Pro
+        Elevate your creator journey with Bloop Pro
       </h1>
       <p className={a.sub} style={{ fontSize: 18 }}>
         Unlock advanced tools, more visibility, and premium opportunities.
@@ -103,7 +103,7 @@ export default function Subscription() {
         <div className={a.between}>
           <div>
             <div className="display" style={{ fontSize: 44 }}>
-              Salon Pro
+              Bloop Pro
             </div>
             <div style={{ marginTop: 4 }}>
               <span className={a.meta} style={{ letterSpacing: '0.06em' }}>

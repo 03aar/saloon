@@ -9,6 +9,13 @@ import { RouteFallback } from './components/RouteFallback'
 
 // Auth
 const Landing = lazy(() => import('./screens/Landing'))
+// Marketing (reachable regardless of sign-in state)
+const ForBrands = lazy(() => import('./screens/marketing/ForBrands'))
+const ForCreators = lazy(() => import('./screens/marketing/ForCreators'))
+const Pulse = lazy(() => import('./screens/marketing/Pulse'))
+const PulseArticle = lazy(() => import('./screens/marketing/PulseArticle'))
+const About = lazy(() => import('./screens/marketing/About'))
+const Careers = lazy(() => import('./screens/marketing/Careers'))
 const Welcome = lazy(() => import('./screens/Welcome'))
 const ChooseRole = lazy(() => import('./screens/ChooseRole'))
 const BrandSignup = lazy(() => import('./screens/BrandSignup'))
@@ -40,6 +47,7 @@ const ExportReport = lazy(() => import('./screens/brand/ExportReport'))
 const ApprovalQueue = lazy(() => import('./screens/brand/ApprovalQueue'))
 const DraftReview = lazy(() => import('./screens/brand/DraftReview'))
 const Profile = lazy(() => import('./screens/brand/Profile'))
+const TeamPermissions = lazy(() => import('./screens/brand/TeamPermissions'))
 // Shared
 const Messages = lazy(() => import('./screens/shared/Messages'))
 const Chat = lazy(() => import('./screens/shared/Chat'))
@@ -131,6 +139,14 @@ export default function App() {
             <Route path="/login" element={<Login />} />
           </Route>
 
+          {/* Marketing pages — reachable whether signed in or not */}
+          <Route path="/for-brands" element={<ForBrands />} />
+          <Route path="/for-creators" element={<ForCreators />} />
+          <Route path="/pulse" element={<Pulse />} />
+          <Route path="/pulse/:slug" element={<PulseArticle />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/careers" element={<Careers />} />
+
           {/* Brand onboarding (no bottom nav) */}
           <Route element={<RequireAuth role="brand" />}>
             <Route path="/onboarding/brand/profile" element={<BrandProfile />} />
@@ -164,6 +180,7 @@ export default function App() {
               <Route path="/approvals" element={<ApprovalQueue />} />
               <Route path="/approvals/:id" element={<DraftReview />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/team" element={<TeamPermissions />} />
             </Route>
           </Route>
 

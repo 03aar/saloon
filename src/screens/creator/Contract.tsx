@@ -14,7 +14,7 @@ import a from '../../components/app.module.css'
 const terms = [
   { i: Film02Icon, t: 'Usage Rights', d: 'Brand may use the content across owned channels and ads for 12 months.', more: 'Includes paid amplification on Meta and TikTok. Excludes third-party resale or sublicensing.' },
   { i: Calendar03Icon, t: 'Timeline', d: 'Content to be delivered by Jun 5, 2026. Posting window: Jun 6 – Jun 20, 2026.', more: 'One round of revisions is included within 48 hours of feedback.' },
-  { i: CreditCardIcon, t: 'Payment', d: 'AED 18,000 fixed fee. Payment within 5 business days after content approval.', more: 'Funds are held in Salon Escrow from contract acceptance until approval.' },
+  { i: CreditCardIcon, t: 'Payment', d: 'AED 18,000 fixed fee. Payment within 5 business days after content approval.', more: 'Funds are held in Bloop Escrow from contract acceptance until approval.' },
   { i: Megaphone01Icon, t: 'Disclosure', d: 'Paid partnership disclosure required as per UAE regulations.', more: 'Use the platform’s paid partnership label and #ad in the first line of the caption.' },
 ]
 
@@ -34,7 +34,7 @@ export default function Contract() {
         }
         right={
           <Chip selected selectedStyle="outline" leading={<Icon icon={SecurityCheckIcon} size={18} color="var(--gold)" />} className="">
-            <span style={{ color: 'var(--gold-deep)' }}>Salon Protected</span>
+            <span style={{ color: 'var(--gold-deep)' }}>Bloop Protected</span>
           </Chip>
         }
       />
@@ -51,7 +51,7 @@ export default function Contract() {
           <circle cx="60" cy="60" r="58" fill="none" stroke="var(--gold)" strokeWidth="1" />
           <circle cx="60" cy="60" r="38" fill="none" stroke="var(--gold)" strokeWidth="1" />
           <text fontSize="10" letterSpacing="3" fill="var(--gold)" fontFamily="var(--font-body)">
-            <textPath href="#seal" startOffset="4%">SALON ★ PROTECTED ★</textPath>
+            <textPath href="#seal" startOffset="4%">BLOOP ★ PROTECTED ★</textPath>
           </text>
           <path d="M60 44l12 5v10c0 8-5 14-12 17-7-3-12-9-12-17V49z" fill="none" stroke="var(--gold)" strokeWidth="2" />
           <path d="M53 60l5 5 9-10" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" />
@@ -129,7 +129,7 @@ export default function Contract() {
           <div className={a.row} style={{ gap: 12, marginBottom: 12 }}>
             <IconTile icon={SecurityCheckIcon} size={44} iconSize={20} />
             <span style={{ fontSize: 14, color: 'var(--ink-2)', lineHeight: 1.4 }}>
-              By accepting, you agree to the terms above and Salon’s <span style={{ color: 'var(--gold-deep)' }}>Creator Agreement</span>.
+              By accepting, you agree to the terms above and Bloop’s <span style={{ color: 'var(--gold-deep)' }}>Creator Agreement</span>.
             </span>
           </div>
           <Button

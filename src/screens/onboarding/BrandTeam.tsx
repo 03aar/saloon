@@ -32,7 +32,7 @@ export default function BrandTeam() {
   const addMember = () => {
     setTouched(true)
     if (draft.name.trim().length < 2 || !isEmail(draft.email)) return
-    const m: TeamMember = { id: `t${Date.now()}`, role: draft.role, name: draft.name.trim(), email: draft.email.trim(), tag: draft.role.split(' ')[0], tone: 'stone', photo: false }
+    const m: TeamMember = { id: `t${Date.now()}`, role: draft.role, name: draft.name.trim(), email: draft.email.trim(), tag: draft.role.split(' ')[0], tone: 'stone', photo: false, access: 'Member' }
     update({ team: [...state.team, m] })
     setAdding(false)
     setDraft({ name: '', email: '', role: roles[0] })

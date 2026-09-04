@@ -198,6 +198,39 @@
   flex-shrink: 0;
 }
 
+/* Same horizontal snap-scroll as .scroller on phone/tablet, but for content
+   galleries (tier pickers, portfolio thumbnails) rather than tab/filter
+   rows — those should stop scrolling and just wrap onto more rows once
+   there's room, instead of staying a sideways strip at desktop width. */
+.wrapScroller {
+  display: flex;
+  scroll-padding-left: var(--page-x);
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin: 0 calc(-1 * var(--page-x));
+  padding: 4px var(--page-x) 8px;
+  scrollbar-width: none;
+}
+
+.wrapScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapScroller > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .wrapScroller {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    margin: 0;
+    padding: 4px 0 8px;
+  }
+}
+
 /* list row */
 .listRow {
   display: flex;
@@ -417,5 +450,19 @@
   .composerBar {
     bottom: 0;
     padding-bottom: 24px;
+  }
+}
+
+/* Bottom clearance for Chat's message list so the last messages don't sit
+   under the fixed composer. Desktop's composer is taller than mobile's (it
+   carries its own 24px bottom padding instead of resting above the bottom
+   nav), so it needs more clearance, not less. */
+.chatSpacer {
+  padding-bottom: 110px;
+}
+
+@media (min-width: 1024px) {
+  .chatSpacer {
+    padding-bottom: 150px;
   }
 }

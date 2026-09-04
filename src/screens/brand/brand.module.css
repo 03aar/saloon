@@ -78,10 +78,16 @@
     align-items: stretch;
   }
   .heroRow > .heroDark {
-    flex: 1.2;
+    /* Wider than the soft card: at desktop this card has the room to let
+       its title breathe instead of wrapping into four broken lines like
+       it must on a narrow phone column. */
+    flex: 1.6;
   }
   .heroRow > .heroSoft {
     flex: 1;
+  }
+  .heroTitle {
+    font-size: 34px;
   }
 }
 
@@ -89,6 +95,58 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
+}
+
+/* Approval-rule tiles (Team & Permissions). Two-column grid on phone/tablet;
+   at desktop these are settings tiles, not a content gallery, so auto-fit
+   just gives each tile more breathing room rather than forcing extra
+   columns that would crowd the value text. */
+.approvals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+@media (min-width: 1024px) {
+  .approvals {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+.approval {
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-align: left;
+  position: relative;
+}
+
+.approval b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  margin-top: 14px;
+  padding-right: 22px;
+  line-height: 1.1;
+}
+
+.approval span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.approvalChev {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  margin-top: 4px;
+  color: var(--ink-2);
+  display: inline-flex;
 }
 
 .pulseCard {

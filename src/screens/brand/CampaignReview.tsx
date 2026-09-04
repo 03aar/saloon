@@ -91,11 +91,11 @@ export default function CampaignReview() {
           </div>
           <div style={{ fontSize: 17, marginTop: 18 }}>Budget</div>
           <div className="display" style={{ fontSize: 30, marginTop: 6 }}>
-            SAR {(c.budget * 4.46).toLocaleString(undefined, { maximumFractionDigits: 0 })}
+            SAR {(c.budget * 1.8).toLocaleString(undefined, { maximumFractionDigits: 0 })}
           </div>
           <div className={a.divider} style={{ margin: '16px 0 12px' }} />
           {[
-            ['Total budget', `SAR ${(c.budget * 4.46).toLocaleString(undefined, { maximumFractionDigits: 0 })}`],
+            ['Total budget', `SAR ${(c.budget * 1.8).toLocaleString(undefined, { maximumFractionDigits: 0 })}`],
             ['Per creator (avg.)', 'SAR 12,500'],
           ].map(([l, v]) => (
             <div key={l} className={a.between} style={{ fontSize: 14, marginTop: 6 }}>

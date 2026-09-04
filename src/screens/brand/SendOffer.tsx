@@ -177,7 +177,7 @@ export default function SendOffer() {
           </div>
           <div className={a.bannerSub}>Funds are held securely and released only when deliverables are approved.</div>
         </div>
-        <Button size="sm" variant="tint" onClick={() => toast('Salon Escrow holds funds until approval', 'info')}>
+        <Button size="sm" variant="tint" onClick={() => toast('Bloop Escrow holds funds until approval', 'info')}>
           Learn more
         </Button>
       </div>
@@ -254,7 +254,7 @@ export default function SendOffer() {
             {[
               { i: DollarCircleIcon, l: 'Total fee', v: `AED ${offer.fee.toLocaleString()}`, r: <Chip size="sm" tone="tintLight">All-inclusive</Chip> },
               { i: File01Icon, l: 'Deliverables', v: null, r: <Chip size="sm">4</Chip>, list: ['1x Instagram post', '3x Instagram stories', '1x Reel (30–60s)', `Usage rights ${offer.usage}`] },
-              { i: Calendar03Icon, l: 'Deadline', v: 'May 28, 2026', r: <Chip size="sm" leading={<Icon icon={Calendar03Icon} size={14} />}>18 days</Chip> },
+              { i: Calendar03Icon, l: 'Deadline', v: offer.deadline, r: <Chip size="sm" leading={<Icon icon={Calendar03Icon} size={14} />}>18 days</Chip> },
             ].map((row) => (
               <div key={row.l} style={{ display: 'flex', alignItems: 'flex-start', gap: 14, padding: '18px 20px', borderTop: '1px solid var(--line)' }}>
                 <IconTile icon={row.i} tone="outline" size={56} iconSize={24} />

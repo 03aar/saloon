@@ -119,7 +119,7 @@ export default function Settings() {
 
       <Card padding="none" style={{ marginTop: 16 }} radius="xl">
         {[
-          { icon: CrownIcon, l: 'Salon Pro', to: '/creator/subscription' },
+          { icon: CrownIcon, l: 'Bloop Pro', to: '/creator/subscription' },
           { icon: File01Icon, l: 'Terms of Service', to: '' },
           { icon: Logout03Icon, l: 'Sign out', to: 'signout' },
         ].map((r, i) => (

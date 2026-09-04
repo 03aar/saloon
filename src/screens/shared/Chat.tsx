@@ -23,7 +23,7 @@ export default function Chat() {
   const { state } = useApp()
   const { toast } = useToast()
   const role = state.session?.role ?? 'brand'
-  const thread = threads.find((t) => t.id === id) ?? threads.find((t) => t.for === role) ?? threads[0]
+  const thread = threads.find((t) => t.id === id && t.for === role) ?? threads.find((t) => t.for === role) ?? threads[0]
   const { loading, error, retry } = useLoad(`chat-${thread.id}`)
   const [msgs, setMsgs] = useState<Msg[]>(conversation[role])
   const [text, setText] = useState('')
@@ -280,7 +280,7 @@ export default function Chat() {
         <span style={{ flex: 1, height: 1, background: 'var(--line)' }} />
       </div>
 
-      <div style={{ paddingBottom: 110 }}>
+      <div className={a.chatSpacer}>
         {msgs.map(bubble)}
         <div ref={endRef} />
       </div>

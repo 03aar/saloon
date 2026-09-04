@@ -150,7 +150,7 @@ export default function CreatorProfile() {
 
           <div className={a.section}>
             <SectionHeader title="Portfolio" size="lg" action="View all" onAction={() => toast('Full portfolio opens in the creator media kit', 'info')} />
-            <div className={a.scroller}>
+            <div className={a.wrapScroller}>
               {portfolio.map((p, i) => (
                 <button key={i} type="button" className={s.portfolio} onClick={() => toast('Playing preview (demo)', 'info')} aria-label={`Portfolio item ${i + 1}`}>
                   <Art kind={p.art} />
