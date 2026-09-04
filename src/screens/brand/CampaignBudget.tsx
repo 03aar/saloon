@@ -134,7 +134,7 @@ export default function CampaignBudget() {
         <div className={a.title} style={{ fontSize: 22 }}>
           Creator Tier
         </div>
-        <div className={a.scroller} style={{ marginTop: 12 }}>
+        <div className={a.wrapScroller} style={{ marginTop: 12 }}>
           {tiers.map((t) => {
             const on = c.tier === t.id
             return (
