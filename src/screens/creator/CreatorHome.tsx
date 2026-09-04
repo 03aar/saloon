@@ -54,7 +54,8 @@ export default function CreatorHome() {
         <ErrorState onAction={retry} />
       ) : (
         <>
-          <Card tone="dark" padding="none" style={{ marginTop: 22, position: 'relative', overflow: 'hidden', minHeight: 420 }} radius="xl" className={a.dark}>
+          <div className={s.heroRow} style={{ marginTop: 22 }}>
+          <Card tone="dark" padding="none" style={{ position: 'relative', overflow: 'hidden', minHeight: 420 }} radius="xl" className={a.dark}>
             <div style={{ position: 'absolute', right: 0, bottom: 0, width: '62%', height: '85%', color: '#fff' }}>
               <Sparkline data={[4, 6, 7, 9, 11, 16, 18, 21, 22, 24, 30]} strokeWidth={2.4} />
             </div>
@@ -78,7 +79,7 @@ export default function CreatorHome() {
             </div>
           </Card>
 
-          <section className={s.nextAction} style={{ marginTop: 16 }} aria-label="Next action">
+          <section className={s.nextAction} aria-label="Next action">
             <Avatar name="Noura Beauty" size={84} tone="cream" />
             <div style={{ minWidth: 200, flex: 1 }}>
               <div className="eyebrow" style={{ fontSize: 12 }}>
@@ -105,6 +106,7 @@ export default function CreatorHome() {
               </IconButton>
             </div>
           </section>
+          </div>
 
           <div className={a.grid3} style={{ marginTop: 16 }}>
             {[

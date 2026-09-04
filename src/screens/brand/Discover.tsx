@@ -140,7 +140,7 @@ export default function Discover() {
                 See all
               </button>
             </div>
-            <div className={a.scroller}>
+            <div className={s.miniCreatorRow}>
               {more.map((c) => (
                 <div key={c.id} className={s.miniCreator}>
                   <div className={s.miniCreatorTop}>

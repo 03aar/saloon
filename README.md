@@ -63,7 +63,12 @@ This is enforced end to end, not just on the obvious list/detail screens: brand 
 
 ## Responsive
 
-Salon is a desktop-first web app that has to work just as well on a phone, not the other way around. The deep product screens (the ~55 screens sourced from the original mobile mockups: campaigns, deals, chat, portfolio, etc.) keep their single-column phone layout at any width — reflowing 55 detail screens into a bespoke desktop grid each was out of scope for this pass — but every desktop-facing surface got first-class treatment this pass: the landing page and footer are genuinely multi-column and desktop-native; auth is a real two-pane split screen above 1024px; and the in-app dashboard trades its bottom tab bar for a floating top pill nav at that same breakpoint, which is what actually makes the deep screens read as "a desktop app that happens to have a narrow content column" rather than "a phone screen stretched out." Below 1024px, in-app screens get a deliberately designed backdrop (a soft warm gradient) behind the centred column instead of bare white margin, and the app column widens slightly above it for more breathing room. Verified visually at 390px (phone), 900px (tablet) and 1440px (desktop), plus the automated route sweep at both phone and desktop widths (126 checks — see below).
+Salon is a desktop-first web app that has to work just as well on a phone, not the other way around. Rather than reflow all ~55 mobile-sourced product screens into bespoke desktop grids, the highest-traffic ones got real multi-column desktop layouts, and everything else got the chrome-level treatment that makes even an unreflowed screen read as an intentional desktop app rather than a stretched phone screen:
+
+- **Real desktop layouts**: brand Home and creator Home show their two "hero" cards (top priority / next action) side by side above 1024px instead of stacked — an actual dashboard, not a long scroll. Discover's "more creators" row is a horizontal snap-scroller on phone/tablet (a scrolling strip is a phone habit) and a wrapping card grid at desktop (auto-fit columns, not a fixed count — a fixed 3-up split of the app column was tried first and found to truncate each card's content, so it settles on however many 260px+ columns actually fit instead of forcing a narrower split).
+- **Chrome-level treatment everywhere else**: a floating top pill nav replaces the bottom tab bar above 1024px (see below); a deliberately designed backdrop sits behind the centred column instead of bare white margin; the app column itself widens for more breathing room.
+
+Verified visually at 390px (phone), 900px (tablet) and 1440px (desktop), plus the automated route sweep at both phone and desktop widths (126 checks — see below).
 
 ## Project layout
 

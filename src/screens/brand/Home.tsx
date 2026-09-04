@@ -50,7 +50,8 @@ export default function Home() {
         <>
           <p className={a.sub} style={{ marginTop: 6 }}>Here’s what’s happening with your brand.</p>
 
-          <section className={s.heroDark} style={{ marginTop: 24 }} aria-label="Top priority">
+          <div className={s.heroRow}>
+          <section className={s.heroDark} aria-label="Top priority">
             <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, position: 'relative' }}>
               <div style={{ flex: 1 }}>
                 <span className={a.darkEyebrow}>
@@ -79,7 +80,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className={s.heroSoft} style={{ marginTop: 16 }} aria-label="Next best action">
+          <section className={s.heroSoft} aria-label="Next best action">
             <span className={s.heroSoftArt}>
               <Art kind="arch" />
             </span>
@@ -98,6 +99,7 @@ export default function Home() {
               </Button>
             </div>
           </section>
+          </div>
 
           <div className={a.section}>
             <SectionHeader title="Campaign pulse" size="lg" action="View all" onAction={() => nav('/campaigns')} actionTone="ink" />

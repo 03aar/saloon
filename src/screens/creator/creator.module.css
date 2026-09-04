@@ -219,6 +219,28 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* On phone/tablet the hero card and next-action card stack (unchanged); at
+   desktop width there's room to show them side by side like a real
+   dashboard instead of a long single column. */
+.heroRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .heroRow {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .heroRow > *:first-child {
+    flex: 1.4;
+  }
+  .heroRow > *:last-child {
+    flex: 1;
+  }
+}
+
 .kpi {
   padding: 18px 16px;
   border-radius: 20px;
